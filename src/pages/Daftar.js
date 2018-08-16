@@ -70,15 +70,23 @@ function SimpleList (props) {
             <ListItem>
             <Form>
             <FormGroup>
-              
-          <Input invalid PhoneAndroid placeholder="No. HandPhone"/>
+          <Input invalid PhoneAndroid placeholder="Username"/>
+        </FormGroup>
+        <FormGroup>
+          <Input invalid  placeholder="Password"/>
         </FormGroup>
         <FormGroup>
           <Input invalid  placeholder="Alamat Email"/>
         </FormGroup>
         <FormGroup>
+          <Input invalid PhoneAndroid placeholder="No. HandPhone"/>
+        </FormGroup>
+        <FormGroup>
+          <Input invalid  placeholder="Nama"/>
+        </FormGroup>
+        <FormGroup>
 
-          <Input invalid  placeholder="Kata Sandi"/>
+          <Input invalid  placeholder="Alamat"/>
         </FormGroup>
               </Form>
             </ListItem>

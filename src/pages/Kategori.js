@@ -46,8 +46,46 @@ function SimpleList (props) {
       <IconButton className={classes.menuButton} > <ArrowBack /></IconButton>
       Kategori
       </AppBar > */}
-      <Paper component="nav" className={classes.center} style={{marginTop: '80px', width: '35%'}}>
-          <List >
+          <List component="nav" className={classes.center} style={{marginTop: '80px', width: '35%'}}>
+        <ListItem button>
+          <ListItemIcon>
+            <Food />
+          </ListItemIcon>
+          <ListItemText primary="Makanan" />
+        </ListItem>
+        <Divider />
+        <ListItem button>
+          <ListItemIcon>
+            <Drink />
+          </ListItemIcon>
+          <ListItemText primary="Minuman" />
+        </ListItem>
+        <Divider />
+        <ListItem button>
+          <ListItemIcon>
+            <Souvenir />
+          </ListItemIcon>
+          <ListItemText primary="Oleh-oleh Batam" />
+        </ListItem>
+        <Divider />
+        <ListItem button>
+          <ListItemIcon>
+            <Art />
+          </ListItemIcon>
+          <ListItemText primary="Kerajinan Tangan" />
+        </ListItem><Divider />
+        <ListItem button>
+          <ListItemIcon>
+            <Book />
+          </ListItemIcon>
+          <ListItemText primary="Perizinan UKM" />
+        </ListItem><Divider />
+        <ListItem button>
+          <ListItemIcon>
+            <Desaign />
+          </ListItemIcon>
+          <ListItemText primary="Jasa Desain" />
+        </ListItem>
         <ListItem button>
           <ListItemIcon>
             <Food />
@@ -88,7 +126,6 @@ function SimpleList (props) {
           <ListItemText primary="Jasa Desain" />
         </ListItem>
       </List>
-      </Paper>
     </div>
   );
 }
