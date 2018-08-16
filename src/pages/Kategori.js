@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
-import {List, IconButton, AppBar} from '@material-ui/core';
+import {List, IconButton, AppBar, Paper} from '@material-ui/core';
 import Food from '@material-ui/icons/Fastfood';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
@@ -42,11 +42,12 @@ function SimpleList (props) {
   const { classes } = props;
   return (
     <div >
-      <AppBar  color="inherit" className={classes.center}>
+      {/* <AppBar  color="inherit" className={classes.center}>
       <IconButton className={classes.menuButton} > <ArrowBack /></IconButton>
       Kategori
-      </AppBar>
-          <List className={classes.center} style={{marginTop: '60px', width: '35%'}}>
+      </AppBar > */}
+      <Paper component="nav" className={classes.center} style={{marginTop: '80px', width: '35%'}}>
+          <List >
         <ListItem button>
           <ListItemIcon>
             <Food />
@@ -87,6 +88,7 @@ function SimpleList (props) {
           <ListItemText primary="Jasa Desain" />
         </ListItem>
       </List>
+      </Paper>
     </div>
   );
 }

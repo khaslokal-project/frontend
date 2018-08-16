@@ -35,22 +35,17 @@
     overflow: hidden;
     position: relative;
 }
-
-
-.colornav {
-  background-color: #E54643!important;
-  font-size: 16px;
-  border-radius: 0;
-  margin: 0;
-  color: aliceblue;
-  padding: 1px;
-}
-
-.navbar{
-  text-align: center;
-}
-
-.benner-center {
-  align-items: flex-start;
-
+.form-control {
+  display: block;
+  width: 380px;
+  height: 25px;
+  padding: .375rem .75rem;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: 2px;
+  margin-bottom: 5px;
 }

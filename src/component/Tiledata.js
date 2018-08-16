@@ -27,9 +27,9 @@ export const mailFolderListItems = (
         </Typography>
         </ListItem>
         <ListItem>
-        <Button style={{marginRight: '10px'}} variant="outlined" color="secondary" >
+        <Button style={{marginRight: '10px'}} variant="outlined" color="secondary" component={Link} to="/masuk" >
           Masuk </Button>
-          <Button variant="contained" color="secondary">
+          <Button variant="contained" color="secondary" component={Link} to="/daftar">
           Daftar
           </Button>
           </ListItem>
@@ -62,7 +62,7 @@ export const otherMailFolderListItems = (
           </ListItemIcon>
           <ListItemText primary="Tentang Kami" />
         </ListItem><Divider />
-        <ListItem button>
+        <ListItem button component={Link} to="/kontak">
           <ListItemIcon>
             <MailIcon />
           </ListItemIcon>

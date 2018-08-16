@@ -14,6 +14,9 @@ import { mailFolderListItems, otherMailFolderListItems } from './Tiledata';
 import { mailFolderListItemsRight } from './tileDataRight';
 import { IconButton, Toolbar} from '@material-ui/core';
 import Kategori from '../pages/Kategori'
+import Kontak from '../pages/Kontak'
+import Daftar from '../pages/Daftar'
+import Masuk from '../pages/Masuk';
 
 const styles = theme => ({
   list: {
@@ -22,6 +25,7 @@ const styles = theme => ({
   center :{
     textAlign: 'center',
     display: 'inline-block',
+    
   }
 });
 
@@ -62,8 +66,8 @@ class TemporaryDrawer extends React.Component {
     return (
       <HashRouter>
       <div>
-        <AppBar to="/"  style={{ backgroundColor: '#E54643'}}>
-        <Toolbar className={classes.center}>
+        <AppBar to="/"  color="secondary">
+        <Toolbar className={classes.center} style={{marginTop: '15px'}}>
       <IconButton color="inherit" aria-label="Open drawer">
        <MenuIcon onClick={this.toggleDrawer('left', true)}></MenuIcon>
        </IconButton> KhasLokal  ___________________________
@@ -98,7 +102,10 @@ class TemporaryDrawer extends React.Component {
             {secondList}
           </div>
         </Drawer>
+        <Route path="/masuk" component={Masuk} />
+        <Route path="/daftar" component={Daftar} />
         <Route path="/kategori" component={Kategori} hideNavBar/>
+        <Route path="/kontak" component={Kontak} />
       </div>
       </HashRouter>
     );
