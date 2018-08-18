@@ -1,7 +1,58 @@
 import React from 'react';
+import axios from 'axios';
 import {Form, FormGroup, Input, Label, Button, Col} from 'reactstrap';
 
 class Update extends React.Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            idseller: '',
+            idcategory: '',
+            name: '',
+            price: '',
+            stock: '',
+            brand: '',
+            description: '',
+            type: '',
+            image: '',
+            rating: '',
+            review: ''
+        };
+    
+        // const env = dotenv.config().parsed;
+            
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+    }
+
+    handleChange(event) {
+        this.setState({[event.target.name]: event.target.value});
+    }
+
+    handleSubmit(event){
+        event.preventDefault();
+        axios.post('www.google.com/kategory', this.state)
+            .then(res => {
+                console.log(res);
+                console.log(res.data);
+            })
+            .catch(error => {
+                console.log(error);
+            });
+    }
+    
+    componentDidMount(){
+        axios.get('www.google.com/kategory/1')
+            .then(res => {
+                console.log(res);
+                console.log(res.data);
+                this.setState(res.data);
+            })
+            .catch(error => {
+                console.log(error);
+            });
+    }
+    
     render(){
         return(
             <div >

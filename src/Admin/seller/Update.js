@@ -1,7 +1,36 @@
 import React from 'react';
+import axios from 'axios';
 import {Form, FormGroup, Input, Label, Button, Col} from 'reactstrap';
 
 class Update extends React.Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            username: '',
+            firstname:'',
+            lastname:'',
+            address:'',
+            password:'',
+            email:'',
+            phone: ''
+        };
+        // const env = dotenv.config().parsed;
+        
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+    }
+
+    componentDidMount(){
+        axios.get('www.google.com/seller/1')
+            .then(res => {
+                console.log(res);
+                console.log(res.data);
+                this.setState(res.data);
+            })
+            .catch(error => {
+                console.log(error);
+            });
+    }
     render(){
         return(
             <div >

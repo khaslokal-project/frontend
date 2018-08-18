@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 import {Form, FormGroup, Input, Label, Button, Col} from 'reactstrap';
 
 class Create extends React.Component {
@@ -18,8 +19,27 @@ class Create extends React.Component {
             review: ''
         };
 
-        
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
+
+    handleChange(event) {
+        this.setState({[event.target.name]: event.target.value});
+    }
+
+    handleSubmit(event){
+        event.preventDefault();
+        axios.post('www.google.com/kategory', this.state)
+            .then(res => {
+                console.log(res);
+                console.log(res.data);
+            })
+            .catch(error => {
+                console.log(error);
+            });
+    }
+        
+    
 
 
     render(){
@@ -30,7 +50,13 @@ class Create extends React.Component {
                     <FormGroup row>
                         <Label for="idseller" sm={2}>Id Seller</Label>
                         <Col sm={10}>
-                            <Input type="text" name="idseller" id="idseller" />
+                            <Input type="text" name="idseller" id="idseller">
+                                <option value="1">Balkis</option>
+                                <option value="2">Wondo</option>
+                                <option value="3">Welly</option>
+                                <option value="4">Jamale</option>
+                                <option value="5">Indra</option>
+                            </Input>
                         </Col>
                     </FormGroup>
                     <FormGroup row>

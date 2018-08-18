@@ -15,34 +15,40 @@ import ProdukList from '../Admin/produk/List';
 import ProdukCreate from '../Admin/produk/Create';
 import ProdukUpdate from '../Admin/produk/Update';
 import ProdukDelete from '../Admin/produk/Delete';
+import ProdukIndex from '../Admin/produk/Index';
 
 import CategoryList from '../Admin/category/List';
 import CategoryCreate from '../Admin/category/Create';
 import CategoryUpdate from '../Admin/category/Update';
 import CategoryDelete from '../Admin/category/Delete';
+import CategoryIndex from '../Admin/category/Index';
 
 import SellerList from '../Admin/seller/List';
 import SellerCreate from '../Admin/seller/Create';
 import SellerUpdate from '../Admin/seller/Update';
 import SellerDelete from '../Admin/seller/Delete';
+import SellerIndex from '../Admin/seller/Index';
 
 storiesOf('Admin', module)
     .add('Seller List', () => <SellerList />)
     .add('Seller Create', () => <SellerCreate />)
     .add('Seller Update', () => <SellerUpdate />)
-    .add('Seller Delete', () => <SellerDelete />);
+    .add('Seller Delete', () => <SellerDelete />)
+    .add('Seller Index', () => <SellerIndex/>);
 
 storiesOf('Admin', module)
     .add('Category List', () => <CategoryList />)
     .add('Category Create', () => <CategoryCreate />)
     .add('Category Update', () => <CategoryUpdate />)
-    .add('Category Delete', () => <CategoryDelete />);
+    .add('Category Delete', () => <CategoryDelete />)
+    .add('Category Index', () => <CategoryIndex/>);
 
 storiesOf('Admin', module)
     .add('Produk List', () => <ProdukList />)
     .add('Produk Create', () => <ProdukCreate />)
     .add('Produk Update', () => <ProdukUpdate />)
-    .add('Produk Delete', () => <ProdukDelete />);
+    .add('Produk Delete', () => <ProdukDelete />)
+    .add('Produk Index', () => <ProdukIndex/>);
 
 storiesOf('component', module)
     .add('Navbar', () => <Navbar />);

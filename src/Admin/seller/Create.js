@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 import {Form, FormGroup, Input, Label, Button, Col} from 'reactstrap';
 
 class Create extends React.Component {
@@ -19,20 +20,22 @@ class Create extends React.Component {
     }
 
     handleChange(event){
-        ;
         this.setState({[event.target.name]: event.target.value});
     }
+
     handleSubmit(event){
         event.preventDefault();
-        axios.post('www.google.com/seller', this.state)
+        axios.post('www.google.com/kategory', this.state)
             .then(res => {
                 console.log(res);
                 console.log(res.data);
-            });
+            })
             .catch(error => {
                 console.log(error);
             });
     }
+
+
     render(){
         return(
             <div >
