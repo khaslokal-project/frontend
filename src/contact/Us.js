@@ -2,13 +2,13 @@ import React from 'react';
 import {Container} from 'reactstrap';
 
 export default class Contacts extends React.Component {
-        render(){
-            return(
+    render(){
+        return(
             <div >
                 <Container className="contUs">
-                <p className="pUs"> © KhasLokal </p>
+                    <p className="pUs"> © KhasLokal </p>
                 </Container>
             </div>
-            )
-        }
+        );
+    }
 }

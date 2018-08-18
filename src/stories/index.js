@@ -11,6 +11,39 @@ import Kategori from '../pages/Kategori';
 import Daftar from '../pages/Daftar';
 import { Button, Welcome } from '@storybook/react/demo';
 
+import ProdukList from '../Admin/produk/List';
+import ProdukCreate from '../Admin/produk/Create';
+import ProdukUpdate from '../Admin/produk/Update';
+import ProdukDelete from '../Admin/produk/Delete';
+
+import CategoryList from '../Admin/category/List';
+import CategoryCreate from '../Admin/category/Create';
+import CategoryUpdate from '../Admin/category/Update';
+import CategoryDelete from '../Admin/category/Delete';
+
+import SellerList from '../Admin/seller/List';
+import SellerCreate from '../Admin/seller/Create';
+import SellerUpdate from '../Admin/seller/Update';
+import SellerDelete from '../Admin/seller/Delete';
+
+storiesOf('Admin', module)
+    .add('Seller List', () => <SellerList />)
+    .add('Seller Create', () => <SellerCreate />)
+    .add('Seller Update', () => <SellerUpdate />)
+    .add('Seller Delete', () => <SellerDelete />);
+
+storiesOf('Admin', module)
+    .add('Category List', () => <CategoryList />)
+    .add('Category Create', () => <CategoryCreate />)
+    .add('Category Update', () => <CategoryUpdate />)
+    .add('Category Delete', () => <CategoryDelete />);
+
+storiesOf('Admin', module)
+    .add('Produk List', () => <ProdukList />)
+    .add('Produk Create', () => <ProdukCreate />)
+    .add('Produk Update', () => <ProdukUpdate />)
+    .add('Produk Delete', () => <ProdukDelete />);
+
 storiesOf('component', module)
     .add('Navbar', () => <Navbar />);
 

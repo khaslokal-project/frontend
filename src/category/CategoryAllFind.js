@@ -15,7 +15,7 @@ export default class CategoryAllFind extends React.Component {
                                     <Container >
                                         <Row className="align-items-center">
                                             <img  src={Menu} width="32px" height="32px" alt="makanan"></img>
-                                            <Col ><span className="spanTab" button component={Link} to="/kategori">Temukan kategori lain</span></Col>
+                                            <Col button component={Link} to="/kategori"><span className="spanTab" >Temukan kategori lain</span></Col>
                                         </Row>
                                     </Container>
                                 </div>
