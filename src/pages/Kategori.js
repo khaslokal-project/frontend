@@ -3,15 +3,15 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import {List, Avatar, ListItemText, Divider, ListItem, ListItemIcon} from '@material-ui/core';
 import {Fastfood, LocalCafe, ColorLens,FlightTakeoff, LibraryBooks, PanTool, CardGiftcard} from '@material-ui/icons';
-import Tas from './../assets/Bag.png';
-import Aksesoris from './../assets/Aksesoris.png';
-import Buah from './../assets/Buah.png';
-import Daging from './../assets/Daging.png';
-import Lauk from './../assets/Lauk.png';
-import Sayur from './../assets/Sayur.png';
-import Pohon from './../assets/Pohon.png';
-import Baju from './../assets/Baju.png';
-import Sepatu from './../assets/Sepatu.png';
+import Tas from './../assetImage/icon/Bag.png';
+import Aksesoris from './../assetImage/icon/Aksesoris.png';
+import Buah from './../assetImage/icon/Buah.png';
+import Daging from './../assetImage/icon/Daging.png';
+import Lauk from './../assetImage/icon/Lauk.png';
+import Sayur from './../assetImage/icon/Sayur.png';
+import Pohon from './../assetImage/icon/Pohon.png';
+import Baju from './../assetImage/icon/Baju.png';
+import Sepatu from './../assetImage/icon/Sepatu.png';
 
 
 const styles = theme => ({
@@ -48,7 +48,7 @@ function SimpleList (props) {
       <IconButton className={classes.menuButton} > <ArrowBack /></IconButton>
       Kategori
       </AppBar > */}
-            <List component="nav" className={classes.center} style={{marginTop: '80px', width: '35%'}}>
+            <List component="nav" className={classes.center} style={{width: '35%'}}>
                 <ListItem button>
                     <ListItemIcon>
                         <Fastfood />

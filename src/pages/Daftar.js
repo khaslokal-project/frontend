@@ -34,7 +34,7 @@ function SimpleList (props) {
     const { classes } = props;
     return (
         <div >
-            <List component="nav" className={classes.center} style={{marginTop: '80px', width: '35%'}}>
+            <List component="nav" className={classes.center} style={{width: '35%'}}>
                 <ListItem className={classes.center}>
                     <Typography variant="subheading">
                         Gabung Jadi Member Yuk! 

@@ -2,16 +2,20 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import { Menu, ArrowBack, ShoppingCart } from '@material-ui/icons';
-import { Route, HashRouter } from 'react-router-dom';
+import { Route, BrowserRouter } from 'react-router-dom';
 import { mailFolderListItems, otherMailFolderListItems } from './Tiledata';
 import { mailFolderListItemsRight } from './tileDataRight';
 import { IconButton, Toolbar, AppBar, List, Drawer, Divider} from '@material-ui/core';
+
+import Beranda from '../pages/Beranda';
 import Kategori from '../pages/Kategori';
 import Kontak from '../pages/Kontak';
 import Daftar from '../pages/Daftar';
 import Masuk from '../pages/Masuk';
+import Cari from './../assetImage/icon/Cari.png';
 import  { InputGroup, InputGroupAddon, Input} from 'reactstrap';
 
+import 'bootstrap/dist/css/bootstrap.css';
 
 const styles = ({
     list: {
@@ -24,7 +28,7 @@ const styles = ({
     }
 });
 
-class TemporaryDrawer extends React.Component {
+class Navbar extends React.Component {
   
     constructor(props) {
         super(props);
@@ -61,39 +65,46 @@ class TemporaryDrawer extends React.Component {
             <div className={classes.list}>
                 <List > 
                     <IconButton> <ArrowBack/></IconButton>
-      Keranjang Belanja</List>
+                        Keranjang Belanja
+                </List>
                 <Divider />
-                <List>{mailFolderListItemsRight}</List>
+                <List>
+                    {mailFolderListItemsRight}
+                </List>
             </div>
         );
 
         return (
-            <HashRouter>
+            <BrowserRouter>
                 <div>
                     <div>
                         <AppBar to="/"  color="secondary" >
-                            <Toolbar classclassName={classes.center}>
-                                <IconButton color="inherit" aria-label="Open drawer">
-                                    <Menu onClick={
-                                        () => {
-                                            this.toggleDrawer('left', true);
-                                        }
-                                    }/>
-                                </IconButton>
-                                <InputGroup>
-                                    <InputGroupAddon addonType="prepend"></InputGroupAddon>
-                                    <Input placeholder="Search..."/>
+                            <Toolbar className={classes.center}>
+                                <InputGroup >
+                                    <InputGroupAddon addonType="prepend">
+                                        <IconButton color="inherit" aria-label="Open drawer" style={{marginTop: '5px'}}>
+                                            <Menu onClick={
+                                                () => {
+                                                    this.toggleDrawer('left', true);
+                                                }
+                                            }/>
+                                        </IconButton>
+                                    </InputGroupAddon>
+                                    <Input placeholder="Cari.." src={Cari} style={{marginTop: '10px'}}/>
+                                    <InputGroupAddon addonType="append">
+                                        <IconButton color="inherit" aria-label="Open drawer" style={{marginTop: '5px'}}>
+                                            <ShoppingCart onClick={
+                                                () => {
+                                                    this.toggleDrawer('right', true);
+                                                }
+                                            }/>
+                                        </IconButton>
+                                    </InputGroupAddon>
                                 </InputGroup>
-                                <IconButton color="inherit" aria-label="Open drawer">
-                                    <ShoppingCart onClick={
-                                        () => {
-                                            this.toggleDrawer('right', true);
-                                        }
-                                    }/>
-                                </IconButton>
                             </Toolbar>
                         </AppBar>
                     </div>
+
                     <Drawer open={this.state.left} onClose={
                         () => {
                             this.toggleDrawer('left', false);
@@ -131,18 +142,21 @@ class TemporaryDrawer extends React.Component {
                             {secondList}
                         </div>
                     </Drawer>
+
+                    <Route exact path="/" component={Beranda} />
+                    
                     <Route path="/masuk" component={Masuk} />
                     <Route path="/daftar" component={Daftar} />
                     <Route path="/kategori" component={Kategori}/>
                     <Route path="/kontak" component={Kontak} />
                 </div>
-            </HashRouter>
+            </BrowserRouter>
         );
     }
 }
 
-TemporaryDrawer.propTypes = {
+Navbar.propTypes = {
     classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(TemporaryDrawer);
+export default withStyles(styles)(Navbar);

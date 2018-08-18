@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import './App.css';
 import Navbar from './component/Navbar';
+// import Branda from './pages/Beranda';
 
 class App extends Component {
     render() {
         return (
-            <div>
-                <div className="App" justify="center">
-                    <Navbar />
-                </div>
+            <div className="App" style={{paddingTop:'4rem'}} justify="center">
+                <Navbar />
+                {/* <Branda /> */}
             </div>
         );
     }

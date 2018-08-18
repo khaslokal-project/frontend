@@ -34,7 +34,7 @@ function SimpleList (props) {
     const { classes } = props;
     return (
         <div >
-            <List component="nav" className={classes.center} style={{marginTop: '80px', width: '35%'}}>
+            <List component="nav" className={classes.center} style={{ width: '35%'}}>
                 <ListItem>
                     <Typography variant="headline">Kontak & Alamat kami                       
                     </Typography>
@@ -53,7 +53,8 @@ function SimpleList (props) {
                     </Typography>
                 </ListItem>
                 <ListItem>
-                    <Typography >LINE @khaslokalbatamid
+                    <Typography >LINE 
+                        @khaslokalbatamid
                     </Typography>
                 </ListItem>
                 <ListItem>

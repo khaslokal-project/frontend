@@ -7,10 +7,10 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import { List, Divider, Avatar} from '@material-ui/core';
 import { Link } from 'react-router-dom';
-import Promo from './../assets/Promo.png';
-import Car from './../assets/Car.png';
-import Box from './../assets/Box.png';
-import Pusat from './../assets/Pusat.png';
+import Promo from './../assetImage/icon/Promo.png';
+import Car from './../assetImage/icon/Car.png';
+import Box from './../assetImage/icon/Box.png';
+import Pusat from './../assetImage/icon/Pusat.png';
 
 
 export const mailFolderListItems = (

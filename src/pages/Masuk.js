@@ -34,36 +34,36 @@ function SimpleList (props) {
     const { classes } = props;
     return (
         <div >
-            <List component="nav" className={classes.center} style={{marginTop: '80px', width: '35%'}}>
+            <List component="nav" className={classes.center} style={{width: '35%'}}>
                 <ListItem className={classes.center}>
                     <Typography variant="subheading">
-         Masuk Khas Local 
+                            Masuk Khas Local 
                     </Typography>
                 </ListItem>
                 <ListItem className={classes.center}>
                     <Typography variant="caption"  style={{textAlign: 'center'}} >
-        Ceki-ceki poin Sale Stock <br />
-        Pake kupon dan promo member <br />
-        Ceki-ceki pesanan sebelumnya <br />
-        Menyimpan produk kesukaan dulu <br />
-        Bisa cek riwayat transaksi sebelumnya
+                        Ceki-ceki poin Sale Stock <br />
+                        Pake kupon dan promo member <br />
+                        Ceki-ceki pesanan sebelumnya <br />
+                        Menyimpan produk kesukaan dulu <br />
+                        Bisa cek riwayat transaksi sebelumnya
                     </Typography>
                 </ListItem>
                 <Divider />
                 <ListItem className={classes.center}>
                     <Typography variant="subheading" >
-        Dengan Media Sosial                       
+                        Dengan Media Sosial                       
                     </Typography>
                 </ListItem>
                 <ListItem className={classes.center}>
                     <Button style={{width: '80%'}} variant="contained" color="primary" >
-          Facebook
+                        Facebook
                     </Button>
                 </ListItem>
                 <Divider />
                 <ListItem className={classes.center} >
                     <Typography variant="subheading" >
-        Dengan No.HandPhone
+                        Dengan No.HandPhone
                     </Typography>
                 </ListItem>
                 <ListItem>
