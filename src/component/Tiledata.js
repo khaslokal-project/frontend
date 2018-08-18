@@ -1,73 +1,99 @@
 import React from 'react';
 import ListItem from '@material-ui/core/ListItem';
-import HomeIcon from '@material-ui/icons/Home';
+import {Home, Drafts, Star, Mail} from '@material-ui/icons';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import DraftsIcon from '@material-ui/icons/Drafts';
-import StarIcon from '@material-ui/icons/Star';
-import SendIcon from '@material-ui/icons/Send';
-import MailIcon from '@material-ui/icons/Mail';
 import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button'
-import { List, Divider } from '@material-ui/core';
+import Button from '@material-ui/core/Button';
+import { List, Divider, Avatar} from '@material-ui/core';
 import { Link } from 'react-router-dom';
+import Promo from './../assets/Promo.png';
+import Car from './../assets/Car.png';
+import Box from './../assets/Box.png';
+import Pusat from './../assets/Pusat.png';
 
 
 export const mailFolderListItems = (
-  <div>
-    <List>
-        <ListItem>
-        <Typography variant="title">
-        Anda belum gabung jadi member?                      
-        </Typography>
-        </ListItem>
-        <ListItem>
-        <Typography>
-        Buruan daftar dan nikmati kemudahan belanja                       
-        </Typography>
-        </ListItem>
-        <ListItem>
-        <Button style={{marginRight: '10px'}} variant="outlined" color="secondary" component={Link} to="/masuk" >
-          Masuk </Button>
-          <Button variant="contained" color="secondary" component={Link} to="/daftar">
-          Daftar
-          </Button>
-          </ListItem>
+    <div>
+        <List>
+            <ListItem>
+                <Typography variant="title">
+                  Anda belum gabung jadi member?                      
+                </Typography>
+            </ListItem>
+            <ListItem>
+                <Typography> Buruan daftar dan nikmati kemudahan belanja                       
+                </Typography>
+            </ListItem>
+            <ListItem>
+                <Button style={{marginRight: '10px'}} variant="outlined" color="secondary" component={Link} to="/masuk" > Masuk </Button>
+                <Button variant="contained" color="secondary" component={Link} to="/daftar">
+                  Daftar
+                </Button>
+            </ListItem>
         </List>   
-  </div>
+    </div>
 );
 export const otherMailFolderListItems = (
+    <div>
         <div>
-          <ListItem button component={Link} to="/">
-          <ListItemIcon>
-            <HomeIcon />
-          </ListItemIcon>
-          <ListItemText primary="Beranda" />
-        </ListItem><Divider />
-        <ListItem button component={Link} to="/kategori">
-          <ListItemIcon>
-            <StarIcon />
-          </ListItemIcon> 
-          <ListItemText primary="Kategori" />
-        </ListItem><Divider />
-        <ListItem button>
-          <ListItemIcon>
-            <SendIcon />
-          </ListItemIcon>
-          <ListItemText primary="Tim Delivery" />
-        </ListItem><Divider />
-        <ListItem button>
-          <ListItemIcon>
-            <DraftsIcon />
-          </ListItemIcon>
-          <ListItemText primary="Tentang Kami" />
-        </ListItem><Divider />
-        <ListItem button component={Link} to="/kontak">
-          <ListItemIcon>
-            <MailIcon />
-          </ListItemIcon>
-          <ListItemText primary="Kontak Kami" />
-        </ListItem><Divider />
+            <ListItem button component={Link} to="/">
+                <ListItemIcon>
+                    <Home />
+                </ListItemIcon>
+                <ListItemText primary="Beranda" />
+            </ListItem>
 
+            <ListItem button component={Link} to="/promo">
+                <ListItemIcon>
+                    <Avatar alt="promo" src={Promo} style={{width: '23px', height: '23px'}} />
+                </ListItemIcon>
+                <ListItemText primary="Promo Terkini" />
+            </ListItem>
+
+
+            <ListItem button component={Link} to="/kategori">
+                <ListItemIcon>
+                    <Star />
+                </ListItemIcon> 
+                <ListItemText primary="Kategori" />
+            </ListItem><Divider />
         </div>
+
+        <div>
+            <ListItem button>
+                <ListItemIcon>
+                    <Avatar alt="pengembalian order" src={Box} style={{width: '23px', height: '23px'}} />
+                </ListItemIcon>
+                <ListItemText primary="Pengembalian Order" />
+            </ListItem>
+            <ListItem button>
+                <ListItemIcon>
+                    <Avatar alt="car" src={Car} style={{width: '23px', height: '23px'}} />
+                </ListItemIcon>
+                <ListItemText primary="Status Pengiriman" />
+            </ListItem><Divider />
+        </div>
+        <div>
+            <ListItem button>
+                <ListItemIcon>
+                    <Avatar alt="pusat bantuan" src={Pusat} style={{width: '23px', height: '23px'}} />
+                </ListItemIcon>
+                <ListItemText primary="Pusat Bantuan" />
+            </ListItem>
+            <ListItem button>
+                <ListItemIcon>
+                    <Drafts />
+                </ListItemIcon>
+                <ListItemText primary="Tentang Khaslokal" />
+            </ListItem>
+            <ListItem button component={Link} to="/kontak">
+                <ListItemIcon>
+                    <Mail />
+                </ListItemIcon>
+                <ListItemText primary="Kontak Khaslokal" />
+            </ListItem><Divider />
+        </div>
+
+    </div>
 );

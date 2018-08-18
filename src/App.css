@@ -49,3 +49,9 @@
   border-radius: 2px;
   margin-bottom: 5px;
 }
+
+.search{
+position: relative;
+height: 20px;
+margin-inline-end: 20px;
+}
