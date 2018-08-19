@@ -7,8 +7,8 @@ class Update extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            nameCategory: '',
-            modal: props.modal
+            modal: props.modal,
+            nameCategory: ''
         };
         // const env = dotenv.config().parsed;
         
@@ -29,7 +29,12 @@ class Update extends React.Component {
                             <FormGroup row>
                                 <Label for="nameCategory" sm={2}>Nama</Label>
                                 <Col sm={10}>
-                                    <Input type="text" name="nameCategory" id="nameCategory" />
+                                    <Input
+                                        type="text"
+                                        name="nameCategory"
+                                        value={this.state.nameCategory}
+                                        id="nameCategory"
+                                        onChange={this.handleChange}/>
                                 </Col>
                             </FormGroup>
                             <FormGroup row>
@@ -46,11 +51,11 @@ class Update extends React.Component {
     }
 
     componentDidMount(){
-        axios.get('www.google.com/kategory/1')
+        axios.get(`https://wicked-cow-10.localtunnel.me/productcategory/${this.props.id}`)
             .then(res => {
-                console.log(res);
-                console.log(res.data);
-                this.setState(res.data);
+                this.setState({
+                    nameCategory: res.data.nameCategory
+                });
             })
             .catch(error => {
                 console.log(error);
@@ -63,10 +68,10 @@ class Update extends React.Component {
 
     handleSubmit(event){
         event.preventDefault();
-        axios.post('www.google.com/kategory', this.state)
+        axios.put(`https://wicked-cow-10.localtunnel.me/productcategory/${this.props.id}`, this.state)
             .then(res => {
-                console.log(res);
-                console.log(res.data);
+                this.close();
+                this.props.fetchData();
             })
             .catch(error => {
                 console.log(error);

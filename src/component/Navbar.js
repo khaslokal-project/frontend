@@ -13,6 +13,9 @@ import Kontak from '../pages/Kontak';
 import Daftar from '../pages/Daftar';
 import Masuk from '../pages/Masuk';
 import Cari from './../assetImage/icon/Cari.png';
+import Adminkategori from '../Admin/category/Index';
+import Adminseller from '../Admin/seller/Index';
+import Adminproduk from '../Admin/produk/Index';
 import  { InputGroup, InputGroupAddon, Input} from 'reactstrap';
 
 import 'bootstrap/dist/css/bootstrap.css';
@@ -149,6 +152,9 @@ class Navbar extends React.Component {
                     <Route path="/daftar" component={Daftar} />
                     <Route path="/kategori" component={Kategori}/>
                     <Route path="/kontak" component={Kontak} />
+                    <Route path="/adminkategori" component={Adminkategori} />
+                    <Route path="/adminseller" component={Adminseller} />
+                    <Route path="/adminproduk" component={Adminproduk} />
                 </div>
             </BrowserRouter>
         );

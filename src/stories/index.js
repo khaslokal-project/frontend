@@ -29,6 +29,8 @@ import SellerUpdate from '../Admin/seller/Update';
 import SellerDelete from '../Admin/seller/Delete';
 import SellerIndex from '../Admin/seller/Index';
 
+console.log(process.env.REACT_APP_API_URL);
+
 storiesOf('Admin', module)
     .add('Seller List', () => <SellerList />)
     .add('Seller Create', () => <SellerCreate />)

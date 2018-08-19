@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Button } from 'reactstrap';
+import { Button, Label } from 'reactstrap';
 import List from './List';
 import Create from './Create';
 
@@ -15,12 +15,11 @@ class Index extends React.Component {
         this.closeModal = this.closeModal.bind(this);
     }
 
-
-
     render(){
         return(
-            <div>
-                <Button color="primary" onClick={this.showCreate}>
+            <div style={{paddingTop:'2rem'}}>
+                <Label> List Kategory </Label> <br/>
+                <Button color="danger" onClick={this.showCreate}>
                     Tambah
                 </Button>
                 <List />

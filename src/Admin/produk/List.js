@@ -1,45 +1,124 @@
 import React from 'react';
-import {Table, Label, Button} from 'reactstrap';
+import axios from 'axios'; 
+import {Table, Button} from 'reactstrap';
+import Update from './Update';
+import Delete from './Delete';
+
 
 class List extends React.Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            showModule: '',
+            data:[],
+            idUpdate: null,
+            itemDelete: {}
+        };
+        this.showUpdate = this.showUpdate.bind(this);
+        this.showDelete = this.showDelete.bind(this);
+        this.closeModal = this.closeModal.bind(this);
+    }
+
     render(){
         return( 
             <div >
-                <Label> List Kategory </Label>
                 <Table>
                     <thead>
                         <tr>
-                            <th>Nama</th>
+                            <th>Seller</th>
+                            <th>Kategori</th>
+                            <th>Name</th>
                             <th>Harga</th>
                             <th>Stok</th>
                             <th>Merek</th>
-                            <th>Action</th>
+                            <th>Keterangan</th>
+                            <th>Tipe</th>
+                            <th>Gambar</th>
+                            <th>Penilaian</th>
+                            <th>Review</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>Kek Pisang</td>
-                            <td>70000</td>
-                            <td>5</td>
-                            <td>Kek pisang villa</td>
-                            <td> 
-                                <Button> Edit </Button> <Button> Delete </Button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Teh tarik</td>
-                            <td>13000</td>
-                            <td>20</td>
-                            <td>teh tarik</td>
-                            <td>
-                                <Button> Edit </Button> <Button> Delete </Button>
-                            </td>
-                        </tr>
+                        {
+                            this.state.data.map(item => {
+                                return (
+                                    <tr key={item.id}>
+                                        <td>{item.idseller}</td>
+                                        <td>{item.idcategory}</td>
+                                        <td>{item.name}</td>
+                                        <td>{item.price}</td>
+                                        <td>{item.stock}</td>
+                                        <td>{item.brand}</td>
+                                        <td>{item.description}</td>
+                                        <td>{item.type}</td>
+                                        <td>{item.image}</td>
+                                        <td>{item.rating}</td>
+                                        <td>{item.rreview}</td>
+                                        <td> 
+                                            <Button color="warning" onClick={
+                                                () => {
+                                                    this.showUpdate(item.id);
+                                                }}
+                                            >Edit</Button>
+                                            <Button color="danger" 
+                                                onClick={() => {
+                                                    this.showDelete(item);
+                                                }}
+                                            >Delete</Button>
+                                        </td>
+                                    </tr>
+                                );
+                            })
+                                
+                        }
                     </tbody>
                 </Table>
+                
+                { (this.state.showModule == 'update') && <Update modal={this.state.modal} closeModal={this.closeModal} fetchData={this.fetchData} id={this.state.idUpdate}/> }
+                { (this.state.showModule == 'delete') && <Delete modal={this.state.modal} closeModal={this.closeModal} fetchData={this.fetchData} data={this.state.itemDeleted}/> }
             </div>
         );
     }
+
+    componentDidMount(){
+        this.fetchData();
+    }
+
+    showUpdate(id){
+        this.setState({
+            showModule: 'update',
+            modal: true,
+            idUpdate: id
+        });
+    }
+
+    showDelete(item){
+        this.setState({
+            showModule: 'delete',
+            modal: true,
+            itemDeleted: item
+        });
+    }
+
+    fetchData(){
+        axios.get('https://modern-quail-40.localtunnel.me/productcategory')
+            .then( ({ data }) => {
+                this.setState({
+                    data: data
+                });
+            })
+            .catch(error => {
+                console.log(error);
+            });
+    }
+
+    closeModal() {
+        this.setState({
+            showModule: '',
+            modal: false
+        });
+    }
+
 }
 
 export default List;

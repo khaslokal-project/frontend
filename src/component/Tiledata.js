@@ -18,11 +18,11 @@ export const mailFolderListItems = (
         <List>
             <ListItem>
                 <Typography variant="title">
-                  Anda belum gabung jadi member?                      
+                  Anda belum gabung jadi member?
                 </Typography>
             </ListItem>
             <ListItem>
-                <Typography> Buruan daftar dan nikmati kemudahan belanja                       
+                <Typography> Buruan daftar dan nikmati kemudahan belanja
                 </Typography>
             </ListItem>
             <ListItem>
@@ -93,6 +93,24 @@ export const otherMailFolderListItems = (
                 </ListItemIcon>
                 <ListItemText primary="Kontak Khaslokal" />
             </ListItem><Divider />
+        </div>
+        <div>
+            <ListItem button component={Link} to="/adminkategori">
+                {/* <ListItemIcon>
+                </ListItemIcon> */}
+                <ListItemText primary="Adminkategori" />
+            </ListItem>
+            <ListItem button component={Link} to="/adminseller">
+                {/* <ListItemIcon>
+                </ListItemIcon> */}
+                <ListItemText primary="Adminseller"  />
+            </ListItem>
+            <ListItem button component={Link} to="/adminproduk">
+                {/* <ListItemIcon>
+                </ListItemIcon> */}
+                <ListItemText primary="Adminproduk" />
+            </ListItem>
+            <Divider />
         </div>
 
     </div>

@@ -22,21 +22,7 @@ class Create extends React.Component {
         this.close = this.close.bind(this);
     }
 
-    handleChange(event) {
-        this.setState({[event.target.name]: event.target.value});
-    }
-
-    handleSubmit(event){
-        event.preventDefault();
-        axios.post('https://blue-parrot-39.localtunnel.me/productcategory/add', this.state)
-            .then(res => {
-                console.log(res);
-                console.log(res.data);
-            })
-            .catch(error => {
-                console.log(error);
-            });
-    }
+   
 
     render(){
         return(
@@ -62,6 +48,23 @@ class Create extends React.Component {
                 </Modal>
             </div>
         );
+    }
+
+    handleChange(event) {
+        this.setState({[event.target.name]: event.target.value});
+    }
+
+    handleSubmit(event){
+        event.preventDefault();
+        axios.post('https://wicked-cow-10.localtunnel.me/productcategory', this.state)
+            .then(res => {
+                this.close();
+                console.log(this.props);
+                this.props.fetchData();
+            })
+            .catch(error => {
+                console.log(error);
+            });
     }
 
     handleClosed() {

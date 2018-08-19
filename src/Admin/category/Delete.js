@@ -1,37 +1,58 @@
 import React from 'react';
+import axios from 'axios';
+
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
 class Delete extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            modal: false
+            modal: props.modal
         };
     
-        this.toggle = this.toggle.bind(this);
+        this.handleClosed = this.handleClosed.bind(this);        
+
+        this.delete = this.delete.bind(this);
+        this.close = this.close.bind(this);
     }
-    
-    toggle() {
-        this.setState({
-            modal: !this.state.modal
-        });
-    }
+   
 
     render(){
         return(
             <div>
-                <Button color="danger" onClick={this.toggle}>Delete</Button>
-                <Modal isOpen={this.state.modal} toggle={this.toggle}>
-                    <ModalHeader toggle={this.toggle}>Konfirmasi</ModalHeader>
-                    <ModalBody>Apakah anda ingin menghapus item ini?
+                <Modal isOpen={this.state.modal}  onClosed={this.handleClosed}>
+                    <ModalHeader>Konfirmasi</ModalHeader>
+                    <ModalBody>Apakah anda ingin menghapus kategori  {this.props.data.nameCategory} ini?
                     </ModalBody>
                     <ModalFooter>
-                        <Button color="primary" onClick={this.toggle}>Ya</Button>{' '}
-                        <Button color="secondary" onClick={this.toggle}>Tidak</Button>
+                        <Button color="primary" onClick={this.delete}>Ya</Button>{' '}
+                        <Button color="secondary" onClick={this.close}>Tidak</Button>
                     </ModalFooter>
                 </Modal>
             </div>
         );
+    }
+
+     
+    delete() {
+        axios.delete(`https://wicked-cow-10.localtunnel.me/productcategory/${this.props.data.id}`)
+            .then(res => {
+                this.close();
+                this.props.fetchData();
+            })
+            .catch(error => {
+                console.log(error);
+            });
+    }
+
+    handleClosed() {
+        this.props.closeModal();
+    }
+
+    close() {
+        this.setState({
+            modal: false
+        });
     }
 }
 
