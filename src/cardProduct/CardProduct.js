@@ -66,9 +66,6 @@ class CardProduct extends React.Component {
     componentDidMount() {
         this.fetchData();
     }
-    componentDidUpdate(){
-        debugger;
-    }
 
     showTileorder(id) {
         this.setState({
@@ -85,7 +82,9 @@ class CardProduct extends React.Component {
             .then(data => {
                 data.forEach(item => {
                     this.showTileorder(item.id);
-                    this.state.data.push(item);
+                });
+                this.setState({
+                    data: data
                 });
             })
             .catch(err => console.log(err));
