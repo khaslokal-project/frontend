@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Route, Link, BrowserRouter } from 'react-router-dom';
 import { withStyles } from '@material-ui/core/styles';
 import {List, Avatar, ListItemText, Divider, ListItem, ListItemIcon} from '@material-ui/core';
 import {Fastfood, LocalCafe, ColorLens,FlightTakeoff, LibraryBooks, PanTool, CardGiftcard} from '@material-ui/icons';
@@ -12,6 +13,8 @@ import Sayur from './../assetImage/icon/Sayur.png';
 import Pohon from './../assetImage/icon/Pohon.png';
 import Baju from './../assetImage/icon/Baju.png';
 import Sepatu from './../assetImage/icon/Sepatu.png';
+import Herbal from './../assetImage/icon/herbal.png';
+import Makanan from './Insidekategori/Makanan';
 
 
 const styles = theme => ({
@@ -39,133 +42,143 @@ const styles = theme => ({
 });
 
 
-function SimpleList (props) {
+function Kategori (props) {
     const { classes } = props;
   
     return (
-        <div >
-            {/* <AppBar  color="inherit" className={classes.center}>
-      <IconButton className={classes.menuButton} > <ArrowBack /></IconButton>
-      Kategori
-      </AppBar > */}
-            <List component="nav" className={classes.center} style={{width: '35%'}}>
-                <ListItem button>
-                    <ListItemIcon>
-                        <Fastfood />
-                    </ListItemIcon>
-                    <ListItemText primary="Makanan" />
-                </ListItem>
-                <Divider />
-                <ListItem button>
-                    <ListItemIcon>
-                        <LocalCafe />
-                    </ListItemIcon>
-                    <ListItemText primary="Minuman" />
-                </ListItem>
-                <Divider />
-                <ListItem button>
-                    <ListItemIcon>
-                        <CardGiftcard />
-                    </ListItemIcon>
-                    <ListItemText primary="Oleh-oleh Batam" />
-                </ListItem>            
-                <Divider />
-                <ListItem button>
-                    <ListItemIcon>
-                        <PanTool />
-                    </ListItemIcon>
-                    <ListItemText primary="Kerajinan Tangan" />
-                </ListItem><Divider />
-                <ListItem button>
-                    <ListItemIcon>
-                        <LibraryBooks />
-                    </ListItemIcon>
-                    <ListItemText primary="Perizinan UKM" />
-                </ListItem><Divider />
-                <ListItem button>
-                    <ListItemIcon>
-                        <ColorLens />
-                    </ListItemIcon>
-                    <ListItemText primary="Jasa Desain" />
-                </ListItem>
-                <Divider />
-                <ListItem button>
-                    <ListItemIcon>
-                        <FlightTakeoff />
-                    </ListItemIcon>
-                    <ListItemText primary="Tiket" />
-                </ListItem>
-                <Divider />
-                <ListItem button>
-                    <ListItemIcon>
-                        <Avatar alt="tas" src={Tas} style={{ width: '23px', height: '23px'}}/>
-                    </ListItemIcon>
-                    <ListItemText primary="Tas"  />
-                </ListItem>
-                <Divider />
-                <ListItem button>
-                    <ListItemIcon>
-                        <Avatar alt="aksesoris" src={Aksesoris} style={{ width: '23px', height: '20px'}}/>
-                    </ListItemIcon>
-                    <ListItemText primary="Aksesoris" />
-                </ListItem>
-                <Divider />
-                <ListItem button>
-                    <ListItemIcon>
-                        <Avatar alt="buah" src={Buah} style={{ width: '23px', height: '23px'}}/>
-                    </ListItemIcon>
-                    <ListItemText primary="Buah-buahan"  />
-                </ListItem>
-                <Divider />
-                <ListItem button>
-                    <ListItemIcon>
-                        <Avatar alt="pakaian" src={Baju} style={{ width: '23px', height: '20px'}}/>
-                    </ListItemIcon>
-                    <ListItemText primary="Pakaian" />
-                </ListItem>
-                <Divider />
-                <ListItem button>
-                    <ListItemIcon>
-                        <Avatar alt="sepatu" src={Sepatu} style={{ width: '23px', height: '23px'}}/>
-                    </ListItemIcon>
-                    <ListItemText primary="Sepatu" />
-                </ListItem>
-                <Divider />
-                <ListItem button>
-                    <ListItemIcon>
-                        <Avatar alt="pohon" src={Pohon} style={{ width: '23px', height: '23px'}}/>
-                    </ListItemIcon>
-                    <ListItemText primary="Tanaman"  />
-                </ListItem>
-                <Divider />
-                <ListItem button>
-                    <ListItemIcon>
-                        <Avatar alt="sayur" src={Sayur} style={{ width: '23px', height: '23px'}}/>
-                    </ListItemIcon>
-                    <ListItemText primary="Sayur-sayuran" />
-                </ListItem>
-                <Divider />
-                <ListItem button>
-                    <ListItemIcon>
-                        <Avatar alt="lauk" src={Lauk} style={{ width: '23px', height: '23px'}}/>
-                    </ListItemIcon>
-                    <ListItemText primary="Lauk-Pauk"  />
-                </ListItem>
-                <Divider />
-                <ListItem button>
-                    <ListItemIcon>
-                        <Avatar alt="daging" src={Daging} style={{ width: '23px', height: '23px'}}/>
-                    </ListItemIcon>
-                    <ListItemText primary="Daging" />
-                </ListItem>
-                <Divider />
-            </List>
-        </div>
+        <BrowserRouter>
+            <div >
+                <List to="/" component="nav" className={classes.center} style={{width: '35%'}}>
+                    <ListItem button component={Link} to="/makanan">
+                        <ListItemIcon>
+                            <Fastfood />
+                        </ListItemIcon>
+                        <ListItemText primary="Makanan" />
+                    </ListItem>
+                    <Divider />
+                    <ListItem button>
+                        <ListItemIcon>
+                            <LocalCafe />
+                        </ListItemIcon>
+                        <ListItemText primary="Minuman" />
+                    </ListItem>
+                    <Divider />
+                    <ListItem button>
+                        <ListItemIcon>
+                            <CardGiftcard />
+                        </ListItemIcon>
+                        <ListItemText primary="Oleh-oleh Batam" />
+                    </ListItem>            
+                    <Divider />
+                    <ListItem button>
+                        <ListItemIcon>
+                            <PanTool />
+                        </ListItemIcon>
+                        <ListItemText primary="Kerajinan Tangan" />
+                    </ListItem><Divider />
+                    <ListItem button>
+                        <ListItemIcon>
+                            <LibraryBooks />
+                        </ListItemIcon>
+                        <ListItemText primary="Perizinan UKM" />
+                    </ListItem><Divider />
+                    <ListItem button>
+                        <ListItemIcon>
+                            <ColorLens />
+                        </ListItemIcon>
+                        <ListItemText primary="Jasa Desain" />
+                    </ListItem>
+                    <Divider />
+                    <ListItem button>
+                        <ListItemIcon>
+                            <FlightTakeoff />
+                        </ListItemIcon>
+                        <ListItemText primary="Tiket" />
+                    </ListItem>
+                    <Divider />
+                    <ListItem button>
+                        <ListItemIcon>
+                            <Avatar alt="tas" src={Tas} style={{ width: '23px', height: '23px'}}/>
+                        </ListItemIcon>
+                        <ListItemText primary="Tas"  />
+                    </ListItem>
+                    <Divider />
+                    <ListItem button>
+                        <ListItemIcon>
+                            <Avatar alt="aksesoris" src={Aksesoris} style={{ width: '23px', height: '20px'}}/>
+                        </ListItemIcon>
+                        <ListItemText primary="Aksesoris" />
+                    </ListItem>
+                    <Divider />
+                    <ListItem button>
+                        <ListItemIcon>
+                            <Avatar alt="buah" src={Buah} style={{ width: '23px', height: '23px'}}/>
+                        </ListItemIcon>
+                        <ListItemText primary="Buah-buahan"  />
+                    </ListItem>
+                    <Divider />
+                    <ListItem button>
+                        <ListItemIcon>
+                            <Avatar alt="pakaian" src={Baju} style={{ width: '23px', height: '20px'}}/>
+                        </ListItemIcon>
+                        <ListItemText primary="Pakaian" />
+                    </ListItem>
+                    <Divider />
+                    <ListItem button>
+                        <ListItemIcon>
+                            <Avatar alt="sepatu" src={Sepatu} style={{ width: '23px', height: '23px'}}/>
+                        </ListItemIcon>
+                        <ListItemText primary="Sepatu" />
+                    </ListItem>
+                    <Divider />
+                    <ListItem button>
+                        <ListItemIcon>
+                            <Avatar alt="pohon" src={Pohon} style={{ width: '23px', height: '23px'}}/>
+                        </ListItemIcon>
+                        <ListItemText primary="Tanaman"  />
+                    </ListItem>
+                    <Divider />
+                    <ListItem button>
+                        <ListItemIcon>
+                            <Avatar alt="sayur" src={Sayur} style={{ width: '23px', height: '23px'}}/>
+                        </ListItemIcon>
+                        <ListItemText primary="Sayur-sayuran" />
+                    </ListItem>
+                    <Divider />
+                    <ListItem button>
+                        <ListItemIcon>
+                            <Avatar alt="lauk" src={Lauk} style={{ width: '23px', height: '23px'}}/>
+                        </ListItemIcon>
+                        <ListItemText primary="Lauk-Pauk"  />
+                    </ListItem>
+                    <Divider />
+                    <ListItem button >
+                        <ListItemIcon>
+                            <Avatar alt="daging" src={Daging} style={{ width: '23px', height: '23px'}}/>
+                        </ListItemIcon>
+                        <ListItemText primary="Daging" />
+                    </ListItem>
+                    <Divider />
+                    <ListItem button >
+                        <ListItemIcon>
+                            <Avatar alt="herbal" src={Herbal} style={{ width: '23px', height: '23px'}}/>
+                        </ListItemIcon>
+                        <ListItemText primary="Herbal" />
+                    </ListItem>
+                    <Divider />
+                </List>
+
+                <Route exact path="/" component={} />
+
+                <Route path="/makanan" component={Makanan} />
+            </div>
+
+        </BrowserRouter>
     );
 }
 
-SimpleList.propTypes = {
+Kategori.propTypes = {
     classes: PropTypes.object.isRequired,
 };
 // {/* <Aksesoris src={Aksesoris} alt='aksesoris' /> */}
-export default withStyles(styles)(SimpleList);
+export default withStyles(styles)(Kategori);
