@@ -69,7 +69,7 @@ function SimpleList (props) {
                 <ListItem>
                     <Form>
                         <FormGroup>
-                            <Input invalid PhoneAndroid placeholder="Username"/>
+                            <Input invalid placeholder="Username"/>
                         </FormGroup>
                         <FormGroup>
                             <Input invalid  placeholder="Password"/>

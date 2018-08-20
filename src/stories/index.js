@@ -29,9 +29,16 @@ import SellerUpdate from '../Admin/seller/Update';
 import SellerDelete from '../Admin/seller/Delete';
 import SellerIndex from '../Admin/seller/Index';
 
+<<<<<<< HEAD
 import OrderList from '../AdminKurir/Order/List'
 import PrintInvoice from '../AdminKurir/Order/PrintInvoice'
 import PrintSlipOrder from '../AdminKurir/Order/PrintSlipOrder'
+=======
+import Makanan from '../pages/Insidekategori/Makanan';
+
+storiesOf('Insidekategori', module)
+    .add('Makanan', () => <Makanan/>);
+>>>>>>> 05679abb6426fe5f2065af01b189cc81435fd29c
 
 console.log(process.env.REACT_APP_API_URL);
 
