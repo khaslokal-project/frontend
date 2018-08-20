@@ -84,7 +84,7 @@ class List extends React.Component {
     }
 
     fetchData(){
-        axios.get('https://wicked-cow-10.localtunnel.me/sellers')
+        axios.get('http://192.168.10.40:3000/sellers/')
             .then( ({ data }) => {
                 this.setState({
                     data: data

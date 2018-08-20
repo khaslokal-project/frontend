@@ -123,7 +123,7 @@ class Update extends React.Component {
     }
 
     componentDidMount(){
-        axios.get(`https://wicked-cow-10.localtunnel.me/sellers/${this.props.id}`)
+        axios.get(`http://192.168.10.40:3000/sellers/${this.props.id}`)
             .then(res => {
                 this.setState({
                     username: res.data.username,
@@ -146,7 +146,7 @@ class Update extends React.Component {
 
     handleSubmit(event){
         event.preventDefault();
-        axios.put(`https://wicked-cow-10.localtunnel.me/sellers/${this.props.id}`, this.state)
+        axios.put(`http://192.168.10.40:3000/sellers/${this.props.id}`, this.state)
             .then(res => {
                 this.close();
                 this.props.fetchData();
