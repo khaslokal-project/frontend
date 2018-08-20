@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import { Menu, ArrowBack, ShoppingCart } from '@material-ui/icons';
-import { Route, BrowserRouter } from 'react-router-dom';
+import { Route, HashRouter } from 'react-router-dom';
 import { mailFolderListItems, otherMailFolderListItems } from './Tiledata';
 import { mailFolderListItemsRight } from './tileDataRight';
 import { IconButton, Toolbar, AppBar, List, Drawer, Divider} from '@material-ui/core';
@@ -78,7 +78,7 @@ class Navbar extends React.Component {
         );
 
         return (
-            <BrowserRouter>
+            <HashRouter>
                 <div>
                     <div>
                         <AppBar to="/"  color="secondary" >
@@ -156,7 +156,7 @@ class Navbar extends React.Component {
                     <Route path="/adminseller" component={Adminseller} />
                     <Route path="/adminproduk" component={Adminproduk} />
                 </div>
-            </BrowserRouter>
+            </HashRouter>
         );
     }
 }
