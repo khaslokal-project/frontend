@@ -23,7 +23,7 @@ class Index extends React.Component {
                     Tambah
                 </Button>
                 <List />
-                { (this.state.showModule == 'create') && <Create modal={this.state.modal} closeModal={this.closeModal}/> }
+                { (this.state.showModule === 'create') && <Create modal={this.state.modal} closeModal={this.closeModal}/> }
             </div>
         );
     }

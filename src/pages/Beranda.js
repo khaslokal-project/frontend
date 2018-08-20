@@ -7,6 +7,8 @@ import CardProduct from '../cardProduct/CardProduct';
 import CategoryCard from '../category/CategoryCard';
 import Carousels from '../offers/Carousels';
 
+
+
 class Beranda extends React.Component {
     render() {
         return (
@@ -18,6 +20,7 @@ class Beranda extends React.Component {
                 <Helps/>
                 <Footers/>
                 <Contacts/>
+
         
             </div>
         );

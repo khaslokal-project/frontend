@@ -29,6 +29,10 @@ import SellerUpdate from '../Admin/seller/Update';
 import SellerDelete from '../Admin/seller/Delete';
 import SellerIndex from '../Admin/seller/Index';
 
+import OrderList from '../AdminKurir/Order/List'
+import PrintInvoice from '../AdminKurir/Order/PrintInvoice'
+import PrintSlipOrder from '../AdminKurir/Order/PrintSlipOrder'
+
 console.log(process.env.REACT_APP_API_URL);
 
 storiesOf('Admin', module)
@@ -51,6 +55,12 @@ storiesOf('Admin', module)
     .add('Produk Update', () => <ProdukUpdate />)
     .add('Produk Delete', () => <ProdukDelete />)
     .add('Produk Index', () => <ProdukIndex/>);
+
+storiesOf('Admin Kurir', module)
+    .add('Order List',()=> <OrderList/>)
+    .add('Print Invoice',()=> <PrintInvoice/>)
+    .add('Print Slip', ()=> <PrintSlipOrder/>)
+
 
 storiesOf('component', module)
     .add('Navbar', () => <Navbar />);
