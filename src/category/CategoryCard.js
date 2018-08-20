@@ -21,7 +21,7 @@ export default class CategoryCard extends React.Component {
                                 <Row className="align-items-center">
                                     <Col>
                                         <img src={Makanan} width="32px" height="32px" alt="makanan"></img>
-                                        <span style={{marginLeft: '5px'}}>Makanan</span>
+                                        <span style={{padding: '10px 15px 10px 20px'}}>Makanan</span>
                                     </Col>
                                 </Row>
                             </div>
@@ -34,7 +34,7 @@ export default class CategoryCard extends React.Component {
                                 <Row className="align-items-center">
                                     <Col>
                                         <img src={Minuman} width="32px" height="32px" alt="minuman" ></img>
-                                        <span style={{marginLeft: '5px'}}>Minuman</span>
+                                        <span style={{padding: '10px 15px 10px 20px'}}>Minuman</span>
                                     </Col>
                                 </Row>
                             </div>
@@ -47,7 +47,7 @@ export default class CategoryCard extends React.Component {
                                 <Row className="align-items-center">     
                                     <Col>
                                         <img src={Oleholeh} width="32px" height="32px" alt="oleh-oleh"></img>
-                                        <span style={{marginLeft: '5px'}}>Oleh-Oleh Batam</span>
+                                        <span style={{padding: '10px 15px 10px 20px'}}>Oleh-Oleh Batam</span>
                                     </Col>
                                 </Row>
                             </div>
@@ -60,7 +60,7 @@ export default class CategoryCard extends React.Component {
                                 <Row className="align-items-center">                                       
                                     <Col>
                                         <img src={Kerajinan} width="32px" height="32px" alt="kerajinan"></img>
-                                        <span style={{marginLeft: '5px'}}>Kerajinan</span>
+                                        <span style={{padding: '10px 20px 10px 20px'}}>Kerajinan</span>
                                     </Col>
                                 </Row>
                             </div>
@@ -73,7 +73,7 @@ export default class CategoryCard extends React.Component {
                                 <Row className="align-items-center">
                                     <Col>
                                         <img src={Jasa} width="32px" height="32px" alt="jasa"></img>
-                                        <span style={{marginLeft: '5px'}}>Jasa Desain</span>
+                                        <span style={{padding: '10px 20px 10px 20px'}}>Jasa Desain</span>
                                     </Col>
                                 </Row>
                             </div>
@@ -86,7 +86,7 @@ export default class CategoryCard extends React.Component {
                                 <Row className="align-items-center">
                                     <Col>
                                         <img src={Izinukm} width="32px" height="32px" alt="izinukm"></img>
-                                        <span style={{marginLeft: '5px'}}>Perizinan UKM</span>
+                                        <span style={{padding: '10px 20px 10px 20px'}}>Perizinan UKM</span>
                                     </Col>
                                 </Row>
                             </div>

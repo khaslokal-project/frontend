@@ -6,7 +6,7 @@ import Navbar from './component/Navbar';
 class App extends Component {
     render() {
         return (
-            <div className="App" style={{paddingTop:'4rem'}} justify="center">
+            <div className="App" style={{paddingTop:'4.7rem'}} justify="center">
                 <Navbar />
                 {/* <Branda /> */}
             </div>

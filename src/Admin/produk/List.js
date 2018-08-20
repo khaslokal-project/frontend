@@ -101,7 +101,7 @@ class List extends React.Component {
     }
 
     fetchData(){
-        axios.get('https://modern-quail-40.localtunnel.me/productcategory')
+        axios.get('https://wicked-cow-10.localtunnel.me/products')
             .then( ({ data }) => {
                 this.setState({
                     data: data

@@ -178,7 +178,7 @@ class Update extends React.Component {
     }
 
     componentDidMount(){
-        axios.get(`/${this.props.id}`)
+        axios.get(`https://wicked-cow-10.localtunnel.me/products/${this.props.id}`)
             .then(res => {
                 this.setState({
                     idseller: res.data.idseller,
@@ -206,7 +206,7 @@ class Update extends React.Component {
 
     handleSubmit(event){
         event.preventDefault();
-        axios.post(`/${this.props.id}`, this.state)
+        axios.post(`https://wicked-cow-10.localtunnel.me/products/${this.props.id}`, this.state)
             .then(res => {
                 this.close();
                 this.props.fetchData();

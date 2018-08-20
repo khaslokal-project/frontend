@@ -127,13 +127,17 @@ class Create extends React.Component {
         );
     }
 
+    componentDidMount(){
+        
+    }
+
     handleChange(event) {
         this.setState({[event.target.name]: event.target.value});
     }
 
     handleSubmit(event){
         event.preventDefault();
-        axios.post('https://blue-parrot-39.localtunnel.me/productcategory/add', this.state)
+        axios.post('https://wicked-cow-10.localtunnel.me/products', this.state)
             .then(res => {
                 this.close();
                 console.log(this.props);
