@@ -16,6 +16,24 @@ import Cari from './../assetImage/icon/Cari.png';
 import Adminkategori from '../Admin/category/Index';
 import Adminseller from '../Admin/seller/Index';
 import Adminproduk from '../Admin/produk/Index';
+import Makanan from './../pages/Insidekategori/Makanan';
+import Minuman from './../pages/Insidekategori/Minuman';
+import Aksesoris from './../pages/Insidekategori/Aksesoris';
+import Buahbuahan from './../pages/Insidekategori/Buahbuahan';
+import Daging from './../pages/Insidekategori/Daging';
+import Pohon from './../pages/Insidekategori/Pohon';
+import Tanaman from './../pages/Insidekategori/Tanaman';
+import Kerajinan from './../pages/Insidekategori/Kerajinantangan';
+import Lauk from './../pages/Insidekategori/Lauk';
+import Oleholeh from './../pages/Insidekategori/Oleholehbatam';
+import Sayuran from './../pages/Insidekategori/Sayuran';
+import Tas from './../pages/Insidekategori/Tas';
+import Tiket from './../pages/Insidekategori/Tiket';
+import Sepatu from './../pages/Insidekategori/Sepatu';
+import Herbal from './../pages/Insidekategori/Herbal';
+import Jasadesain from './../pages/Insidekategori/Jasadesain';
+import Perizinan from './../pages/Insidekategori/Perizinanukm';
+import Pakaian from './../pages/Insidekategori/Pakaian';
 import  { InputGroup, InputGroupAddon, Input} from 'reactstrap';
 
 import 'bootstrap/dist/css/bootstrap.css';
@@ -155,6 +173,27 @@ class Navbar extends React.Component {
                     <Route path="/adminkategori" component={Adminkategori} />
                     <Route path="/adminseller" component={Adminseller} />
                     <Route path="/adminproduk" component={Adminproduk} />
+
+                    <Route path="/makanan" component={Makanan} />
+                    <Route path="/minuman" component={Minuman} />
+                    <Route path="/oleholeh" component={Oleholeh} />
+                    <Route path="/kerajinantangan" component={Kerajinan} />
+                    <Route path="/perizinanukm" component={Perizinan} />
+                    <Route path="/jasa" component={Jasadesain} />
+                    <Route path="/tiket" component={Tiket} />
+                    <Route path="/tas" component={Tas} />
+                    <Route path="/aksesoris" component={Aksesoris} />
+                    <Route path="/buahbuahan" component={Buahbuahan} />
+                    <Route path="/pakaian" component={Pakaian} />
+                    <Route path="/pohon" component={Pohon} />
+                    <Route path="/tanaman" component={Tanaman} />
+                    <Route path="/sayuran" component={Sayuran} />
+                    <Route path="/lauk" component={Lauk} />
+                    <Route path="/daging" component={Daging} />
+                    <Route path="/herbal" component={Herbal} /> 
+                    <Route path="/sepatu" component={Sepatu} />
+
+                    
                 </div>
             </HashRouter>
         );
