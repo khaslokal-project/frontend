@@ -168,7 +168,7 @@ function Kategori (props) {
                     <Divider />
                 </List>
 
-                <Route exact path="/" component={} />
+                {/* <Route exact path="/" component={} /> */}
 
                 <Route path="/makanan" component={Makanan} />
             </div>
