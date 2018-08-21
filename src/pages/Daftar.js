@@ -1,106 +1,140 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { Form, FormGroup, Input } from 'reactstrap';
-import { withStyles } from '@material-ui/core/styles';
-import {List, Divider, Typography, Button} from '@material-ui/core';
-import ListItem from '@material-ui/core/ListItem';
+import { Col, Button, Form, FormGroup, Input, Container, Row } from 'reactstrap';
+import axios from 'axios';
 
-
-const styles = theme => ({
-    root: {
-        flexGrow: '1',
-        width: '100%',
-        maxWidth: 360,
-        backgroundColor: theme.palette.background.paper,
-    },
-    paper: {
-        padding: theme.spacing.unit * 2,
-        textAlign: 'center',
-        color: theme.palette.text.secondary,
-    },
-    center :{
-        textAlign: 'center',
-        display: 'inline-block',
-    },
-    menuButton:{
-        marginTop: '10px',
-        marginLeft:  '-25%',
-        marginBottom: '10px',
+export default class Daftar extends React.Component{
+    constructor(props){
+        super(props);
+        this.state= {
+            username:'',
+            firstname:'',
+            lastname:'',
+            password:'',
+            email:'',
+            phone:'',
+            address:'',
+            userdata: null,
+            success: false
+        };
+        this.changeHandler = this.changeHandler.bind(this);
+        this.submitHandler = this.submitHandler.bind(this);
     }
-});
 
-
-function SimpleList (props) {
-    const { classes } = props;
-    return (
-        <div >
-            <List component="nav" className={classes.center} style={{width: '35%'}}>
-                <ListItem className={classes.center}>
-                    <Typography variant="subheading">
-                        Gabung Jadi Member Yuk! 
-                    </Typography>
-                </ListItem>
-                <ListItem className={classes.center}>
-                    <Typography variant="caption"  style={{textAlign: 'center'}} >
-                      Dapet poin Khas Lokal <br/>
-                      Dapet kupon dan promo menarik <br/>
-                      Proses pesanan sista makin cepat <br/>
-                      Dapet produk khusus rekomendasi <br />
-                      Kesempatan jadi reseller
-                    </Typography>
-                </ListItem>
-                <Divider />
-                <ListItem className={classes.center}>
-                    <Typography variant="subheading" >
-                      Dengan Media Sosial                       
-                    </Typography>
-                </ListItem>
-                <ListItem className={classes.center}>
-                    <Button style={{width: '80%'}} variant="contained" color="primary" >
-                      Facebook
-                    </Button>
-                </ListItem>
-                <Divider />
-                <ListItem className={classes.center} >
-                    <Typography variant="subheading" >
-                      Dengan No.HandPhone
-                    </Typography>
-                </ListItem>
-                <ListItem>
-                    <Form>
-                        <FormGroup>
-                            <Input invalid  placeholder="Username"/>
-                        </FormGroup>
-                        <FormGroup>
-                            <Input invalid  placeholder="Password"/>
-                        </FormGroup>
-                        <FormGroup>
-                            <Input invalid  placeholder="Alamat Email"/>
-                        </FormGroup>
-                        <FormGroup>
-                            <Input invalid  placeholder="No. HandPhone"/>
-                        </FormGroup>
-                        <FormGroup>
-                            <Input invalid  placeholder="Nama"/>
-                        </FormGroup>
-                        <FormGroup>
-
-                            <Input invalid  placeholder="Alamat"/>
-                        </FormGroup>
-                    </Form>
-                </ListItem>
-                <ListItem className={classes.center}>
-                    <Button style={{width: '100%'}} variant="contained" color="secondary" >
+    changeHandler(e){
+        this.setState({
+            [e.target.name]:e.target.value
+        });
+    }
+    submitHandler(e){
+        e.preventDefault();
+        axios
+            .post('http://192.168.10.40:8080/users/register', this.state)
+            .then(result=>{
+                if(result.data.errors){
+                    return this.setState(result.data);
+                }
+                return this.setState({
+                    userdata: result.data,
+                    errors : null,
+                    success : true
+                });
+            });
+    }
+    
+    render(){
+        return (
+            <div>
+                <Container className='formdaftar' style={{width: '35%'}}>
+                    
+                    <h4>Gabung Jadi Member Yuk!</h4> 
+                    <h5>Daftar Disini</h5>
+                    <Row>   
+                        <Col>
+                            {this.state.success && <p>Registrasi anda berhasil</p>}
+                            <Form onSubmit={this.submitHandler}>
+                                <FormGroup row>
+                                    <Input 
+                                        onChange={this.changeHandler}
+                                        type="text"
+                                        name="username"
+                                        id="username"
+                                        placeholder="Nama Pengguna"/>{' '}
+                                    {this.state.errors && this.state.errors.username &&
+                             (<p>{this.state.errors.username.msg}</p>)}
+                                </FormGroup>
+                                <FormGroup row>
+                                    <Input 
+                                        onChange={this.changeHandler}
+                                        type="text"
+                                        name="firstname"
+                                        id="firstname"
+                                        placeholder="Nama Depan"/>{' '}
+                                    {this.state.errors && this.state.errors.firstname &&
+                            (<p>{this.state.errors.firstname.msg}</p>)}
+                                </FormGroup>
+                                <FormGroup row>
+                                    <Input 
+                                        onChange={this.changeHandler}
+                                        type="text"
+                                        name="lastname"
+                                        id="lastname"
+                                        placeholder="Nama Belakang"/>{' '}
+                                    {this.state.errors && this.state.errors.lastname && 
+                            (<p>{this.state.errors.lastname.msg}</p>)}
+                                </FormGroup>
+                                <FormGroup row>
+                                    <Input 
+                                        onChange={this.changeHandler}
+                                        type="password"
+                                        id="password"
+                                        name="password"
+                                        placeholder="Kata Sandi"/> {' '}
+                                    {this.state.errors && this.state.errors.password &&
+                            (<p>{this.state.errors.password.msg}</p>)}
+                                </FormGroup>
+                                <FormGroup row>
+                                    <Input 
+                                        onChange={this.changeHandler}
+                                        type="email"
+                                        name="email"
+                                        id="email"
+                                        placeholder="Alamat Email"/> {' '}
+                                    {this.state.errors&& this.state.errors.email&&
+                            (<p>{this.state.errors.email.msg}</p>)}
+                                </FormGroup>
+                                <FormGroup row>
+                                    <Input 
+                                        onChange={this.changeHandler}
+                                        type="text"
+                                        name="phone"
+                                        id="phone"
+                                        placeholder="Nomor Telepon"/> {' '}
+                                    {this.state.errors&& this.state.errors.phone&&
+                            (<p>{this.state.errors.phone.msg}</p>)}
+                                </FormGroup>
+                                <FormGroup row>
+                                    <Input 
+                                        onChange={this.changeHandler}
+                                        type="text"
+                                        name="address"
+                                        id="address"
+                                        placeholder="Alamat Rumah"/> {' '}
+                                    {this.state.errors&& this.state.errors.address&&
+                            (<p>{this.state.errors.address.msg}</p>)}
+                                </FormGroup>
+                        
+                    
+                                <FormGroup check row>
+                                    <Button style={{width: '100%'}} color="secondary" type="Submit" >
                       Daftar Sekarang
-                    </Button>
-                </ListItem>
-            </List>
-        </div>
-    );
+                                    </Button>
+                                </FormGroup>
+                                
+                            </Form>
+                        </Col>
+                    </Row>
+                </Container>
+            </div>
+        );
+    }
 }
-
-SimpleList.propTypes = {
-    classes: PropTypes.object.isRequired,
-};
-
-export default withStyles(styles)(SimpleList);

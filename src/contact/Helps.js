@@ -7,7 +7,7 @@ export default class Helps extends React.Component {
             <div className="divHelps">
                 <center>
                     <a className=" text-white" href="">
-                PERLU BANTUAN? HUBUNGI KAMI >
+                PERLU BANTUAN? HUBUNGI KAMI
                     </a>
                 </center>
             </div>
