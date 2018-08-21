@@ -53,8 +53,8 @@ class List extends React.Component {
                         }
                     </tbody>
                 </Table>
-                { (this.state.showModule == 'update') && <Update modal={this.state.modal} closeModal={this.closeModal} fetchData={this.fetchData} id={this.state.idUpdate}/> }
-                { (this.state.showModule == 'delete') && <Delete modal={this.state.modal} closeModal={this.closeModal} fetchData={this.fetchData} data={this.state.itemDeleted}/> }
+                { (this.state.showModule === 'update') && <Update modal={this.state.modal} closeModal={this.closeModal} fetchData={this.fetchData} id={this.state.idUpdate}/> }
+                { (this.state.showModule === 'delete') && <Delete modal={this.state.modal} closeModal={this.closeModal} fetchData={this.fetchData} data={this.state.itemDeleted}/> }
             </div>
         );
     }
