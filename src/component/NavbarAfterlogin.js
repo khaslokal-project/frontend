@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
-import { Menu, ArrowBack, ShoppingCart } from '@material-ui/icons';
+import { Menu, ArrowBack, ShoppingCart, Portrait } from '@material-ui/icons';
 import { Route, HashRouter } from 'react-router-dom';
 import { mailFolderListItems, otherMailFolderListItems } from './Tiledata';
 
 import { mailFolderListItemsRight } from './tileDataRight';
-import { IconButton, Toolbar, AppBar, List, Drawer, Divider, Badge} from '@material-ui/core';
+import { IconButton, Toolbar, AppBar, List, Drawer, Divider} from '@material-ui/core';
 
 import Beranda from '../pages/Beranda';
 import Kategori from '../pages/Kategori';
@@ -22,6 +22,7 @@ import Minuman from './../pages/Insidekategori/Minuman';
 import Aksesoris from './../pages/Insidekategori/Aksesoris';
 import Buahbuahan from './../pages/Insidekategori/Buahbuahan';
 import Daging from './../pages/Insidekategori/Daging';
+import Pohon from './../pages/Insidekategori/Pohon';
 import Tanaman from './../pages/Insidekategori/Tanaman';
 import Kerajinan from './../pages/Insidekategori/Kerajinantangan';
 import Lauk from './../pages/Insidekategori/Lauk';
@@ -114,13 +115,20 @@ class Navbar extends React.Component {
                                     <Input placeholder="Cari.." src={Cari} style={{marginTop: '10px'}}/>
                                     <InputGroupAddon addonType="append">
                                         <IconButton color="inherit" aria-label="Open drawer" style={{marginTop: '5px'}}>
-                                            <Badge badgeContent={0} color="inherit"  >
-                                                <ShoppingCart onClick={
-                                                    () => {
-                                                        this.toggleDrawer('right', true);
-                                                    }
-                                                }/>
-                                            </Badge>
+                                            <ShoppingCart onClick={
+                                                () => {
+                                                    this.toggleDrawer('right', true);
+                                                }
+                                            }/>
+                                        </IconButton>
+                                    </InputGroupAddon>
+                                    <InputGroupAddon addonType="append">
+                                        <IconButton color="inherit" aria-label="Open drawer" style={{marginTop: '5px'}}>
+                                            <Portrait onClick={
+                                                () => {
+                                                    this.toggleDrawer('right', true);
+                                                }
+                                            }/>
                                         </IconButton>
                                     </InputGroupAddon>
                                 </InputGroup>
@@ -168,6 +176,7 @@ class Navbar extends React.Component {
 
                     <Route exact path="/" component={Beranda} />
                     
+
                     <Route path="/masuk" component={Masuk} />
                     <Route path="/daftar" component={Daftar} />
                     <Route path="/kategori" component={Kategori}/>
@@ -187,6 +196,7 @@ class Navbar extends React.Component {
                     <Route path="/aksesoris" component={Aksesoris} />
                     <Route path="/buahbuahan" component={Buahbuahan} />
                     <Route path="/pakaian" component={Pakaian} />
+                    <Route path="/pohon" component={Pohon} />
                     <Route path="/tanaman" component={Tanaman} />
                     <Route path="/sayuran" component={Sayuran} />
                     <Route path="/lauk" component={Lauk} />

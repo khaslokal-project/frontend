@@ -37,7 +37,7 @@ import Makanan from '../pages/Insidekategori/Makanan';
 storiesOf('Insidekategori', module)
     .add('Makanan', () => <Makanan/>);
 
-console.log(process.env.REACT_APP_API_URL);
+console.log (process.env.REACT_APP_API_URL);
 
 storiesOf('Admin', module)
     .add('Seller List', () => <SellerList />)
