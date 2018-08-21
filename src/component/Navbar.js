@@ -5,7 +5,7 @@ import { Menu, ArrowBack, ShoppingCart } from '@material-ui/icons';
 import { Route, HashRouter } from 'react-router-dom';
 import { mailFolderListItems, otherMailFolderListItems } from './Tiledata';
 import { mailFolderListItemsRight } from './tileDataRight';
-import { IconButton, Toolbar, AppBar, List, Drawer, Divider} from '@material-ui/core';
+import { IconButton, Toolbar, AppBar, List, Drawer, Divider, Badge} from '@material-ui/core';
 
 import Beranda from '../pages/Beranda';
 import Kategori from '../pages/Kategori';
@@ -21,7 +21,6 @@ import Minuman from './../pages/Insidekategori/Minuman';
 import Aksesoris from './../pages/Insidekategori/Aksesoris';
 import Buahbuahan from './../pages/Insidekategori/Buahbuahan';
 import Daging from './../pages/Insidekategori/Daging';
-import Pohon from './../pages/Insidekategori/Pohon';
 import Tanaman from './../pages/Insidekategori/Tanaman';
 import Kerajinan from './../pages/Insidekategori/Kerajinantangan';
 import Lauk from './../pages/Insidekategori/Lauk';
@@ -114,11 +113,13 @@ class Navbar extends React.Component {
                                     <Input placeholder="Cari.." src={Cari} style={{marginTop: '10px'}}/>
                                     <InputGroupAddon addonType="append">
                                         <IconButton color="inherit" aria-label="Open drawer" style={{marginTop: '5px'}}>
-                                            <ShoppingCart onClick={
-                                                () => {
-                                                    this.toggleDrawer('right', true);
-                                                }
-                                            }/>
+                                            <Badge badgeContent={0} color="inherit"  >
+                                                <ShoppingCart onClick={
+                                                    () => {
+                                                        this.toggleDrawer('right', true);
+                                                    }
+                                                }/>
+                                            </Badge>
                                         </IconButton>
                                     </InputGroupAddon>
                                 </InputGroup>
@@ -185,7 +186,6 @@ class Navbar extends React.Component {
                     <Route path="/aksesoris" component={Aksesoris} />
                     <Route path="/buahbuahan" component={Buahbuahan} />
                     <Route path="/pakaian" component={Pakaian} />
-                    <Route path="/pohon" component={Pohon} />
                     <Route path="/tanaman" component={Tanaman} />
                     <Route path="/sayuran" component={Sayuran} />
                     <Route path="/lauk" component={Lauk} />

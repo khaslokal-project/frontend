@@ -39,24 +39,14 @@ class Create extends React.Component {
                             <FormGroup row>
                                 <Label for="idseller" sm={2}>Id Seller</Label>
                                 <Col sm={10}>
-                                    <Input type="select" name="idseller" id="idseller" onChange={this.handleChange }>
-                                        <option value="1">Balkis</option>
-                                        <option value="2">Wondo</option>
-                                        <option value="3">Welly</option>
-                                        <option value="4">Jamale</option>
-                                        <option value="5">Indra</option>
+                                    <Input type="text" name="idseller" id="idseller" onChange={this.handleChange }>
                                     </Input>
                                 </Col>
                             </FormGroup>
                             <FormGroup row>
                                 <Label for="idcategory" sm={2}>Id Kategori</Label>
                                 <Col sm={10}>
-                                    <Input type="select" name="idcategory" id="idcategory" onChange={this.handleChange }>
-                                        <option value="1">Makanan</option>
-                                        <option value="2">Minuman</option>
-                                        <option value="3">Jasa</option>
-                                        <option value="4">Kerajinan</option>
-                                        <option value="5">Tanaman</option>
+                                    <Input type="text" name="idcategory" id="idcategory" onChange={this.handleChange }>
                                     </Input>
                                 </Col>
                             </FormGroup>
@@ -137,7 +127,7 @@ class Create extends React.Component {
 
     handleSubmit(event){
         event.preventDefault();
-        axios.post('https://wicked-cow-10.localtunnel.me/products', this.state)
+        axios.post('http://192.168.10.40:8080/products/', this.state)
             .then(res => {
                 this.close();
                 console.log(this.props);

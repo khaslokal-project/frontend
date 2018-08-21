@@ -10,10 +10,10 @@ import Buah from './../assetImage/icon/Buah.png';
 import Daging from './../assetImage/icon/Daging.png';
 import Lauk from './../assetImage/icon/Lauk.png';
 import Sayur from './../assetImage/icon/Sayur.png';
-import Pohon from './../assetImage/icon/Pohon.png';
 import Baju from './../assetImage/icon/Baju.png';
 import Sepatu from './../assetImage/icon/Sepatu.png';
 import Herbal from './../assetImage/icon/herbal.png';
+import Tanaman from './../assetImage/icon/Pohon.png';
 
 
 
@@ -122,8 +122,7 @@ function Kategori (props) {
                     </ListItemIcon>
                     <ListItemText primary="Pakaian" />
                 </ListItem>
-                <Divider />
-                <ListItem button component={Link} to="/pohon">
+                <ListItem button component={Link} to="/sepatu">
                     <ListItemIcon>
                         <Avatar alt="sepatu" src={Sepatu} style={{ width: '23px', height: '23px'}}/>
                     </ListItemIcon>
@@ -132,7 +131,7 @@ function Kategori (props) {
                 <Divider />
                 <ListItem button component={Link} to="/tanaman">
                     <ListItemIcon>
-                        <Avatar alt="pohon" src={Pohon} style={{ width: '23px', height: '23px'}}/>
+                        <Avatar alt="pohon" src={Tanaman} style={{ width: '23px', height: '23px'}}/>
                     </ListItemIcon>
                     <ListItemText primary="Tanaman"  />
                 </ListItem>

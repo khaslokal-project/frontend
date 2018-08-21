@@ -54,7 +54,7 @@ class List extends React.Component {
                     </tbody>
                 </Table>
                 { (this.state.showModule === 'update') && <Update modal={this.state.modal} closeModal={this.closeModal} fetchData={this.fetchData} id={this.state.idUpdate}/> }
-                { (this.state.showModule ===  'delete') && <Delete modal={this.state.modal} closeModal={this.closeModal} fetchData={this.fetchData} data={this.state.itemDeleted}/> }
+                { (this.state.showModule === 'delete') && <Delete modal={this.state.modal} closeModal={this.closeModal} fetchData={this.fetchData} data={this.state.itemDeleted}/> }
             </div>
         );
     }
@@ -80,7 +80,7 @@ class List extends React.Component {
     }
 
     fetchData(){
-        axios.get('https://wicked-cow-10.localtunnel.me/productcategory')
+        axios.get('http://192.168.10.40:8080/productcategory/')
             .then( ({ data }) => {
                 this.setState({
                     data: data

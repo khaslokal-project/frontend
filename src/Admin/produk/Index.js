@@ -18,7 +18,7 @@ class Index extends React.Component {
     render(){
         return(
             <div style={{paddingTop:'2rem'}}>
-                <Label> List Kategory </Label> <br/>
+                <Label> List Produk </Label> <br/>
                 <Button color="danger" onClick={this.showCreate}>
                     Tambah
                 </Button>

@@ -1,178 +1,101 @@
 import React from 'react';
 import BarTopProduct from './BarTopProduct';
 
-import {Container, Row, Col, Card, Button, CardImg, CardTitle, CardText} from 'reactstrap';
-   
-const CardProduct = () => {
-    return (
-        <div>
-            <Container>
-                <Row>
-                    <BarTopProduct/>
-                </Row>
-                <Row>
-                    <Col>
-                        <Card className="cardCard">
-                            <CardImg top width="219px" height="273.75px" src={require('../assetImage/product/sc00002.jpg')} alt="Card image cap" />
-                            <div>
-                                <Container>
-                                    <CardTitle className="cardTitles">Cake Pisang</CardTitle>
-                                    <div ><del className="text-muted">Rp. 68.000</del>
-                                        <span className=" cardPrice"> Rp. 65.000</span></div>
-                                </Container>
-                                <Container className="contCard">
-                                    <Row className="inline align-items-center">
-                                        <Col><CardText className="cardTexts">Villa Group Batam</CardText></Col>
-                                        <Col xs="3"><Button className="cardButton" size="sm" color="danger">Beli</Button></Col>
-                                    </Row>
-                                </Container>
-                            </div>
-                        </Card>
-                    </Col>
+import Tileorder from '../component/Tileorder';
+import { Container, Row, Col, Card, Button, CardImg, CardTitle, CardText } from 'reactstrap';
 
-                    <Col>
-                        <Card className="cardCard">
-                            <CardImg top width="219px" height="273.75px" src={require('../assetImage/product/cr00001.jpg')} alt="Card image cap" />
-                            <div>
-                                <Container>
-                                    <CardTitle className="cardTitles">Tempat Tisu</CardTitle>
-                                    <div><del className="text-muted">Rp. 150.000</del>
-                                        <span > Rp. 130.000</span></div>       
-                                </Container>
-                                <Container className="contCard">   
-                                    <Row className="inline align-items-center">
-                                        <Col><CardText className="cardTexts">Rumah Kreatif Bunda Elviana Tanjung Pinang</CardText></Col>
-                                        <Col xs="3"><Button className="cardButton" size="sm" color="danger">Beli</Button></Col>
-                                    </Row>
-                                </Container>
-                            </div>
-                        </Card>
-                    </Col>
-                </Row>
+class CardProduct extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state ={
+            data :  [],
+            idTileorder : null
+        };
+        
+        this.showTileorder = this.showTileorder.bind(this);
+        this.showModal = this.closeModal.bind(this);
+    }
 
-                <Row>
-                    <Col>
-                        <Card className="cardCard">
-                            <CardImg top width="219px" height="273.75px" src={require('../assetImage/product/sc00001.jpg')} alt="Card image cap" />
-                            <div>
-                                <Container>
-                                    <CardTitle className="cardTitles">Keripik Pisang</CardTitle>
-                                    <div ><del className="text-muted">Rp. 20.000</del>
-                                        <span className="cardPrice"> Rp. 18.000</span></div>
-                                </Container>
-                                <Container className="contCard"> 
-                                    <Row className="inline align-items-center">
-                                        <Col><CardText className="cardTexts">Narata Batam</CardText></Col>
-                                        <Col xs="3"><Button className="cardButton" size="sm" color="danger">Beli</Button></Col>
-                                    </Row>
-                                </Container>
-                            </div>
-                        </Card>
-                    </Col>
+    render() {
+    
+        return (
+            <div>
+                <Container>
+                    <Row>
+                        <BarTopProduct />
+                    </Row>
+                    <Row>
+                        <Col>
+                            {
+                                this.state.data.map(item => {
+                                    return(
+                                        <Card className="cardCard  mr-2 ml-2 mb-3" key={item.id}>
+                                            <CardImg top width="219px" height="273.75px" src={item.image} alt="Card image cap" />
+                                            <div>
+                                                <Container>
+                                                    <CardTitle className="cardTitles">{item.name}</CardTitle>
+                                                    <div ><del className="text-muted">Rp. 68.000</del>
+                                                        <span className=" cardPrice"> {item.price}</span></div>
+                                                </Container>
+                                                <Container className="contCard">
+                                                    <Row className="inline align-items-center">
+                                                        <Col><CardText className="cardTexts">{item.brand}</CardText></Col>
+                                                        <Col xs="3"><Button className="cardButton" size="sm" color="danger" onClick={
+                                                            () => {
+                                                                this.showTileorder(item.id);
+                                                            }}
+                                                        >Beli</Button></Col>
+                                                    </Row>
+                                                </Container>
+                                            </div>
+                                        </Card>
+                                    );
+                                })
+                            }
+                        </Col>
+                    </Row>
 
-                    <Col>
-                        <Card className="cardCard">
-                            <CardImg top width="219px" height="273.75px" src={require('../assetImage/product/sd00001.jpg')} alt="Card image cap" />
-                            <div>
-                                <Container>
-                                    <CardTitle className="cardTitles">Teh Tarik Botol</CardTitle>
-                                    <div><del className="text-muted">Rp. 10.500</del>
-                                        <span className="cardPrice"> Rp. 10.000</span></div>    
-                                </Container>
-                                <Container className="contCard">
-                                    <Row className="inline align-items-center">
-                                        <Col><CardText className="cardTexts">Meltea Batam</CardText></Col>
-                                        <Col xs="3"><Button className="cardButton" size="sm" color="danger">Beli</Button></Col>
-                                    </Row>
-                                </Container>
-                            </div>
-                        </Card>
-                    </Col>
-                </Row>
+                </Container>
+                {
+                    (this.showModal === 'Tileorder') 
+                    && <Tileorder modal={this.state.modal} closeModal={this.closeModal} data={this.fetchData} id={this.state.idTileorder} /> 
+                }
+            </div>
+        );
+    }
+    componentDidMount() {
+        this.fetchData();
+    }
 
-                <Row>
-                    <Col>
-                        <Card className="cardCard">
-                            <CardImg top width="219px" height="273.75px" src={require('../assetImage/product/fd00001.jpg')} alt="Card image cap" />
-                            <div>
-                                <Container>
-                                    <CardTitle className="cardTitles">Bakso</CardTitle>
-                                    <div><del className="text-muted">Rp. 12.000</del>
-                                        <span className="cardPrice"> Rp. 10.000</span></div>
-                                </Container>
-                                <Container className="contCard">  
-                                    <Row className="inline align-items-center">
-                                        <Col><CardText className="cardTexts">Ki-Bakso Batam</CardText></Col>
-                                        <Col xs="3"><Button className="cardButton" size="sm" color="danger">Beli</Button></Col>
-                                    </Row>
-                                </Container>
-                            </div>
-                        </Card>
-                    </Col>
+    showTileorder(id) {
+        this.setState({
+            showModule: 'Tileorder',
+            modal: true,
+            idTileorder: id
+        });
+    }
 
-                    <Col>
-                        <Card className="cardCard">
-                            <CardImg top width="219px" height="273.75px" src={require('../assetImage/product/sc00003.jpeg')} alt="Card image cap" />
-                            <div>
-                                <Container>
-                                    <CardTitle className="cardTitles">Keripik Gong-gong</CardTitle>
-                                    <div><del className="text-muted">Rp. 16.000</del>
-                                        <span className="cardPrice"> Rp. 15.000</span></div>
-                                </Container>
-                                <Container className="contCard">
-                                    <Row className="inline align-items-center">
-                                        <Col><CardText className="cardTexts">UKM - Fartiana</CardText></Col>
-                                        <Col xs="3"><Button className="cardButton" size="sm" color="danger">Beli</Button></Col>
-                                    </Row>
-                                </Container>
-                            </div>
-                        </Card>
-                    </Col>
-                </Row>
+    fetchData() {
+        const API_URL = 'http://192.168.10.40:8080/products/';
+        fetch(API_URL)
+            .then(response => response.json())
+            .then(data => {
+                data.forEach(item => {
+                    this.showTileorder(item.id);
+                });
+                this.setState({
+                    data: data
+                });
+            })
+            .catch(err => console.log(err));
+    }
+    closeModal() {
+        this.setState({
+            showModule: '',
+            modal: false
+        });
+    }
 
-                <Row>
-                    <Col>
-                        <Card className="cardCard">
-                            <CardImg top width="219px" height="273.75px" src={require('../assetImage/product/sc00005.jpg')} alt="Card image cap" />
-                            <div>
-                                <Container>
-                                    <CardTitle className="cardTitles">Kerupuk Tulang Ikan</CardTitle>
-                                    <div ><del className="text-muted">Rp. 15.500</del>
-                                        <span className="cardPrice"> Rp. 15.000</span></div>
-                                </Container>
-                                <Container className="contCard">
-                                    <Row className="inline align-items-center">
-                                        <Col><CardText className="cardTexts">La-Rest</CardText></Col>
-                                        <Col xs="3"><Button className="cardButton" size="sm" color="danger">Beli</Button></Col>
-                                    </Row>
-                                </Container>
-                            </div>
-                        </Card>
-                    </Col>
-
-                    <Col>
-                        <Card className="cardCard">
-                            <CardImg top width="219px" height="273.75px" src={require('../assetImage/product/sc00004.jpg')} alt="Card image cap" />
-                            <div>
-                                <Container>
-                                    <CardTitle className="cardTitles">Keripik Singkong</CardTitle>
-                                    <div> <del className="text-muted">Rp. 15.500</del>
-                                        <span className="cardPrice"> Rp. 15.000</span></div> 
-                                </Container>
-                                <Container className="contCard">  
-                                    <Row className="inline align-items-center">
-                                        <Col><CardText className="cardTexts">Aruna Food Crispy</CardText></Col>
-                                        <Col xs="3"><Button className="cardButton" size="sm" color="danger">Beli</Button></Col>
-                                    </Row>
-                                </Container>
-                            </div>
-                        </Card>
-                    </Col>
-                </Row>
-
-            </Container>
-        </div>
-    );
-};
+}
 
 export default CardProduct;

@@ -43,7 +43,7 @@ class Update extends React.Component {
                                 <Label for="idseller" sm={2}>Id Seller</Label>
                                 <Col sm={10}>
                                     <Input 
-                                        type="select" 
+                                        type="text" 
                                         name="idseller" 
                                         value={this.state.idseller}
                                         id="idseller" 
@@ -54,7 +54,7 @@ class Update extends React.Component {
                                 <Label for="idcategory" sm={2}>Id Kategori</Label>
                                 <Col sm={10}>
                                     <Input 
-                                        type="select" 
+                                        type="text" 
                                         name="idcategory"
                                         value={this.state.idcategory} 
                                         id="idcategory"
@@ -70,7 +70,7 @@ class Update extends React.Component {
                                         name="name" 
                                         value={this.state.name}
                                         id="name" 
-                                        onChange={this.state.handleChange}
+                                        onChange={this.handleChange}
                                     />
                                 </Col>
                             </FormGroup>
@@ -82,7 +82,7 @@ class Update extends React.Component {
                                         name="price" 
                                         value={this.state.price}
                                         id="price" 
-                                        onChange={this.state.handleChange}/>
+                                        onChange={this.handleChange}/>
                                 </Col>
                             </FormGroup>
                             <FormGroup row>
@@ -93,7 +93,7 @@ class Update extends React.Component {
                                         name="stock" 
                                         value={this.state.stock}
                                         id="stock" 
-                                        onChange={this.state.handleChange}/>
+                                        onChange={this.handleChange}/>
                                 </Col>
                             </FormGroup>
                             <FormGroup row>
@@ -115,7 +115,7 @@ class Update extends React.Component {
                                         name="description" 
                                         value={this.state.description}
                                         id="description" 
-                                        onChange={this.state.handleChange} />
+                                        onChange={this.handleChange} />
                                 </Col>
                             </FormGroup>
                             <FormGroup row>
@@ -126,7 +126,7 @@ class Update extends React.Component {
                                         name="type" 
                                         value={this.state.type}
                                         id="type" 
-                                        onChange={this.state.handleChange}/>
+                                        onChange={this.handleChange}/>
                                 </Col>
                             </FormGroup>
                             <FormGroup row>
@@ -137,7 +137,7 @@ class Update extends React.Component {
                                         name="image" 
                                         value={this.state.image}
                                         id="image" 
-                                        onChange={this.state.handleChange}/>
+                                        onChange={this.handleChange}/>
                                 </Col>
                             </FormGroup>
                             <FormGroup row>
@@ -148,7 +148,7 @@ class Update extends React.Component {
                                         name="rating" 
                                         value={this.state.rating}
                                         id="rating" 
-                                        onChange={this.state.handleChange}/>
+                                        onChange={this.handleChange}/>
                                 </Col>
                             </FormGroup>
                             <FormGroup row>
@@ -159,7 +159,7 @@ class Update extends React.Component {
                                         name="review" 
                                         value={this.state.review}
                                         id="review" 
-                                        onChange={this.state.handleChange}
+                                        onChange={this.handleChange}
                                     />
                                 </Col>
                             </FormGroup>
@@ -178,7 +178,7 @@ class Update extends React.Component {
     }
 
     componentDidMount(){
-        axios.get(`https://wicked-cow-10.localtunnel.me/products/${this.props.id}`)
+        axios.get(`http://192.168.10.40:8080/products/${this.props.id}`)
             .then(res => {
                 this.setState({
                     idseller: res.data.idseller,
@@ -206,7 +206,7 @@ class Update extends React.Component {
 
     handleSubmit(event){
         event.preventDefault();
-        axios.post(`https://wicked-cow-10.localtunnel.me/products/${this.props.id}`, this.state)
+        axios.put(`http://192.168.10.40:8080/products/${this.props.id}`, this.state)
             .then(res => {
                 this.close();
                 this.props.fetchData();
