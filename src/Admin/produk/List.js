@@ -34,10 +34,7 @@ class List extends React.Component {
                             <th>Stok</th>
                             <th>Merek</th>
                             <th>Keterangan</th>
-                            <th>Tipe</th>
                             <th>Gambar</th>
-                            <th>Penilaian</th>
-                            <th>Review</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -52,10 +49,7 @@ class List extends React.Component {
                                         <td>{item.stock}</td>
                                         <td>{item.brand}</td>
                                         <td>{item.description}</td>
-                                        <td>{item.type}</td>
                                         <td>{item.image}</td>
-                                        <td>{item.rating}</td>
-                                        <td>{item.review}</td>
                                         <td> 
                                             <Button color="warning" onClick={
                                                 () => {

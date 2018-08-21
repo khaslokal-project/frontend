@@ -18,7 +18,9 @@ class Update extends React.Component {
             image: '',
             rating: '',
             review: '',
-            modal: props.modal
+            modal: props.modal,
+            dataSeller: [],
+            dataCategory: []
         };
     
         // const env = dotenv.config().parsed;
@@ -40,26 +42,31 @@ class Update extends React.Component {
                     <ModalBody>
                         <Form onSubmit={this.handleSubmit}>
                             <FormGroup row>
-                                <Label for="idseller" sm={2}>Id Seller</Label>
+                                <Label for="idseller" sm={2}>Seller</Label>
                                 <Col sm={10}>
                                     <Input 
-                                        type="text" 
+                                        type="select" 
                                         name="idseller" 
                                         value={this.state.idseller}
                                         id="idseller" 
                                         onChange={this.handleChange}/>
+                                    {
+                                        this.state.dataSeller.map(item => (<option key={item.id} value={item.id} >{item.username}</option>))
+                                    }
                                 </Col>
                             </FormGroup>
                             <FormGroup row>
-                                <Label for="idcategory" sm={2}>Id Kategori</Label>
+                                <Label for="idcategory" sm={2}>Kategori</Label>
                                 <Col sm={10}>
                                     <Input 
-                                        type="text" 
+                                        type="select" 
                                         name="idcategory"
                                         value={this.state.idcategory} 
                                         id="idcategory"
-                                        onChange={this.handleChange}
-                                    />
+                                        onChange={this.handleChange} />
+                                    {
+                                        this.state.dataCategory.map(item => (<option key={item.id} value={item.id}>{item.nameCategory}</option>))
+                                    }
                                 </Col>
                             </FormGroup>
                             <FormGroup row>
@@ -119,17 +126,6 @@ class Update extends React.Component {
                                 </Col>
                             </FormGroup>
                             <FormGroup row>
-                                <Label for="type" sm={2}>Tipe</Label>
-                                <Col sm={10}>
-                                    <Input 
-                                        type="text" 
-                                        name="type" 
-                                        value={this.state.type}
-                                        id="type" 
-                                        onChange={this.handleChange}/>
-                                </Col>
-                            </FormGroup>
-                            <FormGroup row>
                                 <Label for="image" sm={2}>Gambar</Label>
                                 <Col sm={10}>
                                     <Input 
@@ -138,29 +134,6 @@ class Update extends React.Component {
                                         value={this.state.image}
                                         id="image" 
                                         onChange={this.handleChange}/>
-                                </Col>
-                            </FormGroup>
-                            <FormGroup row>
-                                <Label for="rating" sm={2}>Penilaian</Label>
-                                <Col sm={10}>
-                                    <Input 
-                                        type="text" 
-                                        name="rating" 
-                                        value={this.state.rating}
-                                        id="rating" 
-                                        onChange={this.handleChange}/>
-                                </Col>
-                            </FormGroup>
-                            <FormGroup row>
-                                <Label for="review" sm={2}>Ulasan</Label>
-                                <Col sm={10}>
-                                    <Input 
-                                        type="text" 
-                                        name="review" 
-                                        value={this.state.review}
-                                        id="review" 
-                                        onChange={this.handleChange}
-                                    />
                                 </Col>
                             </FormGroup>
                             <FormGroup row>
@@ -177,9 +150,14 @@ class Update extends React.Component {
         );
     }
 
+   
+
+
     componentDidMount(){
         axios.get(`http://192.168.10.40:8080/products/${this.props.id}`)
             .then(res => {
+                this.fetchDataSeller();
+                this.fetchDataCategory();
                 this.setState({
                     idseller: res.data.idseller,
                     idcategory: res.data.idcategory,
@@ -197,6 +175,24 @@ class Update extends React.Component {
             })
             .catch(error => {
                 console.log(error);
+            });
+    }
+
+    fetchDataSeller(){
+        axios.get('http://192.168.10.40:8080/sellers/')
+            .then(({ data }) => {
+                this.setState({
+                    dataSeller: data
+                });
+            });
+    }
+
+    fetchDataCategory(){
+        axios.get('http://192.168.10.40:8080/productcategory/')
+            .then(({ data }) => {
+                this.setState({
+                    dataCategory: data
+                });
             });
     }
 

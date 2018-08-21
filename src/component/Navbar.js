@@ -6,7 +6,7 @@ import { Route, HashRouter } from 'react-router-dom';
 import { mailFolderListItems, otherMailFolderListItems } from './Tiledata';
 
 import { mailFolderListItemsRight } from './tileDataRight';
-import { IconButton, Toolbar, AppBar, List, Drawer, Divider, Badge} from '@material-ui/core';
+import { IconButton, Toolbar, AppBar, List, Drawer, Divider} from '@material-ui/core';
 
 import Beranda from '../pages/Beranda';
 import Kategori from '../pages/Kategori';
@@ -114,13 +114,13 @@ class Navbar extends React.Component {
                                     <Input placeholder="Cari.." src={Cari} style={{marginTop: '10px'}}/>
                                     <InputGroupAddon addonType="append">
                                         <IconButton color="inherit" aria-label="Open drawer" style={{marginTop: '5px'}}>
-                                            <Badge badgeContent={0} color="inherit"  >
-                                                <ShoppingCart onClick={
-                                                    () => {
-                                                        this.toggleDrawer('right', true);
-                                                    }
-                                                }/>
-                                            </Badge>
+                                            {/* <Badge badgeContent={0} color="inherit"  > */}
+                                            <ShoppingCart onClick={
+                                                () => {
+                                                    this.toggleDrawer('right', true);
+                                                }
+                                            }/>
+                                            {/* </Badge> */}
                                         </IconButton>
                                     </InputGroupAddon>
                                 </InputGroup>
