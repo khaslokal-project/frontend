@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Button, Form, Input, Card, CardTitle, Row, Col } from 'reactstrap';
 import axios from 'axios';
-// axios.defaults.withCredentials = false;
+
 
 class Masuk extends Component {
     constructor(props) {
@@ -32,7 +32,7 @@ class Masuk extends Component {
                 if (res.data.errors) {
                     return this.setState({ valerrors: res.data.errors });
                 }
-                return (window.location = '/');
+                return (window.location = '/login');
             });
     }
     render() {

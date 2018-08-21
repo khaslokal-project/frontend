@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
-import { Menu, ArrowBack, ShoppingCart } from '@material-ui/icons';
+import { Menu, ArrowBack, ShoppingCart, Portrait } from '@material-ui/icons';
 import { Route, HashRouter } from 'react-router-dom';
 import { mailFolderListItems, otherMailFolderListItems } from './Tiledata';
 
@@ -122,6 +122,15 @@ class Navbar extends React.Component {
                                             }/>
                                         </IconButton>
                                     </InputGroupAddon>
+                                    <InputGroupAddon addonType="append">
+                                        <IconButton color="inherit" aria-label="Open drawer" style={{marginTop: '5px'}}>
+                                            <Portrait onClick={
+                                                () => {
+                                                    this.toggleDrawer('right', true);
+                                                }
+                                            }/>
+                                        </IconButton>
+                                    </InputGroupAddon>
                                 </InputGroup>
                             </Toolbar>
                         </AppBar>
@@ -167,6 +176,7 @@ class Navbar extends React.Component {
 
                     <Route exact path="/" component={Beranda} />
                     
+
                     <Route path="/masuk" component={Masuk} />
                     <Route path="/daftar" component={Daftar} />
                     <Route path="/kategori" component={Kategori}/>
