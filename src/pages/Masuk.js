@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import { Button, Form, Input, Card, CardTitle, Row, Col } from 'reactstrap';
 import axios from 'axios';
-axios.defaults.withCredentials = true;
+// axios.defaults.withCredentials = false;
 
 class Masuk extends Component {
     constructor(props) {
         super(props);
         this.state = {
             password: '',
-            email: '',
+            username: '',
             error: null,
             valerrors: null
         };
@@ -24,7 +24,7 @@ class Masuk extends Component {
     submitHandler(e) {
         e.preventDefault();
         axios
-            .post('http://localhost:8080/api/login', this.state)
+            .post('http://192.168.10.40:8080/users/login', this.state)
             .then(res => {
                 if (res.data.error) {
                     return this.setState({ error: res.data.message });
@@ -46,15 +46,15 @@ class Masuk extends Component {
                             <Form onSubmit={this.submitHandler}>
           
                                 {this.state.valerrors &&
-              this.state.valerrors.email && (
-                                        <p>{this.state.valerrors.email.msg}</p>
+              this.state.valerrors.username && (
+                                        <p>{this.state.valerrors.username.msg}</p>
                                     )}
                                 <Input
                                     onChange={this.changeHandler}
-                                    type="email"
-                                    name="email"
-                                    id="email"
-                                    placeholder="Alamat Email"
+                                    type="text"
+                                    name="username"
+                                    id="username"
+                                    placeholder="Username"
                                 />{' '}
                                 
                                 {this.state.valerrors &&
@@ -72,7 +72,7 @@ class Masuk extends Component {
                                 <Button color="warning" type="submit"> Login </Button>
                                
                             </Form>
-                            <a href="/pages/Daftar" className="CardText"> Belum memiliki akun? </a>
+                            <a href="/#/Daftar" className="CardText"> Belum memiliki akun? </a>
                         </Card>
                     </Col>
                 </Row>

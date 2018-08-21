@@ -11,6 +11,8 @@ export default class Daftar extends React.Component{
             lastname:'',
             password:'',
             email:'',
+            phone:'',
+            address:'',
             userdata: null,
             success: false
         };
@@ -26,7 +28,7 @@ export default class Daftar extends React.Component{
     submitHandler(e){
         e.preventDefault();
         axios
-            .post('http://192.168.10.80:3000/api/register', this.state)
+            .post('http://192.168.10.40:8080/users/register', this.state)
             .then(result=>{
                 if(result.data.errors){
                     return this.setState(result.data);
@@ -50,7 +52,7 @@ export default class Daftar extends React.Component{
                         <Col>
                             {this.state.success && <p>Registrasi anda berhasil</p>}
                             <Form onSubmit={this.submitHandler}>
-                                <FormGroup>
+                                <FormGroup row>
                                     <Input 
                                         onChange={this.changeHandler}
                                         type="text"
@@ -60,7 +62,7 @@ export default class Daftar extends React.Component{
                                     {this.state.errors && this.state.errors.username &&
                              (<p>{this.state.errors.username.msg}</p>)}
                                 </FormGroup>
-                                <FormGroup>
+                                <FormGroup row>
                                     <Input 
                                         onChange={this.changeHandler}
                                         type="text"
@@ -70,7 +72,7 @@ export default class Daftar extends React.Component{
                                     {this.state.errors && this.state.errors.firstname &&
                             (<p>{this.state.errors.firstname.msg}</p>)}
                                 </FormGroup>
-                                <FormGroup>
+                                <FormGroup row>
                                     <Input 
                                         onChange={this.changeHandler}
                                         type="text"
@@ -80,7 +82,7 @@ export default class Daftar extends React.Component{
                                     {this.state.errors && this.state.errors.lastname && 
                             (<p>{this.state.errors.lastname.msg}</p>)}
                                 </FormGroup>
-                                <FormGroup>
+                                <FormGroup row>
                                     <Input 
                                         onChange={this.changeHandler}
                                         type="password"
@@ -90,7 +92,7 @@ export default class Daftar extends React.Component{
                                     {this.state.errors && this.state.errors.password &&
                             (<p>{this.state.errors.password.msg}</p>)}
                                 </FormGroup>
-                                <FormGroup>
+                                <FormGroup row>
                                     <Input 
                                         onChange={this.changeHandler}
                                         type="email"
@@ -100,12 +102,33 @@ export default class Daftar extends React.Component{
                                     {this.state.errors&& this.state.errors.email&&
                             (<p>{this.state.errors.email.msg}</p>)}
                                 </FormGroup>
+                                <FormGroup row>
+                                    <Input 
+                                        onChange={this.changeHandler}
+                                        type="text"
+                                        name="phone"
+                                        id="phone"
+                                        placeholder="Nomor Telepon"/> {' '}
+                                    {this.state.errors&& this.state.errors.phone&&
+                            (<p>{this.state.errors.phone.msg}</p>)}
+                                </FormGroup>
+                                <FormGroup row>
+                                    <Input 
+                                        onChange={this.changeHandler}
+                                        type="text"
+                                        name="address"
+                                        id="address"
+                                        placeholder="Alamat Rumah"/> {' '}
+                                    {this.state.errors&& this.state.errors.address&&
+                            (<p>{this.state.errors.address.msg}</p>)}
+                                </FormGroup>
                         
                     
-                                
-                                <Button style={{width: '100%'}} variant="contained" color="secondary" >
+                                <FormGroup check row>
+                                    <Button style={{width: '100%'}} color="secondary" type="Submit" >
                       Daftar Sekarang
-                                </Button>
+                                    </Button>
+                                </FormGroup>
                                 
                             </Form>
                         </Col>
