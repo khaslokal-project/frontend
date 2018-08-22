@@ -7,7 +7,7 @@ import { linkTo } from '@storybook/addon-links';
 import Navbar from '../component/Navbar';
 
 import Beranda from '../pages/Beranda';
-import Kategori from '../pages/Kategori';
+import Kategori from './../pages/Kategori';
 import Daftar from '../pages/Daftar';
 import { Button, Welcome } from '@storybook/react/demo';
 
@@ -32,12 +32,17 @@ import SellerIndex from '../Admin/seller/Index';
 import OrderList from '../AdminKurir/Order/List';
 import PrintInvoice from '../AdminKurir/Order/PrintInvoice';
 import PrintSlipOrder from '../AdminKurir/Order/PrintSlipOrder';
-import Makanan from '../pages/Insidekategori/Makanan';
+import Makanan from '../pages/Kategori/Makanan';
+
+import Login from '../AdminKurir/Login';
+
+storiesOf('LoginAdmin', module)
+    .add('Login', () => <Login />);
 
 storiesOf('Insidekategori', module)
     .add('Makanan', () => <Makanan/>);
 
-console.log(process.env.REACT_APP_API_URL);
+console.log (process.env.REACT_APP_API_URL);
 
 storiesOf('Admin', module)
     .add('Seller List', () => <SellerList />)

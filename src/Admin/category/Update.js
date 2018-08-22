@@ -51,7 +51,7 @@ class Update extends React.Component {
     }
 
     componentDidMount(){
-        axios.get(`http://192.168.10.40:3000/productcategory/${this.props.id}`)
+        axios.get(`${process.env.REACT_APP_API_URL}/productcategory/${this.props.id}`)
             .then(res => {
                 this.setState({
                     nameCategory: res.data.nameCategory
@@ -68,7 +68,7 @@ class Update extends React.Component {
 
     handleSubmit(event){
         event.preventDefault();
-        axios.put(`http://192.168.10.40:3000/productcategory/${this.props.id}`, this.state)
+        axios.put(`${process.env.REACT_APP_API_URL}/productcategory/${this.props.id}`, this.state)
             .then(res => {
                 this.close();
                 this.props.fetchData();

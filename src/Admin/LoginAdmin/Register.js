@@ -11,7 +11,7 @@ export default class Daftar extends React.Component{
             lastname:'',
             password:'',
             email:'',
-            userdata: null,
+            admindata: null,
             success: false
         };
         this.changeHandler = this.changeHandler.bind(this);
@@ -26,13 +26,13 @@ export default class Daftar extends React.Component{
     submitHandler(e){
         e.preventDefault();
         axios
-            .post(`${process.env.REACT_APP_API_URL}/users/register`, this.state)
+            .post('http://192.168.10.40:8080/admin/register', this.state)
             .then(result=>{
                 if(result.data.errors){
                     return this.setState(result.data);
                 }
                 return this.setState({
-                    userdata: result.data,
+                    admindata: result.data,
                     errors : null,
                     success : true
                 });
