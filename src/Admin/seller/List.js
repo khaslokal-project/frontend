@@ -84,7 +84,7 @@ class List extends React.Component {
     }
 
     fetchData(){
-        axios.get(`${process.env.REACT_APP_API_URL}/sellers/')
+        axios.get(`${process.env.REACT_APP_API_URL}/sellers/`)
             .then( ({ data }) => {
                 this.setState({
                     data: data
