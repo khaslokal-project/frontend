@@ -1,4 +1,6 @@
 import React from 'react';
+import axios from 'axios';
+
 import BarTopProduct from './BarTopProduct';
 
 import Tileorder from '../component/Tileorder';
@@ -76,8 +78,7 @@ class CardProduct extends React.Component {
     }
 
     fetchData() {
-        const API_URL = 'http://192.168.10.40:3000/products/';
-        fetch(API_URL)
+        axios.get(`${process.env.REACT_APP_API_URL}/products/`)
             .then(response => response.json())
             .then(data => {
                 data.forEach(item => {

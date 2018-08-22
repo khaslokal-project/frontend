@@ -18,7 +18,9 @@ class Update extends React.Component {
             image: '',
             rating: '',
             review: '',
-            modal: props.modal
+            modal: props.modal,
+            dataSeller: [],
+            dataCategory: []
         };
     
         // const env = dotenv.config().parsed;
@@ -40,7 +42,7 @@ class Update extends React.Component {
                     <ModalBody>
                         <Form onSubmit={this.handleSubmit}>
                             <FormGroup row>
-                                <Label for="idseller" sm={2}>Id Seller</Label>
+                                <Label for="idseller" sm={2}>Seller</Label>
                                 <Col sm={10}>
                                     <Input 
                                         type="select" 
@@ -48,18 +50,23 @@ class Update extends React.Component {
                                         value={this.state.idseller}
                                         id="idseller" 
                                         onChange={this.handleChange}/>
+                                    {
+                                        this.state.dataSeller.map(item => (<option key={item.id} value={item.id} >{item.username}</option>))
+                                    }
                                 </Col>
                             </FormGroup>
                             <FormGroup row>
-                                <Label for="idcategory" sm={2}>Id Kategori</Label>
+                                <Label for="idcategory" sm={2}>Kategori</Label>
                                 <Col sm={10}>
                                     <Input 
                                         type="select" 
                                         name="idcategory"
                                         value={this.state.idcategory} 
                                         id="idcategory"
-                                        onChange={this.handleChange}
-                                    />
+                                        onChange={this.handleChange} />
+                                    {
+                                        this.state.dataCategory.map(item => (<option key={item.id} value={item.id}>{item.nameCategory}</option>))
+                                    }
                                 </Col>
                             </FormGroup>
                             <FormGroup row>
@@ -70,7 +77,7 @@ class Update extends React.Component {
                                         name="name" 
                                         value={this.state.name}
                                         id="name" 
-                                        onChange={this.state.handleChange}
+                                        onChange={this.handleChange}
                                     />
                                 </Col>
                             </FormGroup>
@@ -82,7 +89,7 @@ class Update extends React.Component {
                                         name="price" 
                                         value={this.state.price}
                                         id="price" 
-                                        onChange={this.state.handleChange}/>
+                                        onChange={this.handleChange}/>
                                 </Col>
                             </FormGroup>
                             <FormGroup row>
@@ -93,7 +100,7 @@ class Update extends React.Component {
                                         name="stock" 
                                         value={this.state.stock}
                                         id="stock" 
-                                        onChange={this.state.handleChange}/>
+                                        onChange={this.handleChange}/>
                                 </Col>
                             </FormGroup>
                             <FormGroup row>
@@ -115,18 +122,7 @@ class Update extends React.Component {
                                         name="description" 
                                         value={this.state.description}
                                         id="description" 
-                                        onChange={this.state.handleChange} />
-                                </Col>
-                            </FormGroup>
-                            <FormGroup row>
-                                <Label for="type" sm={2}>Tipe</Label>
-                                <Col sm={10}>
-                                    <Input 
-                                        type="text" 
-                                        name="type" 
-                                        value={this.state.type}
-                                        id="type" 
-                                        onChange={this.state.handleChange}/>
+                                        onChange={this.handleChange} />
                                 </Col>
                             </FormGroup>
                             <FormGroup row>
@@ -137,30 +133,7 @@ class Update extends React.Component {
                                         name="image" 
                                         value={this.state.image}
                                         id="image" 
-                                        onChange={this.state.handleChange}/>
-                                </Col>
-                            </FormGroup>
-                            <FormGroup row>
-                                <Label for="rating" sm={2}>Penilaian</Label>
-                                <Col sm={10}>
-                                    <Input 
-                                        type="text" 
-                                        name="rating" 
-                                        value={this.state.rating}
-                                        id="rating" 
-                                        onChange={this.state.handleChange}/>
-                                </Col>
-                            </FormGroup>
-                            <FormGroup row>
-                                <Label for="review" sm={2}>Ulasan</Label>
-                                <Col sm={10}>
-                                    <Input 
-                                        type="text" 
-                                        name="review" 
-                                        value={this.state.review}
-                                        id="review" 
-                                        onChange={this.state.handleChange}
-                                    />
+                                        onChange={this.handleChange}/>
                                 </Col>
                             </FormGroup>
                             <FormGroup row>
@@ -177,9 +150,14 @@ class Update extends React.Component {
         );
     }
 
+   
+
+
     componentDidMount(){
-        axios.get(`http://192.168.10.40:3000/products/${this.props.id}`)
+        axios.get(`${process.env.REACT_APP_API_URL}/products/${this.props.id}`)
             .then(res => {
+                this.fetchDataSeller();
+                this.fetchDataCategory();
                 this.setState({
                     idseller: res.data.idseller,
                     idcategory: res.data.idcategory,
@@ -200,13 +178,31 @@ class Update extends React.Component {
             });
     }
 
+    fetchDataSeller(){
+        axios.get(`${process.env.REACT_APP_API_URL}/sellers/`)
+            .then(({ data }) => {
+                this.setState({
+                    dataSeller: data
+                });
+            });
+    }
+
+    fetchDataCategory(){
+        axios.get(`${process.env.REACT_APP_API_URL}/productcategory/`)
+            .then(({ data }) => {
+                this.setState({
+                    dataCategory: data
+                });
+            });
+    }
+
     handleChange(event) {
         this.setState({[event.target.name]: event.target.value});
     }
 
     handleSubmit(event){
         event.preventDefault();
-        axios.post(`http://192.168.10.40:3000/products/${this.props.id}`, this.state)
+        axios.put(`${process.env.REACT_APP_API_URL}/products/${this.props.id}`, this.state)
             .then(res => {
                 this.close();
                 this.props.fetchData();

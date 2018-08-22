@@ -93,7 +93,7 @@ class Create extends React.Component {
 
     handleSubmit(event){
         event.preventDefault();
-        axios.post('http://192.168.10.40:3000/sellers/', this.state)
+        axios.post(`${process.env.REACT_APP_API_URL}/sellers/register`, this.state)
             .then(res => {
                 this.close();
                 console.log(this.props);
