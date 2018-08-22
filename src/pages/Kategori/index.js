@@ -1,5 +1,6 @@
 import React from 'react';
-import { ListGroup, ListGroupItem, NavLink } from 'reactstrap';
+import { ListGroup, ListGroupItem } from 'reactstrap';
+import {Link} from 'react-router-dom'
 
 export default class Index extends React.Component{
     constructor(props){
@@ -15,9 +16,9 @@ export default class Index extends React.Component{
                 {this.state.items.map(item => {
                     return(       
                         <ListGroup key={item.id}>
-                            <NavLink href="">
+                            <Link to={`/kategori/${item.nameCategory}`}>
                                 <ListGroupItem>{item.nameCategory}</ListGroupItem>
-                            </NavLink>
+                            </Link>
                         </ListGroup>   
                     );
                 })

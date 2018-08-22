@@ -10,14 +10,9 @@ class CardProduct extends React.Component {
             data :  [],
             idTileorder : null
         };
-        
-        //this.showTileorder = this.showTileorder.bind(this);
-        
     }
     
-
     render() {
-    
         return (
             <div>
                 <Container>
@@ -35,10 +30,6 @@ class CardProduct extends React.Component {
                         </Col>
                     </Row>
                 </Container>
-                {
-                    (this.showModal === 'Tileorder') 
-                    && <Tileorder modal={this.state.modal} closeModal={this.closeModal} data={this.fetchData} id={this.state.idTileorder} /> 
-                }
             </div>
         );
     }
@@ -46,30 +37,17 @@ class CardProduct extends React.Component {
         this.fetchData();
     }
 
-    // showTileorder(id) {
-    //     this.setState({
-    //         showModule: 'Tileorder',
-    //         modal: true,
-    //         idTileorder: id
-    //     });
-    // }
-
     fetchData() {
         const API_URL = `${process.env.REACT_APP_API_URL}/products/`;
         fetch(API_URL)
             .then(response => response.json())
             .then(data => {
-                // data.forEach(item => {
-                //     this.showTileorder(item.id);
-                // });
                 this.setState({
-                    data: data
+                    data : data
                 });
             })
             .catch(console.log);
     }
-
-
 }
 
 export default CardProduct;

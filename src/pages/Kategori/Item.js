@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import {Row, Col, Card, CardImg, Container, CardTitle, CardText, Button} from 'reactstrap';
 
-class Makanan extends React.Component {
+class Item extends React.Component {
     constructor(props){
         super(props);
         this.state = {
@@ -50,10 +50,11 @@ class Makanan extends React.Component {
     }
 
     fetchData(){
-        axios.get(`${process.env.REACT_APP_API_URL}/products/category/1`)
+        console.log(this.props)
+        axios.get(`${process.env.REACT_APP_API_URL}/productcategory?name=${this.props.match.params.name}`)
             .then( ({ data }) => {
                 this.setState({
-                    data: data
+                    data
                 });
             })
             .catch(error => {
@@ -63,7 +64,7 @@ class Makanan extends React.Component {
 
 }
 
-export default Makanan;
+export default Item;
 
 
 
