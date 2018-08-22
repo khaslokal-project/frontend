@@ -9,7 +9,7 @@ import { mailFolderListItemsRight } from './tileDataRight';
 import { IconButton, Toolbar, AppBar, List, Drawer, Divider} from '@material-ui/core';
 
 import Beranda from '../pages/Beranda';
-import Kategori from '../pages/Kategori';
+import Kategori from './../pages/Kategori';
 import Kontak from '../pages/Kontak';
 import Daftar from '../pages/Daftar';
 import Masuk from '../pages/Masuk';

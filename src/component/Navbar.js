@@ -9,7 +9,7 @@ import { mailFolderListItemsRight } from './tileDataRight';
 import { IconButton, Toolbar, AppBar, List, Drawer, Divider} from '@material-ui/core';
 
 import Beranda from '../pages/Beranda';
-import Kategori from '../pages/Kategori';
+import Kategori from './../pages/Kategori';
 import Kontak from '../pages/Kontak';
 import Daftar from '../pages/Daftar';
 import Masuk from '../pages/Masuk';
@@ -172,6 +172,7 @@ class Navbar extends React.Component {
                     <Route path="/daftar" component={Daftar} />
                     <Route path="/kategori" component={Kategori}/>
                     <Route path="/kontak" component={Kontak} />
+                    
                     <Route path="/adminkategori" component={Adminkategori} />
                     <Route path="/adminseller" component={Adminseller} />
                     <Route path="/adminproduk" component={Adminproduk} />

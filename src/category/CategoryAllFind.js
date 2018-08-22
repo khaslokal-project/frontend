@@ -1,7 +1,7 @@
 import React from 'react';
 import {Container, Row, Col} from 'reactstrap';
 import { Route, HashRouter} from 'react-router-dom';
-import Kategori from '../pages/Kategori';
+import Kategori from './../pages/Kategori';
 import Menu from './../assetImage/category/menu.png';
 export default class CategoryAllFind extends React.Component {
     render() {

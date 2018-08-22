@@ -7,7 +7,7 @@ import { linkTo } from '@storybook/addon-links';
 import Navbar from '../component/Navbar';
 
 import Beranda from '../pages/Beranda';
-import Kategori from '../pages/Kategori';
+import Kategori from './../pages/Kategori';
 import Daftar from '../pages/Daftar';
 import { Button, Welcome } from '@storybook/react/demo';
 
