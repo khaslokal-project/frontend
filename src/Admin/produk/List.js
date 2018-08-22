@@ -1,6 +1,8 @@
 import React from 'react';
 import axios from 'axios'; 
+
 import {Table, Button} from 'reactstrap';
+
 import Update from './Update';
 import Delete from './Delete';
 
@@ -32,10 +34,7 @@ class List extends React.Component {
                             <th>Stok</th>
                             <th>Merek</th>
                             <th>Keterangan</th>
-                            <th>Tipe</th>
                             <th>Gambar</th>
-                            <th>Penilaian</th>
-                            <th>Review</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -50,10 +49,7 @@ class List extends React.Component {
                                         <td>{item.stock}</td>
                                         <td>{item.brand}</td>
                                         <td>{item.description}</td>
-                                        <td>{item.type}</td>
                                         <td>{item.image}</td>
-                                        <td>{item.rating}</td>
-                                        <td>{item.rreview}</td>
                                         <td> 
                                             <Button color="warning" onClick={
                                                 () => {
@@ -69,11 +65,9 @@ class List extends React.Component {
                                     </tr>
                                 );
                             })
-                                
                         }
                     </tbody>
                 </Table>
-                
                 { (this.state.showModule === 'update') && <Update modal={this.state.modal} closeModal={this.closeModal} fetchData={this.fetchData} id={this.state.idUpdate}/> }
                 { (this.state.showModule === 'delete') && <Delete modal={this.state.modal} closeModal={this.closeModal} fetchData={this.fetchData} data={this.state.itemDeleted}/> }
             </div>
@@ -101,7 +95,7 @@ class List extends React.Component {
     }
 
     fetchData(){
-        axios.get('https://wicked-cow-10.localtunnel.me/products')
+        axios.get('http://192.168.10.40:8080/products/')
             .then( ({ data }) => {
                 this.setState({
                     data: data

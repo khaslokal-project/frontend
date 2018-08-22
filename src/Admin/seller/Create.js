@@ -93,7 +93,7 @@ class Create extends React.Component {
 
     handleSubmit(event){
         event.preventDefault();
-        axios.post('https://wicked-cow-10.localtunnel.me/sellers/register', this.state)
+        axios.post('http://192.168.10.40:8080/sellers/register', this.state)
             .then(res => {
                 this.close();
                 console.log(this.props);

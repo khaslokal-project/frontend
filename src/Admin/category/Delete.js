@@ -35,7 +35,7 @@ class Delete extends React.Component {
 
      
     delete() {
-        axios.delete(`https://wicked-cow-10.localtunnel.me/productcategory/${this.props.data.id}`)
+        axios.delete(`http://192.168.10.40:8080/productcategory/${this.props.data.id}`)
             .then(res => {
                 this.close();
                 this.props.fetchData();
