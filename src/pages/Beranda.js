@@ -3,7 +3,7 @@ import Helps from '../contact/Helps';
 import Footers from '../contact/Footers';
 import Contacts from '../contact/Us';
 import Brands from '../brands/Brands';
-import CardProduct from '../cardProduct/CardProduct';
+import CardProduct from './../cardProduct';
 import CategoryCard from '../category/CategoryCard';
 import Carousels from '../offers/Carousels';
 
@@ -18,7 +18,7 @@ class Beranda extends React.Component {
                 <Helps/>
                 <Footers/>
                 <Contacts/>
-        
+                
             </div>
         );
     }

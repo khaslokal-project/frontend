@@ -26,7 +26,7 @@ export default class Daftar extends React.Component{
     submitHandler(e){
         e.preventDefault();
         axios
-            .post('http://192.168.10.40:8080/users/register', this.state)
+            .post(`${process.env.REACT_APP_API_URL}/users/register`, this.state)
             .then(result=>{
                 if(result.data.errors){
                     return this.setState(result.data);

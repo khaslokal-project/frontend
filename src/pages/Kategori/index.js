@@ -1,5 +1,6 @@
 import React from 'react';
-import { ListGroup, ListGroupItem, NavLink } from 'reactstrap';
+import { ListGroup, ListGroupItem } from 'reactstrap';
+import {Link} from 'react-router-dom'
 
 export default class Index extends React.Component{
     constructor(props){
@@ -14,10 +15,10 @@ export default class Index extends React.Component{
             <div>
                 {this.state.items.map(item => {
                     return(       
-                        <ListGroup>
-                            <NavLink href="">
+                        <ListGroup key={item.id}>
+                            <Link to={`/kategori/${item.nameCategory}`}>
                                 <ListGroupItem>{item.nameCategory}</ListGroupItem>
-                            </NavLink>
+                            </Link>
                         </ListGroup>   
                     );
                 })
@@ -30,7 +31,7 @@ export default class Index extends React.Component{
     }
     
     fetchCategory(){
-        const API_URL = 'http://192.168.10.40:8080/productcategory';
+        const API_URL = `${process.env.REACT_APP_API_URL}/productcategory`;
         fetch(API_URL)
             .then (response => response.json())
             .then(items => {

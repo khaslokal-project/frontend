@@ -31,7 +31,7 @@ import Sayuran from './../pages/Kategori/Sayuran';
 import Tas from './../pages/Kategori/Tas';
 import Tiket from './../pages/Kategori/Tiket';
 import Sepatu from './../pages/Kategori/Sepatu';
-import Herbal from './../pages/Kategori/Herbal';
+import Herbal from './../pages/Kategori/Item';
 import Jasadesain from './../pages/Kategori/Jasadesain';
 import Perizinan from './../pages/Kategori/Perizinanukm';
 import Pakaian from './../pages/Kategori/Pakaian';

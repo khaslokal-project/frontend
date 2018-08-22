@@ -17,6 +17,7 @@ import Cari from './../assetImage/icon/Cari.png';
 import Adminkategori from '../Admin/category/Index';
 import Adminseller from '../Admin/seller/Index';
 import Adminproduk from '../Admin/produk/Index';
+<<<<<<< HEAD
 import Adminlogin from '../Admin/LoginAdmin/Login';
 import Order from '../AdminKurir/Order/List';
 import Makanan from './../pages/Kategori/Makanan';
@@ -36,6 +37,11 @@ import Herbal from './../pages/Kategori/Herbal';
 import Jasadesain from './../pages/Kategori/Jasadesain';
 import Perizinan from './../pages/Kategori/Perizinanukm';
 import Pakaian from './../pages/Kategori/Pakaian';
+=======
+
+import KategoriItem from '../pages/Kategori/Item';
+
+>>>>>>> fd096a1638def374061ed4b9b4610ea723d05b9c
 import  { InputGroup, InputGroupAddon, Input} from 'reactstrap';
 
 import 'bootstrap/dist/css/bootstrap.css';
@@ -172,12 +178,14 @@ class Navbar extends React.Component {
                     
                     <Route path="/masuk" component={Masuk} />
                     <Route path="/daftar" component={Daftar} />
-                    <Route path="/kategori" component={Kategori}/>
+                    <Route exact path="/kategori" component={Kategori}/>
+                    <Route path="/kategori/:name" component={KategoriItem} /> 
                     <Route path="/kontak" component={Kontak} />
                     
                     <Route path="/adminkategori" component={Adminkategori} />
                     <Route path="/adminseller" component={Adminseller} />
                     <Route path="/adminproduk" component={Adminproduk} />
+<<<<<<< HEAD
 
                     <Route path="/makanan" component={Makanan} />
                     <Route path="/minuman" component={Minuman} />
@@ -200,6 +208,9 @@ class Navbar extends React.Component {
                     <Route path="/adminkurrir" component={Order} />
 
 
+=======
+  
+>>>>>>> fd096a1638def374061ed4b9b4610ea723d05b9c
                     
                 </div>
             </HashRouter>

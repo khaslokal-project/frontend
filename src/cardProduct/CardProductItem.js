@@ -1,7 +1,7 @@
 import React from 'react';
-import { Container, Row, Col, Card, Button, CardImg, CardText, CardTitle, Modal, ModalHeader, ModalBody, ModalFooter  } from 'reactstrap';
+import { Container, Row, Col, Card, Button, CardImg, CardText, CardTitle } from 'reactstrap';
 
-const AppContext = React.createContext();
+import AppContext from './../component/AppContext';
 
 class CardProductItem extends React.Component {
     constructor(props){
@@ -13,6 +13,7 @@ class CardProductItem extends React.Component {
 
         this.closeModal = this.closeModal.bind(this);
         this.toggle = this.toggle.bind(this);
+        this.beli = this.beli.bind(this);
     }
     render() {
         let { item } = this.props;
@@ -23,29 +24,23 @@ class CardProductItem extends React.Component {
                 <div>
                     <Container>
                         <CardTitle className="cardTitles">{item.name}</CardTitle>
-                        <div ><span className=" cardPrice"> {item.price} yeah 
-                            <AppContext.Consumer>
-                                {(context) => context}
-                            </AppContext.Consumer>
+                        <div ><span className=" cardPrice"> {item.price} 
                         </span></div>
                     </Container>
                     <Container className="contCard">
                         <Row className="inline align-items-center">
                             <Col><CardText className="cardTexts">{item.brand}</CardText></Col>
                             <Col xs="3">
-                                <Button className="cardButton" size="sm" color="danger" onClick={this.toggle}
-                                >Beli</Button>
-                                <Modal isOpen={this.state.modal} toggle={this.toggle}>
-                                    <ModalHeader toggle={this.toggle}>Modal title</ModalHeader>
-                                    <ModalBody>
-                                    Coba ya
-
-                                    </ModalBody>
-                                    <ModalFooter>
-                                        <Button color="primary" onClick={this.toggle}>Do Something</Button>{' '}
-                                        <Button color="secondary" onClick={this.toggle}>Cancel</Button>
-                                    </ModalFooter>
-                                </Modal>
+                            {/* <Button className="cardButton" size="sm" color="danger" onClick={this.beli}>Beli</Button> */}
+                                <AppContext.Consumer>
+                                    {(context) => {
+                                        return(
+                                            <Button className="cardButton" size="sm" color="danger" onClick={() => {
+                                                context.handlers.addOrderItem(item, 1)
+                                            }}>Beli</Button>
+                                        )
+                                    }}
+                                </AppContext.Consumer>
                             </Col>
                         </Row>
                     </Container>
@@ -58,6 +53,15 @@ class CardProductItem extends React.Component {
         this.setState({
             modal: !this.state.modal
         });
+    }
+    beli(){
+        console.log('terbeli');
+        <AppContext.Consumer>
+            {(context) => {
+                debugger;
+                console.log('helo')
+            }}
+        </AppContext.Consumer>
     }
 
     closeModal() {
