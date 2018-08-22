@@ -34,6 +34,11 @@ import PrintInvoice from '../AdminKurir/Order/PrintInvoice';
 import PrintSlipOrder from '../AdminKurir/Order/PrintSlipOrder';
 import Makanan from '../pages/Kategori/Makanan';
 
+import Login from '../AdminKurir/Login';
+
+storiesOf('LoginAdmin', module)
+    .add('Login', () => <Login />);
+
 storiesOf('Insidekategori', module)
     .add('Makanan', () => <Makanan/>);
 

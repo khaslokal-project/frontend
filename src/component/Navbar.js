@@ -17,6 +17,8 @@ import Cari from './../assetImage/icon/Cari.png';
 import Adminkategori from '../Admin/category/Index';
 import Adminseller from '../Admin/seller/Index';
 import Adminproduk from '../Admin/produk/Index';
+import Adminlogin from '../Admin/LoginAdmin/Login';
+import Order from '../AdminKurir/Order/List';
 import Makanan from './../pages/Kategori/Makanan';
 import Minuman from './../pages/Kategori/Minuman';
 import Aksesoris from './../pages/Kategori/Aksesoris';
@@ -98,7 +100,7 @@ class Navbar extends React.Component {
         return (
             <HashRouter>
                 <div>
-                    <div>
+                    <div className="sliporderno ">
                         <AppBar to="/"  color="secondary" >
                             <Toolbar className={classes.center}>
                                 <InputGroup >
@@ -194,6 +196,9 @@ class Navbar extends React.Component {
                     <Route path="/daging" component={Daging} />
                     <Route path="/herbal" component={Herbal} /> 
                     <Route path="/sepatu" component={Sepatu} />
+                    <Route path="/adminlogin" component={Adminlogin} /> 
+                    <Route path="/adminkurrir" component={Order} />
+
 
                     
                 </div>
