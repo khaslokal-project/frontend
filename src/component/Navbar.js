@@ -9,7 +9,7 @@ import { mailFolderListItemsRight } from './tileDataRight';
 import { IconButton, Toolbar, AppBar, List, Drawer, Divider} from '@material-ui/core';
 
 import Beranda from '../pages/Beranda';
-import Kategori from '../pages/Kategori';
+import Kategori from './../pages/Kategori';
 import Kontak from '../pages/Kontak';
 import Daftar from '../pages/Daftar';
 import Masuk from '../pages/Masuk';
@@ -17,23 +17,23 @@ import Cari from './../assetImage/icon/Cari.png';
 import Adminkategori from '../Admin/category/Index';
 import Adminseller from '../Admin/seller/Index';
 import Adminproduk from '../Admin/produk/Index';
-import Makanan from './../pages/Insidekategori/Makanan';
-import Minuman from './../pages/Insidekategori/Minuman';
-import Aksesoris from './../pages/Insidekategori/Aksesoris';
-import Buahbuahan from './../pages/Insidekategori/Buahbuahan';
-import Daging from './../pages/Insidekategori/Daging';
-import Tanaman from './../pages/Insidekategori/Tanaman';
-import Kerajinan from './../pages/Insidekategori/Kerajinantangan';
-import Lauk from './../pages/Insidekategori/Lauk';
-import Oleholeh from './../pages/Insidekategori/Oleholehbatam';
-import Sayuran from './../pages/Insidekategori/Sayuran';
-import Tas from './../pages/Insidekategori/Tas';
-import Tiket from './../pages/Insidekategori/Tiket';
-import Sepatu from './../pages/Insidekategori/Sepatu';
-import Herbal from './../pages/Insidekategori/Herbal';
-import Jasadesain from './../pages/Insidekategori/Jasadesain';
-import Perizinan from './../pages/Insidekategori/Perizinanukm';
-import Pakaian from './../pages/Insidekategori/Pakaian';
+import Makanan from './../pages/Kategori/Makanan';
+import Minuman from './../pages/Kategori/Minuman';
+import Aksesoris from './../pages/Kategori/Aksesoris';
+import Buahbuahan from './../pages/Kategori/Buahbuahan';
+import Daging from './../pages/Kategori/Daging';
+import Tanaman from './../pages/Kategori/Tanaman';
+import Kerajinan from './../pages/Kategori/Kerajinantangan';
+import Lauk from './../pages/Kategori/Lauk';
+import Oleholeh from './../pages/Kategori/Oleholehbatam';
+import Sayuran from './../pages/Kategori/Sayuran';
+import Tas from './../pages/Kategori/Tas';
+import Tiket from './../pages/Kategori/Tiket';
+import Sepatu from './../pages/Kategori/Sepatu';
+import Herbal from './../pages/Kategori/Herbal';
+import Jasadesain from './../pages/Kategori/Jasadesain';
+import Perizinan from './../pages/Kategori/Perizinanukm';
+import Pakaian from './../pages/Kategori/Pakaian';
 import  { InputGroup, InputGroupAddon, Input} from 'reactstrap';
 
 import 'bootstrap/dist/css/bootstrap.css';
@@ -172,6 +172,7 @@ class Navbar extends React.Component {
                     <Route path="/daftar" component={Daftar} />
                     <Route path="/kategori" component={Kategori}/>
                     <Route path="/kontak" component={Kontak} />
+                    
                     <Route path="/adminkategori" component={Adminkategori} />
                     <Route path="/adminseller" component={Adminseller} />
                     <Route path="/adminproduk" component={Adminproduk} />

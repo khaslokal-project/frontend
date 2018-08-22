@@ -1,9 +1,8 @@
 import React from 'react';
 import BarTopProduct from './BarTopProduct';
-
 import Tileorder from '../component/Tileorder';
-import { Container, Row, Col, Card, Button, CardImg, CardTitle, CardText } from 'reactstrap';
-
+import CardProductItem from './CardProductItem';
+import { Container, Row, Col} from 'reactstrap';
 class CardProduct extends React.Component {
     constructor(props) {
         super(props);
@@ -12,9 +11,10 @@ class CardProduct extends React.Component {
             idTileorder : null
         };
         
-        this.showTileorder = this.showTileorder.bind(this);
-        this.showModal = this.closeModal.bind(this);
+        //this.showTileorder = this.showTileorder.bind(this);
+        
     }
+    
 
     render() {
     
@@ -26,35 +26,14 @@ class CardProduct extends React.Component {
                     </Row>
                     <Row>
                         <Col>
-                            {
-                                this.state.data.map(item => {
-                                    return(
-                                        <Card className="cardCard  mr-2 ml-2 mb-3" key={item.id}>
-                                            <CardImg top width="219px" height="273.75px" src={item.image} alt="Card image cap" />
-                                            <div>
-                                                <Container>
-                                                    <CardTitle className="cardTitles">{item.name}</CardTitle>
-                                                    <div ><del className="text-muted">Rp. 68.000</del>
-                                                        <span className=" cardPrice"> {item.price}</span></div>
-                                                </Container>
-                                                <Container className="contCard">
-                                                    <Row className="inline align-items-center">
-                                                        <Col><CardText className="cardTexts">{item.brand}</CardText></Col>
-                                                        <Col xs="3"><Button className="cardButton" size="sm" color="danger" onClick={
-                                                            () => {
-                                                                this.showTileorder(item.id);
-                                                            }}
-                                                        >Beli</Button></Col>
-                                                    </Row>
-                                                </Container>
-                                            </div>
-                                        </Card>
-                                    );
-                                })
+                            {this.state.data.map(item => {
+                                return(
+                                    <CardProductItem item={item} key={item.id}/>
+                                );
+                            })
                             }
                         </Col>
                     </Row>
-
                 </Container>
                 {
                     (this.showModal === 'Tileorder') 
@@ -67,34 +46,29 @@ class CardProduct extends React.Component {
         this.fetchData();
     }
 
-    showTileorder(id) {
-        this.setState({
-            showModule: 'Tileorder',
-            modal: true,
-            idTileorder: id
-        });
-    }
+    // showTileorder(id) {
+    //     this.setState({
+    //         showModule: 'Tileorder',
+    //         modal: true,
+    //         idTileorder: id
+    //     });
+    // }
 
     fetchData() {
         const API_URL = 'http://192.168.10.40:8080/products/';
         fetch(API_URL)
             .then(response => response.json())
             .then(data => {
-                data.forEach(item => {
-                    this.showTileorder(item.id);
-                });
+                // data.forEach(item => {
+                //     this.showTileorder(item.id);
+                // });
                 this.setState({
                     data: data
                 });
             })
-            .catch(err => console.log(err));
+            .catch(console.log);
     }
-    closeModal() {
-        this.setState({
-            showModule: '',
-            modal: false
-        });
-    }
+
 
 }
 
