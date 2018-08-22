@@ -26,6 +26,7 @@ class App extends Component {
         this.state = {
          
         };
+        console.log(process.env)
     }
     render() {
         return (

@@ -32,7 +32,7 @@ import SellerIndex from '../Admin/seller/Index';
 import OrderList from '../AdminKurir/Order/List';
 import PrintInvoice from '../AdminKurir/Order/PrintInvoice';
 import PrintSlipOrder from '../AdminKurir/Order/PrintSlipOrder';
-import Makanan from '../pages/Insidekategori/Makanan';
+import Makanan from '../pages/Kategori/Makanan';
 
 storiesOf('Insidekategori', module)
     .add('Makanan', () => <Makanan/>);
