@@ -21,7 +21,7 @@ class AppProvider extends Component {
                 console.log(product);
                 
                 const found = orderItem.find(item => {
-                    return item.productId == productId
+                    return item.productId === productId
                 });
 
                 if (found){

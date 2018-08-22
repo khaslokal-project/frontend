@@ -1,5 +1,4 @@
 import React from 'react';
-import AppContext from './../component/AppContext';
 import Helps from '../contact/Helps';
 import Footers from '../contact/Footers';
 import Contacts from '../contact/Us';

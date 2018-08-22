@@ -1,6 +1,5 @@
 import React from 'react';
 import BarTopProduct from './BarTopProduct';
-import Tileorder from '../component/Tileorder';
 import CardProductItem from './CardProductItem';
 import { Container, Row, Col} from 'reactstrap';
 class CardProduct extends React.Component {

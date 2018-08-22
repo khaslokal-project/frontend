@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Row, Col, Card, Button, CardImg, CardText, CardTitle, Modal, ModalHeader, ModalBody, ModalFooter  } from 'reactstrap';
+import { Container, Row, Col, Card, Button, CardImg, CardText, CardTitle } from 'reactstrap';
 
 import AppContext from './../component/AppContext';
 
