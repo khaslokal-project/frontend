@@ -1,3 +1,4 @@
+import React from 'react';
 import { Col, Button, Form, FormGroup, Input, Container, Row } from 'reactstrap';
 import axios from 'axios';
 
@@ -22,10 +23,10 @@ export default class Daftar extends React.Component{
             [e.target.name]:e.target.value
         });
     }
-        submitHandler(e){
+    submitHandler(e){
         e.preventDefault();
         axios
-            .post('http://192.168.10.80:3000/api/register', this.state)
+            .post('http://192.168.10.40:8080/users/register', this.state)
             .then(result=>{
                 if(result.data.errors){
                     return this.setState(result.data);
@@ -38,7 +39,7 @@ export default class Daftar extends React.Component{
             });
     }
         
-        render(){
+    render(){
         return (
             <div>
                 <Container className='formdaftar' style={{width: '35%'}}>
@@ -98,11 +99,7 @@ export default class Daftar extends React.Component{
                                         placeholder="Alamat Email"/> {' '}
                                     {this.state.errors&& this.state.errors.email&&
                                 (<p>{this.state.errors.email.msg}</p>)}
-                                </FormGroup>
-                            
-                        
-                                    
-                                <Button style={{width: '100%'}} variant="contained" color="secondary" >
+                                </FormGroup> <Button style={{width: '100%'}} variant="contained" color="secondary" >
                                     Daftar Sekarang</Button>
                                 
                             </Form>
@@ -110,5 +107,6 @@ export default class Daftar extends React.Component{
                     </Row>
                 </Container>
             </div>
-        );
-    }}
+        );   
+    }
+}

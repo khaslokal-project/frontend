@@ -23,7 +23,7 @@ class Masuk extends Component {
     submitHandler(e) {
         e.preventDefault();
         axios
-            .post('http://192.168.10.40:8080/users/login', this.state)
+            .post('http://192.168.10.40:8080/admin/login', this.state)
             .then(res => {
                 if (res.data.error) {
                     return this.setState({ error: res.data.message });
