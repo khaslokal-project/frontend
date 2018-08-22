@@ -25,10 +25,6 @@ class CardProductItem extends React.Component {
                     <Container>
                         <CardTitle className="cardTitles">{item.name}</CardTitle>
                         <div ><span className=" cardPrice"> {item.price} 
-                            <AppContext.Consumer>
-                                {(context) => context.message
-                                }
-                            </AppContext.Consumer>
                         </span></div>
                     </Container>
                     <Container className="contCard">
@@ -40,22 +36,11 @@ class CardProductItem extends React.Component {
                                     {(context) => {
                                         return(
                                             <Button className="cardButton" size="sm" color="danger" onClick={() => {
-                                                context.handlers.addOrderItem(item.id, 1)
+                                                context.handlers.addOrderItem(item, 1)
                                             }}>Beli</Button>
                                         )
                                     }}
                                 </AppContext.Consumer>
-                                <Modal isOpen={this.state.modal} toggle={this.toggle}>
-                                    <ModalHeader toggle={this.toggle}>Modal title</ModalHeader>
-                                    <ModalBody>
-                                    Coba ya
-
-                                    </ModalBody>
-                                    <ModalFooter>
-                                        <Button color="primary" onClick={this.toggle}>Do Something</Button>{' '}
-                                        <Button color="secondary" onClick={this.toggle}>Cancel</Button>
-                                    </ModalFooter>
-                                </Modal>
                             </Col>
                         </Row>
                     </Container>

@@ -13,10 +13,13 @@ class AppProvider extends Component {
     render() {
         const self = this
         const handlers = {
-            addOrderItem: (productId, total = 1) => {
-
+            addOrderItem: (product, total = 1) => {
+                const { name, price, image } = product
+                const productId = product.id;
                 const { orderItem } = self.state;
 
+                console.log(product);
+                
                 const found = orderItem.find(item => {
                     return item.productId == productId
                 });
@@ -26,6 +29,9 @@ class AppProvider extends Component {
                 }else{
                     orderItem.push({
                         productId,
+                        name,
+                        image,
+                        price,
                         total
                     })
                 }

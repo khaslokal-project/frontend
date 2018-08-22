@@ -13,7 +13,7 @@ export default class Profile extends React.Component{
 
     componentDidMount(){
         axios
-            .get(`${process.env.REACT_APP_API_URL}/users')
+            .get(`${process.env.REACT_APP_API_URL}/users`)
             .then(res => {
                 const profiles = res.data.map(profiles =>
                     <div key={profiles._id}>
