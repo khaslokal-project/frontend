@@ -50,7 +50,7 @@ class Kerajinan extends React.Component {
     }
 
     fetchData(){
-        axios.get('http://192.168.10.40:8080/products/category/4')
+        axios.get(`${process.env.REACT_APP_API_URL}/products/category/4`)
             .then( ({ data }) => {
                 this.setState({
                     data: data

@@ -50,7 +50,7 @@ class Jasa extends React.Component {
     }
 
     fetchData(){
-        axios.get('http://192.168.10.40:8080/products/category/6')
+        axios.get(`${process.env.REACT_APP_API_URL}/products/category/6`)
             .then( ({ data }) => {
                 this.setState({
                     data: data

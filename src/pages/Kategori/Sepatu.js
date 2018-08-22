@@ -50,7 +50,7 @@ class Sepatu extends React.Component {
     }
 
     fetchData(){
-        axios.get('http://192.168.10.40:8080/products/category/12')
+        axios.get(`${process.env.REACT_APP_API_URL}/products/category/12`)
             .then( ({ data }) => {
                 this.setState({
                     data: data

@@ -154,7 +154,7 @@ class Update extends React.Component {
 
 
     componentDidMount(){
-        axios.get(`http://192.168.10.40:8080/products/${this.props.id}`)
+        axios.get(`${process.env.REACT_APP_API_URL}/products/${this.props.id}`)
             .then(res => {
                 this.fetchDataSeller();
                 this.fetchDataCategory();
@@ -179,7 +179,7 @@ class Update extends React.Component {
     }
 
     fetchDataSeller(){
-        axios.get('http://192.168.10.40:8080/sellers/')
+        axios.get(`${process.env.REACT_APP_API_URL}/sellers/`)
             .then(({ data }) => {
                 this.setState({
                     dataSeller: data
@@ -188,7 +188,7 @@ class Update extends React.Component {
     }
 
     fetchDataCategory(){
-        axios.get('http://192.168.10.40:8080/productcategory/')
+        axios.get(`${process.env.REACT_APP_API_URL}/productcategory/`)
             .then(({ data }) => {
                 this.setState({
                     dataCategory: data
@@ -202,7 +202,7 @@ class Update extends React.Component {
 
     handleSubmit(event){
         event.preventDefault();
-        axios.put(`http://192.168.10.40:8080/products/${this.props.id}`, this.state)
+        axios.put(`${process.env.REACT_APP_API_URL}/products/${this.props.id}`, this.state)
             .then(res => {
                 this.close();
                 this.props.fetchData();

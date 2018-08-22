@@ -55,7 +55,7 @@ class CardProduct extends React.Component {
     // }
 
     fetchData() {
-        const API_URL = 'http://192.168.10.40:8080/products/';
+        const API_URL = `${process.env.REACT_APP_API_URL}/products/`;
         fetch(API_URL)
             .then(response => response.json())
             .then(data => {

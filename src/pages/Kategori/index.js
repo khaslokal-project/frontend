@@ -14,7 +14,7 @@ export default class Index extends React.Component{
             <div>
                 {this.state.items.map(item => {
                     return(       
-                        <ListGroup>
+                        <ListGroup key={item.id}>
                             <NavLink href="">
                                 <ListGroupItem>{item.nameCategory}</ListGroupItem>
                             </NavLink>
@@ -30,7 +30,7 @@ export default class Index extends React.Component{
     }
     
     fetchCategory(){
-        const API_URL = 'http://192.168.10.40:8080/productcategory';
+        const API_URL = `${process.env.REACT_APP_API_URL}/productcategory`;
         fetch(API_URL)
             .then (response => response.json())
             .then(items => {

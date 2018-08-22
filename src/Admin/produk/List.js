@@ -95,7 +95,7 @@ class List extends React.Component {
     }
 
     fetchData(){
-        axios.get('http://192.168.10.40:8080/products/')
+        axios.get(`${process.env.REACT_APP_API_URL}/products/`)
             .then( ({ data }) => {
                 this.setState({
                     data: data

@@ -114,7 +114,7 @@ class Create extends React.Component {
     }
 
     fetchDataSeller(){
-        axios.get('http://192.168.10.40:8080/sellers/')
+        axios.get(`${process.env.REACT_APP_API_URL}/sellers/`)
             .then(({ data }) => {
                 this.setState({
                     dataSeller: data
@@ -123,7 +123,7 @@ class Create extends React.Component {
     }
 
     fetchDataCategory(){
-        axios.get('http://192.168.10.40:8080/productcategory/')
+        axios.get(`${process.env.REACT_APP_API_URL}/productcategory/`)
             .then(({ data }) => {
                 this.setState({
                     dataCategory: data
@@ -137,7 +137,7 @@ class Create extends React.Component {
 
     handleSubmit(event){
         event.preventDefault();
-        axios.post('http://192.168.10.40:8080/products/', this.state)
+        axios.post(`${process.env.REACT_APP_API_URL}/products/`, this.state)
             .then(res => {
                 this.close();
                 console.log(this.props);

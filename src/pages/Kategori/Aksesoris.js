@@ -50,7 +50,7 @@ class Aksesoris extends React.Component {
     }
 
     fetchData(){
-        axios.get('http://192.168.10.40:8080/products/category/9')
+        axios.get(`${process.env.REACT_APP_API_URL}/products/category/9`)
             .then( ({ data }) => {
                 this.setState({
                     data: data
