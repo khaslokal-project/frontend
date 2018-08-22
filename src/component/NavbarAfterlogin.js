@@ -123,10 +123,10 @@ class Navbar extends React.Component {
                                         </IconButton>
                                     </InputGroupAddon>
                                     <InputGroupAddon addonType="append">
-                                        <IconButton color="inherit" aria-label="Open drawer" style={{marginTop: '5px'}}>
+                                        <IconButton color="inherit" aria-label="Profile" style={{marginTop: '5px'}}>
                                             <Portrait onClick={
                                                 () => {
-                                                    this.toggleDrawer('right', true);
+                                                    
                                                 }
                                             }/>
                                         </IconButton>
