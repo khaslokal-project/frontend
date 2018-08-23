@@ -36,6 +36,7 @@ module.exports = {
             "always"
         ],
         "no-debugger": 0,
-        "no-trailing-spaces": ["error", { "skipBlankLines": true }]
+        "no-trailing-spaces": ["error", { "skipBlankLines": true }],
+        "no-duplicate-imports": "error"
     }
 };
