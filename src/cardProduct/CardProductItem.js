@@ -4,17 +4,6 @@ import { Container, Row, Col, Card, Button, CardImg, CardText, CardTitle } from 
 import AppContext from './../component/AppContext';
 
 class CardProductItem extends React.Component {
-    constructor(props){
-        super(props);
-
-        this.state = {
-            modal: false
-        };
-
-        this.closeModal = this.closeModal.bind(this);
-        this.toggle = this.toggle.bind(this);
-        this.beli = this.beli.bind(this);
-    }
     render() {
         let { item } = this.props;
 
@@ -31,7 +20,6 @@ class CardProductItem extends React.Component {
                         <Row className="inline align-items-center">
                             <Col><CardText className="cardTexts">{item.brand}</CardText></Col>
                             <Col xs="3">
-                            {/* <Button className="cardButton" size="sm" color="danger" onClick={this.beli}>Beli</Button> */}
                                 <AppContext.Consumer>
                                     {(context) => {
                                         return(
@@ -47,28 +35,6 @@ class CardProductItem extends React.Component {
                 </div>
             </Card>
         );
-    }
-
-    toggle(){
-        this.setState({
-            modal: !this.state.modal
-        });
-    }
-    beli(){
-        console.log('terbeli');
-        <AppContext.Consumer>
-            {(context) => {
-                debugger;
-                console.log('helo')
-            }}
-        </AppContext.Consumer>
-    }
-
-    closeModal() {
-        this.setState({
-            showModule: '',
-            modal: false
-        });
     }
 }
 
