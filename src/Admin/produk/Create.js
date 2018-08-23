@@ -147,10 +147,10 @@ class Create extends React.Component {
     }
 
     uploaddLinkImage(result){
-        let urlImage = result.filesUploaded && result.filesUploaded[0].filename
+        let { link_path } = result.filesUploaded && result.filesUploaded[0]
         if (urlImage){
             this.setState({
-                image: urlImage
+                image: link_path
             })
         }
     }
