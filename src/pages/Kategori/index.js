@@ -16,8 +16,8 @@ export default class Index extends React.Component{
                 {this.state.items.map(item => {
                     return(       
                         <ListGroup key={item.id}>
-                            <Link to={`/kategori/${item.nameCategory}`}>
-                                <ListGroupItem>{item.nameCategory}</ListGroupItem>
+                            <Link to={`/kategori/${item.name}`}>
+                                <ListGroupItem>{item.name}</ListGroupItem>
                             </Link>
                         </ListGroup>   
                     );
@@ -36,7 +36,7 @@ export default class Index extends React.Component{
             .then (response => response.json())
             .then(items => {
                 this.setState({
-                    items 
+                    items  
                 });
             })
             .catch(console.log);

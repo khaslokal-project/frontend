@@ -13,10 +13,8 @@ class Item extends React.Component {
         return (
             <div className="apps">
                 <Row>
-
                     <Col>
-                        {
-                            this.state.data.map(item => {
+                        {this.state.data.map(item => {
                                 return (
                                     <Card className="cardCard" key={item.id}>
                                         <CardImg top width="219px" height="273.75px" src={item.image} alt="Card image cap" />
@@ -37,7 +35,6 @@ class Item extends React.Component {
                                 
                                 );
                             })
-                        
                         }
                     </Col>
                 </Row>
@@ -50,11 +47,10 @@ class Item extends React.Component {
     }
 
     fetchData(){
-        console.log(this.props)
         axios.get(`${process.env.REACT_APP_API_URL}/productcategory?name=${this.props.match.params.name}`)
             .then( ({ data }) => {
                 this.setState({
-                    data
+                    data 
                 });
             })
             .catch(error => {

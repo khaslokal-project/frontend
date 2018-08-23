@@ -5,7 +5,7 @@ import { Menu, ArrowBack, ShoppingCart } from '@material-ui/icons';
 import { Route, HashRouter } from 'react-router-dom';
 import { mailFolderListItems, otherMailFolderListItems } from './Tiledata';
 
-import { mailFolderListItemsRight } from './tileDataRight';
+import MailFolder from './tileDataRight';
 import { IconButton, Toolbar, AppBar, List, Drawer, Divider} from '@material-ui/core';
 
 import Beranda from '../pages/Beranda';
@@ -61,7 +61,7 @@ class Navbar extends React.Component {
 
         const sideList = (
             <div className={classes.list}>
-                <List>{mailFolderListItems}</List>
+                <List> {mailFolderListItems} </List>
                 <Divider />
                 <List>{otherMailFolderListItems}</List>
             </div>
@@ -70,12 +70,12 @@ class Navbar extends React.Component {
         const secondList = (
             <div className={classes.list}>
                 <List > 
-                    <IconButton> <ArrowBack/></IconButton>
+                    <IconButton> <ArrowBack/> </IconButton>
                         Keranjang Belanja
                 </List>
                 <Divider />
                 <List>
-                    {mailFolderListItemsRight}
+                    <MailFolder/>
                 </List>
             </div>
         );

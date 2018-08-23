@@ -5,7 +5,7 @@ import { Menu, ArrowBack, ShoppingCart } from '@material-ui/icons';
 import { Route, HashRouter } from 'react-router-dom';
 import { mailFolderListItems, otherMailFolderListItems } from './Tiledata';
 
-import { mailFolderListItemsRight } from './tileDataRight';
+import MailFolder from './tileDataRight'
 import { IconButton, Toolbar, AppBar, List, Drawer, Divider} from '@material-ui/core';
 
 import Beranda from '../pages/Beranda';
@@ -34,6 +34,7 @@ const styles = ({
         display: 'inline',
     
     }
+    
 });
 
 class Navbar extends React.Component {
@@ -45,10 +46,11 @@ class Navbar extends React.Component {
             dropdownOpen: false,
             splitButtonOpen: false,
             left: false,
-            right: false
+            right: false,
         };
 
         this.toggleDrawer = this.toggleDrawer.bind(this);
+        this.closeRight = this.closeRight.bind(this);
     }
 
     toggleDrawer (side, open) {
@@ -65,7 +67,6 @@ class Navbar extends React.Component {
                 <List>{mailFolderListItems}</List>
                 <Divider />
                 <List>{otherMailFolderListItems}</List>
-        
             </div>
         );
 
@@ -77,8 +78,10 @@ class Navbar extends React.Component {
                 </List>
                 <Divider />
                 <List>
-                    {mailFolderListItemsRight}
+                <MailFolder closeRight={this.closeRight}/>
                 </List>
+                    
+                
             </div>
         );
 
@@ -98,6 +101,7 @@ class Navbar extends React.Component {
                                             }/>
                                         </IconButton>
                                     </InputGroupAddon>
+                                    
                                     <Input placeholder="Cari.." src={Cari} style={{marginTop: '10px'}}/>
                                     <InputGroupAddon addonType="append">
                                         <IconButton color="inherit" aria-label="Open drawer" style={{marginTop: '5px'}}>
@@ -170,6 +174,12 @@ class Navbar extends React.Component {
                 </div>
             </HashRouter>
         );
+    }
+
+    closeRight() {
+        this.setState({
+            right: false
+        })
     }
 }
 
