@@ -75,6 +75,8 @@ class Masuk extends Component {
                         </Card>
                     </Col>
                 </Row>
+
+                
             </div>
         );
     }
