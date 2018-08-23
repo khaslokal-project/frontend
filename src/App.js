@@ -5,6 +5,7 @@ import {HashRouter, Switch, Route} from 'react-router-dom'
 import NavbarBeforeLogin from './component/Navbar';
 import NavbarAfterLogin from './component/NavbarAfterlogin';
 import {HashRouter, Switch, Route} from 'react-router-dom'
+
 class App extends Component {
 
     render() {
