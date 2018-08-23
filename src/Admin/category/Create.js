@@ -1,6 +1,5 @@
 import React from 'react';
 import axios from 'axios';
-// const dotenv = require('dotenv');
 
 import {Form, FormGroup, Input, Label, Button, Col
     ,Modal, ModalBody, ModalHeader} from 'reactstrap';
@@ -12,9 +11,7 @@ class Create extends React.Component {
         this.state = {
             nameCategory: '',
             modal: props.modal
-        };
-        // const env = dotenv.config().parsed;
-        
+        };        
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
 
