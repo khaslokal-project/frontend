@@ -3,9 +3,7 @@ import ListItem from '@material-ui/core/ListItem';
 import Button from '@material-ui/core/Button';
 import { List, Typography } from '@material-ui/core';
 import { Table } from 'reactstrap';
-
 import AppContext from './AppContext';
-
 
 export const mailFolderListItemsRight = (
     <div>
@@ -30,11 +28,15 @@ export const mailFolderListItemsRight = (
 
                 if (context.orderItem.length){
                     let total = 0;
-                    let subTotal = 0
+                    let subTotal = 0;
+                    let thetotal =0;
+                    let shippingcost = 10000;
 
                     let tbody = context.orderItem.map( item  => {
                         subTotal = item.total * item.price;
                         total += subTotal;
+                        thetotal = total + shippingcost;
+
                         return (<tr key={item.id}>
                             <td>
                                 {item.name}
@@ -52,7 +54,8 @@ export const mailFolderListItemsRight = (
                         )
                     })
                     
-                    const tfooter = (<tr><td colspan="3"></td><td>{total}</td></tr>)
+                    const tfooter = (<tr><td colspan="3"></td><td>Total Belanja= {thetotal}</td></tr>)
+                    const shipping = (<p>Ongkos Kirim = 10.000</p>)
 
                     view = (<Table>
                         <thead>
@@ -65,15 +68,20 @@ export const mailFolderListItemsRight = (
                         </thead>
                         <tbody>
                             {tbody}
+                            {shipping}
                         </tbody>
                         <tfooter>
                             {tfooter}
+                            <Button color="secondary">Checkout</Button>
                         </tfooter>
-                    </Table>);
+                    </Table>
+                    
+                    );
                 }
 
                 return (<div>{ view }</div>);
-            }}
+            }    
+        }
         </AppContext.Consumer>   
     </div>
 );

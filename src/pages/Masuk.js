@@ -31,7 +31,7 @@ class Masuk extends Component {
                 if (res.data.errors) {
                     return this.setState({ valerrors: res.data.errors });
                 }
-                return (window.location = '/home');
+                return (window.location = '/');
             });
     }
     render() {

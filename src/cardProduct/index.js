@@ -2,7 +2,9 @@ import React from 'react';
 import BarTopProduct from './BarTopProduct';
 import CardProductItem from './CardProductItem';
 import { Container, Row, Col} from 'reactstrap';
-class CardProduct extends React.Component {
+import axios from 'axios'
+
+export default class CardProduct extends React.Component {
     constructor(props) {
         super(props);
         this.state ={
@@ -11,42 +13,34 @@ class CardProduct extends React.Component {
         };
     }
     
-    render() {
-        return (
-            <div>
-                <Container>
-                    <Row>
-                        <BarTopProduct />
-                    </Row>
-                    <Row>
-                        <Col>
-                            {this.state.data.map(item => {
-                                return(
-                                    <CardProductItem item={item} key={item.id}/>
-                                );
-                            })
-                            }
-                        </Col>
-                    </Row>
-                </Container>
-            </div>
-        );
-    }
     componentDidMount() {
-        this.fetchData();
+     axios.get (`${process.env.REACT_APP_API_URL}/products/`)
+     .then (res=> {
+         const data = res.data.map(item => 
+            <div key={item._id}>
+                <CardProductItem item={item} />
+            </div>
+        )
+        this.setState({data})
+        console.log("state", this.state.data)
+     })
     }
 
-    fetchData() {
-        const API_URL = `${process.env.REACT_APP_API_URL}/products/`;
-        fetch(API_URL)
-            .then(response => response.json())
-            .then(data => {
-                this.setState({
-                    data : data
-                });
-            })
-            .catch(console.log);
-    }
+render(){
+    return(
+        <div>
+            <Container>
+                <Row>
+                    <BarTopProduct />
+                </Row>
+                <Row>
+                    <Col>
+                        {this.state.data}
+                    </Col>
+                </Row>
+            </Container>
+        </div>
+
+    )
 }
-
-export default CardProduct;
+}

@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import {Form, FormGroup, Input, Label, Button, Col,
     Modal, ModalBody, ModalHeader } from 'reactstrap';
+import ReactFilestack, { Client } from 'filestack-react';
 
 class Create extends React.Component {
     constructor(props){
@@ -24,6 +25,7 @@ class Create extends React.Component {
         };
 
         this.handleChange = this.handleChange.bind(this);
+        this.uploaddLinkImage = this.uploaddLinkImage.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     
         this.handleClosed = this.handleClosed.bind(this);
@@ -91,7 +93,16 @@ class Create extends React.Component {
                             <FormGroup row>
                                 <Label for="image" sm={2}>Gambar</Label>
                                 <Col sm={10}>
-                                    <Input type="text" name="image" id="image" onChange={this.handleChange }/>
+                                <ReactFilestack
+                                    apikey={process.env.REACT_APP_FILESTACK_API_KEY}
+                                    buttonText="masukkan gambar"
+                                    buttonClass="classname"
+                                    options={{
+                                        accept: 'image/*'
+                                    }}
+                                    onSuccess={this.uploaddLinkImage}
+                                />
+                                    <Input type="hidden" name="image"/>
                                 </Col>
                             </FormGroup>
                             
@@ -135,8 +146,18 @@ class Create extends React.Component {
         this.setState({[event.target.name]: event.target.value});
     }
 
+    uploaddLinkImage(result){
+        let { link_path } = result.filesUploaded && result.filesUploaded[0]
+        if (urlImage){
+            this.setState({
+                image: link_path
+            })
+        }
+    }
+
     handleSubmit(event){
         event.preventDefault();
+
         axios.post(`${process.env.REACT_APP_API_URL}/products/`, this.state)
             .then(res => {
                 this.close();
