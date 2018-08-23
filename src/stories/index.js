@@ -38,6 +38,11 @@ import Login from '../AdminKurir/Login';
 storiesOf('LoginAdmin', module)
     .add('Login', () => <Login />);
 
+import Login from '../AdminKurir/Login';
+
+storiesOf('LoginAdmin', module)
+    .add('Login', () => <Login />);
+
 storiesOf('Insidekategori', module)
     .add('Makanan', () => <Makanan/>);
 

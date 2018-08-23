@@ -4,6 +4,9 @@ import Sliporder from './PrintSlipOrder';
 import Invoice from './PrintInvoice';
 
 
+import Sliporder from './PrintSlipOrder';
+import Invoice from './PrintInvoice';
+
 
 class List extends React.Component {
     constructor(props){

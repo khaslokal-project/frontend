@@ -6,6 +6,7 @@ import { Table } from 'reactstrap';
 
 import AppContext from './AppContext';
 
+
 export const mailFolderListItemsRight = (
     <div>
         <AppContext.Consumer>

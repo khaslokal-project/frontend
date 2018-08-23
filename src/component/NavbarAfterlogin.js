@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import { Menu, ArrowBack, ShoppingCart, Portrait } from '@material-ui/icons';
 import { Route, HashRouter } from 'react-router-dom';
-import { mailFolderListItems, otherMailFolderListItems } from './Tiledata';
+import { mailFolderListItems, otherMailFolderListItems } from './TiledataAfterLogin';
 
 import { mailFolderListItemsRight } from './tileDataRight';
 import { IconButton, Toolbar, AppBar, List, Drawer, Divider} from '@material-ui/core';

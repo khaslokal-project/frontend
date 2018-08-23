@@ -17,6 +17,7 @@ import Cari from './../assetImage/icon/Cari.png';
 import Adminkategori from '../Admin/category/Index';
 import Adminseller from '../Admin/seller/Index';
 import Adminproduk from '../Admin/produk/Index';
+
 import Adminlogin from '../Admin/LoginAdmin/Login';
 import Order from '../AdminKurir/Order/List';
 
@@ -165,10 +166,10 @@ class Navbar extends React.Component {
                     <Route path="/adminkategori" component={Adminkategori} />
                     <Route path="/adminseller" component={Adminseller} />
                     <Route path="/adminproduk" component={Adminproduk} />
+
                     <Route path="/adminlogin" component={Adminlogin} /> 
                     <Route path="/adminkurir" component={Order} />
-  
-                    
+
                 </div>
             </HashRouter>
         );
