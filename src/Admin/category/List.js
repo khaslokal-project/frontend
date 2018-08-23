@@ -34,7 +34,7 @@ class List extends React.Component {
                             this.state.data.map(item => {
                                 return (
                                     <tr key={item.id}>
-                                        <td>{item.nameCategory}</td>
+                                        <td>{item.name}</td>
                                         <td> 
                                             <Button color="warning" onClick={
                                                 () => {

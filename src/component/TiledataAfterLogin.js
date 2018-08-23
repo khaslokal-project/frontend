@@ -3,12 +3,8 @@ import ListItem from '@material-ui/core/ListItem';
 import {Home, Drafts, Star, Mail} from '@material-ui/icons';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import { List, Divider, Avatar} from '@material-ui/core';
+import {Divider} from '@material-ui/core';
 import { Link } from 'react-router-dom';
-import Promo from './../assetImage/icon/Promo.png';
-import Car from './../assetImage/icon/Car.png';
-import Box from './../assetImage/icon/Box.png';
-import Pusat from './../assetImage/icon/Pusat.png';
 
 
 export const mailFolderListItems = (
@@ -41,15 +37,6 @@ export const otherMailFolderListItems = (
                 </ListItemIcon>
                 <ListItemText primary="Beranda" />
             </ListItem>
-
-            <ListItem button component={Link} to="/promo">
-                <ListItemIcon>
-                    <Avatar alt="promo" src={Promo} style={{width: '23px', height: '23px'}} />
-                </ListItemIcon>
-                <ListItemText primary="Promo Terkini" />
-            </ListItem>
-
-
             <ListItem button component={Link} to="/kategori">
                 <ListItemIcon>
                     <Star />
@@ -57,28 +44,7 @@ export const otherMailFolderListItems = (
                 <ListItemText primary="Kategori" />
             </ListItem><Divider />
         </div>
-
         <div>
-            <ListItem button>
-                <ListItemIcon>
-                    <Avatar alt="pengembalian order" src={Box} style={{width: '23px', height: '23px'}} />
-                </ListItemIcon>
-                <ListItemText primary="Pengembalian Order" />
-            </ListItem>
-            <ListItem button>
-                <ListItemIcon>
-                    <Avatar alt="car" src={Car} style={{width: '23px', height: '23px'}} />
-                </ListItemIcon>
-                <ListItemText primary="Status Pengiriman" />
-            </ListItem><Divider />
-        </div>
-        <div>
-            <ListItem button>
-                <ListItemIcon>
-                    <Avatar alt="pusat bantuan" src={Pusat} style={{width: '23px', height: '23px'}} />
-                </ListItemIcon>
-                <ListItemText primary="Pusat Bantuan" />
-            </ListItem>
             <ListItem button>
                 <ListItemIcon>
                     <Drafts />
@@ -94,37 +60,25 @@ export const otherMailFolderListItems = (
         </div>
         <div>
             <ListItem button component={Link} to="/adminkategori">
-                {/* <ListItemIcon>
-                </ListItemIcon> */}
                 <ListItemText primary="Adminkategori" />
             </ListItem>
             <ListItem button component={Link} to="/adminseller">
-                {/* <ListItemIcon>
-                </ListItemIcon> */}
                 <ListItemText primary="Adminseller"  />
             </ListItem>
             <ListItem button component={Link} to="/adminproduk">
-                {/* <ListItemIcon>
-                </ListItemIcon> */}
                 <ListItemText primary="Adminproduk" />
             </ListItem>
             <Divider />
             <ListItem button component={Link} to="/adminlogin">
-                {/* <ListItemIcon>
-                </ListItemIcon> */}
                 <ListItemText primary="Adminlogin" />
             </ListItem>
             <Divider />
             <ListItem button component={Link} to="/adminregister">
-                {/* <ListItemIcon>
-                </ListItemIcon> */}
                 <ListItemText primary="Adminregister" />
             </ListItem>
             <Divider />
-            <ListItem button component={Link} to="/adminkurrir">
-                {/* <ListItemIcon>
-                </ListItemIcon> */}
-                <ListItemText primary="Adminkurrir" />
+            <ListItem button component={Link} to="/kurrir">
+                <ListItemText primary="kurrir" />
             </ListItem>
             <Divider />
         </div>

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import { Menu, ArrowBack, ShoppingCart } from '@material-ui/icons';
 import { Route, HashRouter } from 'react-router-dom';
-import { mailFolderListItems, otherMailFolderListItems } from './Tiledata';
+import { mailFolderListItems, otherMailFolderListItems } from './TiledataAfterLogin';
 
 import MailFolder from './tileDataRight';
 import { IconButton, Toolbar, AppBar, List, Drawer, Divider} from '@material-ui/core';
@@ -19,7 +19,8 @@ import Adminseller from '../Admin/seller/Index';
 import Adminproduk from '../Admin/produk/Index';
 import KategoriItem from '../pages/Kategori/Item';
 import Adminlogin from '../Admin/LoginAdmin/Login';
-import Order from '../AdminKurir/Order/List';
+import Order from '../Kurir/Order/List';
+
 import  { InputGroup, InputGroupAddon, Input} from 'reactstrap';
 
 import 'bootstrap/dist/css/bootstrap.css';
@@ -64,6 +65,7 @@ class Navbar extends React.Component {
                 <List> {mailFolderListItems} </List>
                 <Divider />
                 <List>{otherMailFolderListItems}</List>
+        
             </div>
         );
 
@@ -96,7 +98,7 @@ class Navbar extends React.Component {
                                             }/>
                                         </IconButton>
                                     </InputGroupAddon>
-                                    <Input placeholder="Cari.." src={Cari} style={{marginTop: '10px'}}/>
+                                    <Input placeholder="Cari Produk.." src={Cari} style={{marginTop: '10px'}}/>
                                     <InputGroupAddon addonType="append">
                                         <IconButton color="inherit" aria-label="Open drawer" style={{marginTop: '5px'}}>
                                             {/* <Badge badgeContent={0} color="inherit"  > */}
@@ -151,7 +153,7 @@ class Navbar extends React.Component {
                         </div>
                     </Drawer>
 
-                   <Route exact path="/" component={Beranda} />
+                    <Route exact path="/" component={Beranda} />
                     
                     <Route path="/masuk" component={Masuk} />
                     <Route path="/daftar" component={Daftar} />
@@ -164,7 +166,7 @@ class Navbar extends React.Component {
                     <Route path="/adminproduk" component={Adminproduk} />
 
                     <Route path="/adminlogin" component={Adminlogin} /> 
-                    <Route path="/adminkurir" component={Order} />
+                    <Route path="/kurir" component={Order} />
                 </div>
             </HashRouter>
         );

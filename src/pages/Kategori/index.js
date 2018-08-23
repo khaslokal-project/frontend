@@ -2,6 +2,8 @@ import React from 'react';
 import { ListGroup, ListGroupItem } from 'reactstrap';
 import {Link} from 'react-router-dom'
 
+
+
 export default class Index extends React.Component{
     constructor(props){
         super(props);
@@ -14,12 +16,12 @@ export default class Index extends React.Component{
         return (
             <div>
                 {this.state.items.map(item => {
-                    return(       
+                    return(      
                         <ListGroup key={item.id}>
                             <Link to={`/kategori/${item.name}`}>
                                 <ListGroupItem>{item.name}</ListGroupItem>
                             </Link>
-                        </ListGroup>   
+                        </ListGroup>  
                     );
                 })
                 }
