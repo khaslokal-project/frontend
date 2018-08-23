@@ -151,7 +151,7 @@ class Navbar extends React.Component {
                         </div>
                     </Drawer>
 
-                    <Route exact path="/" component={Beranda} />
+                   <Route exact path="/" component={Beranda} />
                     
                     <Route path="/masuk" component={Masuk} />
                     <Route path="/daftar" component={Daftar} />

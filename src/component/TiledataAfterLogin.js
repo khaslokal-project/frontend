@@ -3,8 +3,6 @@ import ListItem from '@material-ui/core/ListItem';
 import {Home, Drafts, Star, Mail} from '@material-ui/icons';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
 import { List, Divider, Avatar} from '@material-ui/core';
 import { Link } from 'react-router-dom';
 import Promo from './../assetImage/icon/Promo.png';
