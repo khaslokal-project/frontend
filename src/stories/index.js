@@ -32,19 +32,10 @@ import SellerIndex from '../Admin/seller/Index';
 import OrderList from '../AdminKurir/Order/List';
 import PrintInvoice from '../AdminKurir/Order/PrintInvoice';
 import PrintSlipOrder from '../AdminKurir/Order/PrintSlipOrder';
-import Kategori from '../pages/Kategori';
-import Login from '../AdminKurir/Login';
+// import Login from '../AdminKurir/Login';
 
-storiesOf('LoginAdmin', module)
-    .add('Login', () => <Login />);
-
-import Login from '../AdminKurir/Login';
-
-storiesOf('LoginAdmin', module)
-    .add('Login', () => <Login />);
-
-storiesOf('Kategori', module)
-    .add('Kategori', () => <Kategori/>);
+// storiesOf('LoginAdmin', module)
+//     .add('Login', () => <Login />);
 
 storiesOf('Admin', module)
     .add('Seller List', () => <SellerList />)
@@ -67,7 +58,7 @@ storiesOf('Admin', module)
     .add('Produk Delete', () => <ProdukDelete />)
     .add('Produk Index', () => <ProdukIndex/>);
 
-storiesOf('Admin Kurir', module)
+storiesOf('AdminKurir', module)
     .add('Order List',()=> <OrderList/>)
     .add('Print Invoice',()=> <PrintInvoice/>)
     .add('Print Slip', ()=> <PrintSlipOrder/>);

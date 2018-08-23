@@ -98,7 +98,7 @@ class Navbar extends React.Component {
                                             }/>
                                         </IconButton>
                                     </InputGroupAddon>
-                                    <Input placeholder="Cari.." src={Cari} style={{marginTop: '10px'}}/>
+                                    <Input placeholder="Cari Produk.." src={Cari} style={{marginTop: '10px'}}/>
                                     <InputGroupAddon addonType="append">
                                         <IconButton color="inherit" aria-label="Open drawer" style={{marginTop: '5px'}}>
                                             {/* <Badge badgeContent={0} color="inherit"  > */}

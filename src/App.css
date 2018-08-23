@@ -232,3 +232,12 @@ ul{
     .sliporderno { display: none!important; }
     .print { display: block; }
 }
+
+
+
+.center{
+  text-align: center;
+  display: inline;
+  margin-left: 4rem;
+
+}
