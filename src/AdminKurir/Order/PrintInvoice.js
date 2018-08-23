@@ -14,9 +14,10 @@ export default class PrintInvoice extends React.Component{
     render(){
         return(
             <div>
-                <Modal isOpen={this.state.modal} onClosed={this.handleClosed}>
-                    <ModalHeader>Invoice Order</ModalHeader>
+            <Modal isOpen={this.state.modal} onClosed={this.handleClosed}>
+                <ModalHeader>Invoice Order</ModalHeader>
                     <ModalBody>
+                        <h3>Invoice Order</h3>
                         <p>Ke : Dillo</p>
                         <p>Alamat : Magelang </p>
                         <Table>
@@ -36,7 +37,7 @@ export default class PrintInvoice extends React.Component{
                                     <td>1.000</td>
                                     <td>1</td>
                                     <td>1.000</td>
-                    
+                            
                                 </tr>
                                 <tr>
                                     <td>2</td>
@@ -44,7 +45,7 @@ export default class PrintInvoice extends React.Component{
                                     <td>2.000</td>
                                     <td>5</td>
                                     <td>10.000</td>
-                    
+                            
                                 </tr>
                                 <tr>
                                     <td>3</td>
@@ -52,7 +53,7 @@ export default class PrintInvoice extends React.Component{
                                     <td>10.000</td>
                                     <td>1</td>
                                     <td>10.000</td>
-                  
+                        
                                 </tr>
                                 <tr>
                                     <td colSpan='4'>Grand Total</td>
@@ -60,11 +61,12 @@ export default class PrintInvoice extends React.Component{
                                 </tr>
                                 <tr>
                                     <td colSpan='4'></td>
-                                    <td><Button onClick={ () => {
+                                    <td><Button className="sliporderno" onClick={ () => {
 
                                         window.print();
                                     }
                                     }>Cetak</Button></td>
+                                    <td><Button className="sliporderno" type="button" onClick={this.close}>Batal</Button></td>
                                 </tr>
                             </tbody>
                         </Table>
@@ -76,8 +78,7 @@ export default class PrintInvoice extends React.Component{
     handleClosed() {
         this.props.closeModal();
     }
-
-    close() {
+     close() {
         this.setState({
             modal: false
         });

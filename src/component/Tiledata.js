@@ -123,10 +123,10 @@ export const otherMailFolderListItems = (
                 <ListItemText primary="Adminregister" />
             </ListItem>
             <Divider />
-            <ListItem button component={Link} to="/adminkurrir">
+            <ListItem button component={Link} to="/adminkurir">
                 {/* <ListItemIcon>
                 </ListItemIcon> */}
-                <ListItemText primary="Adminkurrir" />
+                <ListItemText primary="Adminkurir" />
             </ListItem>
             <Divider />
         </div>
