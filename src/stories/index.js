@@ -12,7 +12,7 @@ import Daftar from '../pages/Daftar';
 import { Button, Welcome } from '@storybook/react/demo';
 
 import ProdukList from '../Admin/produk/List';
-import ProdukCreate from '../Admin/produk/Create';
+import ProdukCreate from './../Admin/produk/Create';
 import ProdukUpdate from '../Admin/produk/Update';
 import ProdukDelete from '../Admin/produk/Delete';
 import ProdukIndex from '../Admin/produk/Index';
@@ -32,16 +32,10 @@ import SellerIndex from '../Admin/seller/Index';
 import OrderList from '../AdminKurir/Order/List';
 import PrintInvoice from '../AdminKurir/Order/PrintInvoice';
 import PrintSlipOrder from '../AdminKurir/Order/PrintSlipOrder';
-import Kategori from '../pages/Kategori';
-import Login from '../AdminKurir/Login';
+//import Login from '../AdminKurir/Login';
 
-storiesOf('LoginAdmin', module)
-    .add('Login', () => <Login />);
-
-import Login from '../AdminKurir/Login';
-
-storiesOf('LoginAdmin', module)
-    .add('Login', () => <Login />);
+// storiesOf('LoginAdmin', module)
+//     .add('Login', () => <Login />);
 
 storiesOf('Kategori', module)
     .add('Kategori', () => <Kategori/>);
