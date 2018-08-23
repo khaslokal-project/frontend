@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
-import { Menu, ArrowBack, ShoppingCart, Portrait } from '@material-ui/icons';
+import { Menu, ArrowBack, ShoppingCart } from '@material-ui/icons';
 import { Route, HashRouter } from 'react-router-dom';
-import { mailFolderListItems, otherMailFolderListItems } from './TiledataAfterLogin';
+import { mailFolderListItems, otherMailFolderListItems } from './Tiledata';
 
 import { mailFolderListItemsRight } from './tileDataRight';
 import { IconButton, Toolbar, AppBar, List, Drawer, Divider} from '@material-ui/core';
@@ -17,24 +17,12 @@ import Cari from './../assetImage/icon/Cari.png';
 import Adminkategori from '../Admin/category/Index';
 import Adminseller from '../Admin/seller/Index';
 import Adminproduk from '../Admin/produk/Index';
-import Makanan from './../pages/Kategori/Makanan';
-import Minuman from './../pages/Kategori/Minuman';
-import Aksesoris from './../pages/Kategori/Aksesoris';
-import Buahbuahan from './../pages/Kategori/Buahbuahan';
-import Daging from './../pages/Kategori/Daging';
-import Pohon from './../pages/Kategori/Pohon';
-import Tanaman from './../pages/Kategori/Tanaman';
-import Kerajinan from './../pages/Kategori/Kerajinantangan';
-import Lauk from './../pages/Kategori/Lauk';
-import Oleholeh from './../pages/Kategori/Oleholehbatam';
-import Sayuran from './../pages/Kategori/Sayuran';
-import Tas from './../pages/Kategori/Tas';
-import Tiket from './../pages/Kategori/Tiket';
-import Sepatu from './../pages/Kategori/Sepatu';
-import Herbal from './../pages/Kategori/Item';
-import Jasadesain from './../pages/Kategori/Jasadesain';
-import Perizinan from './../pages/Kategori/Perizinanukm';
-import Pakaian from './../pages/Kategori/Pakaian';
+
+import Adminlogin from '../Admin/LoginAdmin/Login';
+import Order from '../AdminKurir/Order/List';
+
+import KategoriItem from '../pages/Kategori/Item';
+
 import  { InputGroup, InputGroupAddon, Input} from 'reactstrap';
 
 import 'bootstrap/dist/css/bootstrap.css';
@@ -99,7 +87,7 @@ class Navbar extends React.Component {
         return (
             <HashRouter>
                 <div>
-                    <div>
+                    <div className="sliporderno ">
                         <AppBar to="/"  color="secondary" >
                             <Toolbar className={classes.center}>
                                 <InputGroup >
@@ -115,20 +103,13 @@ class Navbar extends React.Component {
                                     <Input placeholder="Cari.." src={Cari} style={{marginTop: '10px'}}/>
                                     <InputGroupAddon addonType="append">
                                         <IconButton color="inherit" aria-label="Open drawer" style={{marginTop: '5px'}}>
+                                            {/* <Badge badgeContent={0} color="inherit"  > */}
                                             <ShoppingCart onClick={
                                                 () => {
                                                     this.toggleDrawer('right', true);
                                                 }
                                             }/>
-                                        </IconButton>
-                                    </InputGroupAddon>
-                                    <InputGroupAddon addonType="append">
-                                        <IconButton color="inherit" aria-label="Profile" style={{marginTop: '5px'}}>
-                                            <Portrait onClick={
-                                                () => {
-                                                    
-                                                }
-                                            }/>
+                                            {/* </Badge> */}
                                         </IconButton>
                                     </InputGroupAddon>
                                 </InputGroup>
@@ -176,35 +157,19 @@ class Navbar extends React.Component {
 
                     <Route exact path="/" component={Beranda} />
                     
-
                     <Route path="/masuk" component={Masuk} />
                     <Route path="/daftar" component={Daftar} />
-                    <Route path="/kategori" component={Kategori}/>
+                    <Route exact path="/kategori" component={Kategori}/>
+                    <Route path="/kategori/:name" component={KategoriItem} /> 
                     <Route path="/kontak" component={Kontak} />
+                    
                     <Route path="/adminkategori" component={Adminkategori} />
                     <Route path="/adminseller" component={Adminseller} />
                     <Route path="/adminproduk" component={Adminproduk} />
 
-                    <Route path="/makanan" component={Makanan} />
-                    <Route path="/minuman" component={Minuman} />
-                    <Route path="/oleholeh" component={Oleholeh} />
-                    <Route path="/kerajinantangan" component={Kerajinan} />
-                    <Route path="/perizinanukm" component={Perizinan} />
-                    <Route path="/jasa" component={Jasadesain} />
-                    <Route path="/tiket" component={Tiket} />
-                    <Route path="/tas" component={Tas} />
-                    <Route path="/aksesoris" component={Aksesoris} />
-                    <Route path="/buahbuahan" component={Buahbuahan} />
-                    <Route path="/pakaian" component={Pakaian} />
-                    <Route path="/pohon" component={Pohon} />
-                    <Route path="/tanaman" component={Tanaman} />
-                    <Route path="/sayuran" component={Sayuran} />
-                    <Route path="/lauk" component={Lauk} />
-                    <Route path="/daging" component={Daging} />
-                    <Route path="/herbal" component={Herbal} /> 
-                    <Route path="/sepatu" component={Sepatu} />
+                    <Route path="/adminlogin" component={Adminlogin} /> 
+                    <Route path="/adminkurir" component={Order} />
 
-                    
                 </div>
             </HashRouter>
         );
