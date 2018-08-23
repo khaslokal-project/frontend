@@ -12,12 +12,12 @@ class App extends Component {
             <Router>
                 <AppProvider>     
                     <div className="App" style={{paddingTop:'4.7rem'}} justify="center">         
-                        <HashRouter>
+                        
                             <Switch>
                                 <Route exact path="/" component={NavbarBeforeLogin}/>
                                 <Route exact path="/home" component={NavbarAfterLogin}/>
                             </Switch>
-                        </HashRouter>   
+                          
                     </div> 
                 </AppProvider>
             </Router>

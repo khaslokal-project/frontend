@@ -116,9 +116,6 @@ export const otherMailFolderListItems = (
             <ListItem button component={Link} to="/adminkurrir">
                 <ListItemText primary="Adminkurrir" />
             </ListItem>
-            <ListItem button component={Link} to="/adminkurir">
-                <ListItemText primary="Adminkurir" />
-            </ListItem>
         </div>
     </div>
 );
