@@ -17,12 +17,9 @@ import Cari from './../assetImage/icon/Cari.png';
 import Adminkategori from '../Admin/category/Index';
 import Adminseller from '../Admin/seller/Index';
 import Adminproduk from '../Admin/produk/Index';
-
+import KategoriItem from '../pages/Kategori/Item';
 import Adminlogin from '../Admin/LoginAdmin/Login';
 import Order from '../AdminKurir/Order/List';
-
-import KategoriItem from '../pages/Kategori/Item';
-
 import  { InputGroup, InputGroupAddon, Input} from 'reactstrap';
 
 import 'bootstrap/dist/css/bootstrap.css';
@@ -67,7 +64,6 @@ class Navbar extends React.Component {
                 <List>{mailFolderListItems}</List>
                 <Divider />
                 <List>{otherMailFolderListItems}</List>
-        
             </div>
         );
 
@@ -169,7 +165,6 @@ class Navbar extends React.Component {
 
                     <Route path="/adminlogin" component={Adminlogin} /> 
                     <Route path="/adminkurir" component={Order} />
-
                 </div>
             </HashRouter>
         );

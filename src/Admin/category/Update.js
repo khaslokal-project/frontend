@@ -10,7 +10,6 @@ class Update extends React.Component {
             modal: props.modal,
             nameCategory: ''
         };
-        // const env = dotenv.config().parsed;
         
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);

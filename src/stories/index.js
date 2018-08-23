@@ -32,7 +32,7 @@ import SellerIndex from '../Admin/seller/Index';
 import OrderList from '../AdminKurir/Order/List';
 import PrintInvoice from '../AdminKurir/Order/PrintInvoice';
 import PrintSlipOrder from '../AdminKurir/Order/PrintSlipOrder';
-import Makanan from '../pages/Kategori/Makanan';
+import Kategori from '../pages/Kategori';
 import Login from '../AdminKurir/Login';
 
 storiesOf('LoginAdmin', module)
@@ -43,10 +43,8 @@ import Login from '../AdminKurir/Login';
 storiesOf('LoginAdmin', module)
     .add('Login', () => <Login />);
 
-storiesOf('Insidekategori', module)
-    .add('Makanan', () => <Makanan/>);
-
-console.log (process.env.REACT_APP_API_URL);
+storiesOf('Kategori', module)
+    .add('Kategori', () => <Kategori/>);
 
 storiesOf('Admin', module)
     .add('Seller List', () => <SellerList />)

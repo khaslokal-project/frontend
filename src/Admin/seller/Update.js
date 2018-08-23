@@ -16,8 +16,6 @@ class Update extends React.Component {
             phone: '',
             modal: props.modal
         };
-        // const env = dotenv.config().parsed;
-        
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
 
