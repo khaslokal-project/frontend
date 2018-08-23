@@ -113,8 +113,15 @@ export const otherMailFolderListItems = (
                 <ListItemText primary="Adminregister" />
             </ListItem>
             <Divider />
+<<<<<<< HEAD
             <ListItem button component={Link} to="/adminkurrir">
                 <ListItemText primary="Adminkurrir" />
+=======
+            <ListItem button component={Link} to="/adminkurir">
+                {/* <ListItemIcon>
+                </ListItemIcon> */}
+                <ListItemText primary="Adminkurir" />
+>>>>>>> fc4899d673d0149d898079668f2ff7742e27200f
             </ListItem>
             <Divider />
         </div> */}
