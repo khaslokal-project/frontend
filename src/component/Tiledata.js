@@ -1,6 +1,6 @@
 import React from 'react';
 import ListItem from '@material-ui/core/ListItem';
-import {Home, Star, Mail, ShoppingBasket} from '@material-ui/icons';
+import {Home, Star, ShoppingBasket} from '@material-ui/icons';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import Typography from '@material-ui/core/Typography';
@@ -22,24 +22,27 @@ export const mailFolderListItems = (
                 </Typography>
             </ListItem>
             <ListItem>
-                <Button style={{marginRight: '10px'}} variant="outlined" color="secondary" component={Link} to="/masuk" > Masuk </Button>
+                <Button style={{marginRight: `10px`}} variant="outlined" color="secondary" component={Link} to="/masuk" > Masuk </Button>
                 <Button variant="contained" color="secondary" component={Link} to="/daftar">
                   Daftar
                 </Button>
             </ListItem>
-        </List>   
+        </List>
     </div>
 );
 export const otherMailFolderListItems = (
+
+   
     <div>
         <div>
             <ListItem>
-                <AppContext.Consumer>
-                    {(context) => {
-                        return (<div> { context.user.username } </div>)
-                    }}
-                </AppContext.Consumer>
-                <Button variant="outlined" color="secondary" type="button" >Keluar</Button>
+                
+                <Button variant="outlined" color="secondary" type="button" onClick={() =>
+            axios
+              .get("http://localhost:8000/api/logout")
+              .then(res => (window.location = "/"))
+          }
+}>Keluar</Button>
             </ListItem>
             
         </div>
@@ -53,13 +56,13 @@ export const otherMailFolderListItems = (
             <ListItem button component={Link} to="/kategori">
                 <ListItemIcon>
                     <Star />
-                </ListItemIcon> 
+                </ListItemIcon>
                 <ListItemText primary="Kategori" />
             </ListItem>
             <ListItem button component={Link} to="/belanjasaya">
                 <ListItemIcon>
                     <ShoppingBasket />
-                </ListItemIcon> 
+                </ListItemIcon>
                 <ListItemText primary="Belanja Saya" />
             </ListItem><Divider />
         </div>

@@ -16,7 +16,7 @@ class MailFolder extends Component {
     
     handleClick = (options) => {
         const self = this;
-        const { event, shippingcost, items } = options;
+        const { event, items } = options;
         event.stopPropagation();
 
         const newItems = items.map((item) => {
@@ -29,8 +29,8 @@ class MailFolder extends Component {
         
         axios.post(`${process.env.REACT_APP_API_URL}/orders`,
         {
-            idcourier: 1,
-            iduser: 1,
+            idcourier: 3,
+            iduser: 3,
             items: newItems
         })
         .then( ({ data }) => {

@@ -2,6 +2,7 @@ import React from 'react';
 import { Col, Button, Form, FormGroup, Input, Container, Row } from 'reactstrap';
 import axios from 'axios';
 
+
 export default class Daftar extends React.Component{
     constructor(props){
         super(props);
@@ -34,7 +35,7 @@ export default class Daftar extends React.Component{
                 return this.setState({
                     userdata: result.data,
                     errors : null,
-                    success : true
+                    success : true,
                 });
             });
     }

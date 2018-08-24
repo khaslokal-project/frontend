@@ -13,38 +13,37 @@ class App extends Component {
     constructor(props){
         super(props);
         this.state = {
-            username: '',
-            phone: '',
-            email: '',
-            address: ''
-        }
+            username: ``,
+            phone: ``,
+            email: ``,
+            address: ``
+        };
     }
 
     render() {
-        let test = this.state.username;
+        // let test = this.state.username;
         let tempDom = (<AppContext.Consumer>
             {(context) => {
-                {/* debugger; */}
                 if (this.state.username && !context.user.username){
-                    context.handlers.signin(this.state)
+                    context.handlers.signin(this.state);
                 }
                 
             }}
 
-        </AppContext.Consumer>)
+        </AppContext.Consumer>);
         
         return (
             <div>
                 <Router>
                     <AppProvider>
-                        <div className="App" style={{paddingTop:'4.7rem'}} justify="center">
+                        <div className="App" style={{paddingTop:`4.7rem`}} justify="center">
 
                             <Switch>
                                 <Route exact path="/" component={NavbarBeforeLogin}/>
                                 
                             </Switch>
-                            { tempDom } 
-                        </div> 
+                            { tempDom }
+                        </div>
                     </AppProvider>
                 </Router>
             </div>
@@ -52,25 +51,25 @@ class App extends Component {
     }
 
     componentDidMount(){
-        let token = reactLocalStorage.get('token')
+        let token = reactLocalStorage.get(`token`);
         if (token){
             axiosInstance.get(`/users/checktoken`, {
                 headers: {
-                    'Authorization': `Bearer ${token}` 
+                    'Authorization': `Bearer ${token}`
                 }
             })
-            .then( response => {
-                this.setState({
-                    username: 'barangbeli',
-                    email: 'wew@gmail.com',
-                    phone: '911',
-                    address: 'jln mayjen sudirman'
+                .then( response => {
+                    this.setState({
+                        username: `barangbeli`,
+                        email: `wew@gmail.com`,
+                        phone: `911`,
+                        address: `jln mayjen sudirman`
+                    });
                 })
-            })
-            .catch ( error => {
-                reactLocalStorage.set('token',false);
-                reactLocalStorage.setObject('user', {});
-            })
+                .catch ( error => {
+                    reactLocalStorage.set(`token`,false);
+                    reactLocalStorage.setObject(`user`, {});
+                });
         }
     }
 }

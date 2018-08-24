@@ -8,11 +8,12 @@ class AppProvider extends Component {
             user:{},
             order:{},
             orderitem:[]
-        }
+        };
     }
     
+    
     render() {
-        const self = this
+        const self = this;
         const handlers = {
             signin:(data)=> {
                 self.setState({
@@ -22,21 +23,21 @@ class AppProvider extends Component {
                         phone: data.phone,
                         address: data.address
                     }
-                })
+                });
             },
             addOrderItem: (product, qty = 1) => {
-                const { name, price, image } = product
+                const { name, price, image } = product;
                 const idproduct = product.id;
                 const { orderitem } = self.state;
 
                 console.log(product);
                 
                 const found = orderitem.find(item => {
-                    return item.idproduct === idproduct
+                    return item.idproduct === idproduct;
                 });
 
                 if (found){
-                    found.qty += qty
+                    found.qty += qty;
                 }else{
                     orderitem.push({
                         idproduct,
@@ -44,11 +45,11 @@ class AppProvider extends Component {
                         image,
                         price,
                         qty
-                    })
+                    });
                 }
                 self.setState({
                     orderitem
-                })
+                });
             },
             removeOrder: function(){
                 
@@ -56,11 +57,11 @@ class AppProvider extends Component {
             removeOrderItem: function(){
     
             }
-        }
+        };
 
         return <AppContext.Provider value={{...this.state, handlers}}>
             {this.props.children}
-        </AppContext.Provider>
+        </AppContext.Provider>;
     }
 }
 export default AppProvider;

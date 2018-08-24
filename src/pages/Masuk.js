@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, Redirect } from 'react-router'
+import { Redirect } from 'react-router';
 import { Button, Form, Input, Card, CardTitle, Row, Col } from 'reactstrap';
 import axiosInstance from './../component/AxiosInstance';
 import { reactLocalStorage } from 'reactjs-localstorage';
@@ -97,11 +97,8 @@ class Masuk extends Component {
                                         placeholder="Kata Sandi"
                                     />{' '}
                                         { viewButton }              
-                                                
-                                      
-
                                 </Form>
-                                <a href="/pages/Daftar" className="CardText"> Belum memiliki akun? </a>
+                                <a href='/#/daftar' className="CardText"> Belum memiliki akun? </a>
                             </Card>
                         </Col>
                     </Row>
