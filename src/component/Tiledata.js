@@ -36,13 +36,15 @@ export const otherMailFolderListItems = (
     <div>
         <div>
             <ListItem>
-                
-                <Button variant="outlined" color="secondary" type="button" onClick={() =>
-            axios
-              .get("http://localhost:8000/api/logout")
-              .then(res => (window.location = "/"))
-          }
-}>Keluar</Button>
+                <AppContext.Consumer>
+                    {(context) => {
+                        {/* let logout = (
+
+                        ) */}
+                        return (<div> { context.user.username } </div>);
+                    }}
+                </AppContext.Consumer>
+                <Button variant="outlined" color="secondary" type="button" onClick={()=> {}}>Keluar</Button>
             </ListItem>
             
         </div>
