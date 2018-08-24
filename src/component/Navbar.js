@@ -4,6 +4,7 @@ import { withStyles } from '@material-ui/core/styles';
 import { Menu, ArrowBack, ShoppingCart } from '@material-ui/icons';
 import { Route, HashRouter } from 'react-router-dom';
 import { mailFolderListItems, otherMailFolderListItems } from './Tiledata';
+import AppContext from './AppContext';
 
 import MailFolder from './tileDataRight'
 import { IconButton, Toolbar, AppBar, List, Drawer, Divider} from '@material-ui/core';
@@ -56,11 +57,23 @@ class Navbar extends React.Component {
     }
 
     render() {
+        console.log('navbar render');
         const { classes } = this.props;
 
         const sideList = (
             <div className={classes.list}>
-                <List>{mailFolderListItems}</List>
+
+                <AppContext.Consumer>
+                    {(context) => {
+                        console.log(context)
+                        if ( ! ( context.user && context.user.username ) )
+                            return (<List>{mailFolderListItems} {context.user.username}</List>)
+                        else
+                            return (<div></div>)
+                    }}
+                </AppContext.Consumer>
+            
+            
                 <Divider />
                 <List>{otherMailFolderListItems}</List>
             </div>

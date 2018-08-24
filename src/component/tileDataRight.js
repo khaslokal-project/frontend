@@ -16,10 +16,10 @@ class MailFolder extends Component {
     
     handleClick = (options) => {
         const self = this;
-        const { event, shippingcost, orderitem } = options;
+        const { event, shippingcost, items } = options;
         event.stopPropagation();
 
-        const items = orderitem.map((item) => {
+        const newItems = items.map((item) => {
             const {idproduct, qty} = item 
             return {
                 idproduct,
@@ -31,7 +31,7 @@ class MailFolder extends Component {
         {
             idcourier: 1,
             iduser: 1,
-            orderitem
+            items: newItems
         })
         .then( ({ data }) => {
             this.closeRight();
@@ -115,7 +115,7 @@ class MailFolder extends Component {
                                                 {
                                                     this.handleClick({
                                                         event,
-                                                        orderitem: context.orderitem,
+                                                        items: context.orderitem,
                                                         shippingcost
                                                     })
                                                 }} color="secondary">Checkout

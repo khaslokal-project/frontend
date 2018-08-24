@@ -15,10 +15,14 @@ class AppProvider extends Component {
         const self = this
         const handlers = {
             signin:(data)=> {
-                this.setState({
-                    username: data.username,
-                    email: data.email
-                }) 
+                self.setState({
+                    user: {
+                        username: data.username,
+                        email: data.email,
+                        phone: data.phone,
+                        address: data.address
+                    }
+                })
             },
             addOrderItem: (product, qty = 1) => {
                 const { name, price, image } = product

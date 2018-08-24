@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { Route, Redirect } from 'react-router'
 import { Button, Form, Input, Card, CardTitle, Row, Col } from 'reactstrap';
-import axios from 'axios';
+import axiosInstance from './../component/AxiosInstance';
+import { reactLocalStorage } from 'reactjs-localstorage';
 
 class Masuk extends Component {
     constructor(props) {
@@ -10,7 +11,6 @@ class Masuk extends Component {
             password: '',
             username: '',
             error: null,
-            valerrors: null,
             islogin: false
         };
         this.changeHandler = this.changeHandler.bind(this);
@@ -24,19 +24,17 @@ class Masuk extends Component {
     }
     submitHandler(e) {
         e.preventDefault();
-        axios
-            .post(`${process.env.REACT_APP_API_URL}/users/login`, this.state)
-            .then(res => {
-                if (res.data.error) {
-                    return this.setState({ error: res.data.message });
-                }
-                if (res.data.errors) {
-                    return this.setState({ valerrors: res.data.errors });
-                }
-
+        axiosInstance
+            .post(`/users/login`, this.state)
+            .then( ( { data } ) => {
+                reactLocalStorage.set('token',data.token);
                 this.setState({
                     islogin: true
                 })
+                
+            })
+            .catch( error => {
+                this.setState({ error: ( error && error.response && error.response.data && error.response.data.message ) })
             });
     }
     render() {
@@ -53,10 +51,6 @@ class Masuk extends Component {
                                 <CardTitle className="CardText">Login</CardTitle>
                                 {this.state.error && <p>{this.state.error}</p>}
                                 <Form onSubmit={this.submitHandler}>
-            
-                                    {this.state.valerrors && this.state.valerrors.username && (
-                                        <p>{this.state.valerrors.username.msg}</p>
-                                    )}
                                     <Input
                                         onChange={this.changeHandler}
                                         type="username"
@@ -64,10 +58,6 @@ class Masuk extends Component {
                                         id="username"
                                         placeholder="Username anda"
                                     />{' '}
-                                    
-                                    {this.state.valerrors && this.state.valerrors.password && (
-                                        <p>{this.state.valerrors.password.msg}</p>
-                                    )}
                                     <Input
                                         onChange={this.changeHandler}
                                         type="password"
@@ -86,10 +76,7 @@ class Masuk extends Component {
                 </div>
             )
         }
-    
         return (<div>{ view }</div>)
-        //return ( { this.state.isLogin } );
-        //return ({ (this.state.islogin) ? (<Redirect to="/dashboard"/>) : loginView });
     }
 }
 
