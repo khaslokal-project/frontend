@@ -1,6 +1,6 @@
 import React from 'react';
 import ListItem from '@material-ui/core/ListItem';
-import {Home, Drafts, Star, Mail} from '@material-ui/icons';
+import {Home, Drafts, Star, Mail, ShoppingBasket} from '@material-ui/icons';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import Typography from '@material-ui/core/Typography';
@@ -44,6 +44,12 @@ export const otherMailFolderListItems = (
                     <Star />
                 </ListItemIcon> 
                 <ListItemText primary="Kategori" />
+            </ListItem>
+            <ListItem button component={Link} to="/belanjasaya">
+                <ListItemIcon>
+                    <ShoppingBasket />
+                </ListItemIcon> 
+                <ListItemText primary="Belanja Saya" />
             </ListItem><Divider />
         </div>
         <div>

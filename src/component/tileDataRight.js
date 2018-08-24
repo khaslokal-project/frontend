@@ -16,13 +16,22 @@ class MailFolder extends Component {
     
     handleClick = (options) => {
         const self = this;
-        const { event, shippingcost, orderItem } = options;
+        const { event, shippingcost, orderitem } = options;
         event.stopPropagation();
+
+        const items = orderitem.map((item) => {
+            const {idproduct, qty} = item 
+            return {
+                idproduct,
+                qty
+            }
+        })
         
-        axios.post(`${process.env.REACT_APP_API_URL}/checkout`,
+        axios.post(`${process.env.REACT_APP_API_URL}/orders`,
         {
-            shippingcost,
-            orderItem
+            idcourier: 1,
+            iduser: 1,
+            orderitem
         })
         .then( ({ data }) => {
             this.closeRight();
@@ -55,22 +64,22 @@ class MailFolder extends Component {
                             )
 
 
-                            if (context.orderItem.length) {
+                            if (context.orderitem.length) {
                                 let total = 0;
                                 let subTotal = 0;
                                 let thetotal =0;
                                 let shippingcost = 10000;
 
-                                let tbody = context.orderItem.map( item  => {
-                                    subTotal = item.total * item.price;
+                                let tbody = context.orderitem.map( item  => {
+                                    subTotal = item.qty * item.price;
                                     total += subTotal;
                                     thetotal = total + shippingcost;
-                                    return (<tr key={item.productId}>
+                                    return (<tr key={item.idproduct}>
                                         <td>
                                             {item.name}
                                         </td>
                                         <td>
-                                            {item.total}
+                                            {item.qty}
                                         </td>
                                         <td>
                                             {item.price}
@@ -106,7 +115,7 @@ class MailFolder extends Component {
                                                 {
                                                     this.handleClick({
                                                         event,
-                                                        orderItem: context.orderItem,
+                                                        orderitem: context.orderitem,
                                                         shippingcost
                                                     })
                                                 }} color="secondary">Checkout

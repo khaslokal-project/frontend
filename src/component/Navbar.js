@@ -14,12 +14,8 @@ import Kontak from '../pages/Kontak';
 import Daftar from '../pages/Daftar';
 import Masuk from '../pages/Masuk';
 import Cari from './../assetImage/icon/Cari.png';
-import Adminkategori from '../Admin/category/Index';
-import Adminseller from '../Admin/seller/Index';
-import Adminproduk from '../Admin/produk/Index';
-import KategoriItem from '../pages/Kategori/Item';
-import Adminlogin from '../Admin/LoginAdmin/Login';
-import Order from '../AdminKurir/Order/List';
+// import Belanjasaya from './Belanjasaya'
+
 
 import  { InputGroup, InputGroupAddon, Input} from 'reactstrap';
 
@@ -162,15 +158,10 @@ class Navbar extends React.Component {
                     <Route path="/masuk" component={Masuk} />
                     <Route path="/daftar" component={Daftar} />
                     <Route exact path="/kategori" component={Kategori}/>
-                    <Route path="/kategori/:name" component={KategoriItem} /> 
+                    {/* <Route path="/kategori/:name" component={KategoriItem} />  */}
                     <Route path="/kontak" component={Kontak} />
-                    
-                    <Route path="/adminkategori" component={Adminkategori} />
-                    <Route path="/adminseller" component={Adminseller} />
-                    <Route path="/adminproduk" component={Adminproduk} />
-
-                    <Route path="/adminlogin" component={Adminlogin} /> 
-                    <Route path="/adminkurir" component={Order} />
+                    {/* <Route path="/belanjasaya" component={Belanjasaya} /> */}
+                        
                 </div>
             </HashRouter>
         );

@@ -5,38 +5,45 @@ class AppProvider extends Component {
     constructor(props){
         super(props);
         this.state = {
+            user:{},
             order:{},
-            orderItem:[]
+            orderitem:[]
         }
     }
     
     render() {
         const self = this
         const handlers = {
-            addOrderItem: (product, total = 1) => {
+            signin:(data)=> {
+                this.setState({
+                    username: data.username,
+                    email: data.email
+                }) 
+            },
+            addOrderItem: (product, qty = 1) => {
                 const { name, price, image } = product
-                const productId = product.id;
-                const { orderItem } = self.state;
+                const idproduct = product.id;
+                const { orderitem } = self.state;
 
                 console.log(product);
                 
-                const found = orderItem.find(item => {
-                    return item.productId === productId
+                const found = orderitem.find(item => {
+                    return item.idproduct === idproduct
                 });
 
                 if (found){
-                    found.total += total
+                    found.qty += qty
                 }else{
-                    orderItem.push({
-                        productId,
+                    orderitem.push({
+                        idproduct,
                         name,
                         image,
                         price,
-                        total
+                        qty
                     })
                 }
                 self.setState({
-                    orderItem
+                    orderitem
                 })
             },
             removeOrder: function(){
