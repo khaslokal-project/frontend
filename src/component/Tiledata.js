@@ -1,24 +1,24 @@
 import React from 'react';
 import ListItem from '@material-ui/core/ListItem';
-import {Home, Drafts, Star, Mail, ShoppingBasket} from '@material-ui/icons';
+import {Home, Star, Mail, ShoppingBasket} from '@material-ui/icons';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import { List, Divider} from '@material-ui/core';
 import { Link } from 'react-router-dom';
-
+import AppContext from './../component/AppContext';
 
 export const mailFolderListItems = (
     <div>
         <List>
             <ListItem>
                 <Typography variant="title">
-                  Anda belum gabung jadi member?
+                  Belum gabung jadi member?
                 </Typography>
             </ListItem>
             <ListItem>
-                <Typography> Buruan daftar dan nikmati kemudahan belanja
+                <Typography> Buruan daftar dan belanja produk UMKM hanya di KhasLokal.com
                 </Typography>
             </ListItem>
             <ListItem>
@@ -32,6 +32,17 @@ export const mailFolderListItems = (
 );
 export const otherMailFolderListItems = (
     <div>
+        <div>
+            <ListItem>
+                <AppContext.Consumer>
+                    {(context) => {
+                        return (<div> { context.user.username } </div>)
+                    }}
+                </AppContext.Consumer>
+                <Button variant="outlined" color="secondary" type="button" >Keluar</Button>
+            </ListItem>
+            
+        </div>
         <div>
             <ListItem button component={Link} to="/">
                 <ListItemIcon>
@@ -50,20 +61,6 @@ export const otherMailFolderListItems = (
                     <ShoppingBasket />
                 </ListItemIcon> 
                 <ListItemText primary="Belanja Saya" />
-            </ListItem><Divider />
-        </div>
-        <div>
-            <ListItem button>
-                <ListItemIcon>
-                    <Drafts />
-                </ListItemIcon>
-                <ListItemText primary="Tentang Khaslokal" />
-            </ListItem>
-            <ListItem button component={Link} to="/kontak">
-                <ListItemIcon>
-                    <Mail />
-                </ListItemIcon>
-                <ListItemText primary="Kontak Khaslokal" />
             </ListItem><Divider />
         </div>
     </div>

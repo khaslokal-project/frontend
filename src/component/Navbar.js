@@ -15,7 +15,7 @@ import Kontak from '../pages/Kontak';
 import Daftar from '../pages/Daftar';
 import Masuk from '../pages/Masuk';
 import Cari from './../assetImage/icon/Cari.png';
-// import Belanjasaya from './Belanjasaya'
+import Belanjasaya from './Belanjasaya'
 
 
 import  { InputGroup, InputGroupAddon, Input} from 'reactstrap';
@@ -65,7 +65,6 @@ class Navbar extends React.Component {
 
                 <AppContext.Consumer>
                     {(context) => {
-                        console.log(context)
                         if ( ! ( context.user && context.user.username ) )
                             return (<List>{mailFolderListItems} {context.user.username}</List>)
                         else
@@ -173,7 +172,7 @@ class Navbar extends React.Component {
                     <Route exact path="/kategori" component={Kategori}/>
                     {/* <Route path="/kategori/:name" component={KategoriItem} />  */}
                     <Route path="/kontak" component={Kontak} />
-                    {/* <Route path="/belanjasaya" component={Belanjasaya} /> */}
+                    <Route path="/belanjasaya" component={Belanjasaya} />
                         
                 </div>
             </HashRouter>

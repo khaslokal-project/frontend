@@ -3,6 +3,7 @@ import { Route, Redirect } from 'react-router'
 import { Button, Form, Input, Card, CardTitle, Row, Col } from 'reactstrap';
 import axiosInstance from './../component/AxiosInstance';
 import { reactLocalStorage } from 'reactjs-localstorage';
+import AppContext from './../component/AppContext';
 
 class Masuk extends Component {
     constructor(props) {
@@ -29,8 +30,10 @@ class Masuk extends Component {
             .then( ( { data } ) => {
                 reactLocalStorage.set('token',data.token);
                 this.setState({
-                    islogin: true
+                    islogin: true,
+                    dataLogin: data
                 })
+                console.log(data)
                 
             })
             .catch( error => {
@@ -39,8 +42,36 @@ class Masuk extends Component {
     }
     render() {
         let view  = undefined;
+        let viewButton = (
+            <div>
+                <AppContext.Consumer>
+                    {(context) => {
+                        let login = () => {
+                            axiosInstance
+                                .post(`/users/login`, this.state)
+                                .then( ( { data } ) => {
+                                    reactLocalStorage.set('token',data.token);
+                                    context.handlers.signin(data)
+                                    this.setState({
+                                        islogin: true
+                                    })
+                                })
+                                .catch( error => {
+                                    this.setState({ error: ( error && error.response && error.response.data && error.response.data.message ) })
+                                });
+                        }
+                        return (
+                            <Button color="warning" type="button" onClick={login}> Login </Button>
+                        )
+                    }}
+                </AppContext.Consumer>
+            </div>
+        )              
+
         if (this.state.islogin){
-            view = (<Redirect to="/"/>)
+            view = (
+                <Redirect to="/"/>
+            )
         }
         else{
             view = (
@@ -65,9 +96,10 @@ class Masuk extends Component {
                                         id="password"
                                         placeholder="Kata Sandi"
                                     />{' '}
-                                    
-                                    <Button color="warning" type="submit"> Login </Button>
-                                
+                                        { viewButton }              
+                                                
+                                      
+
                                 </Form>
                                 <a href="/pages/Daftar" className="CardText"> Belum memiliki akun? </a>
                             </Card>

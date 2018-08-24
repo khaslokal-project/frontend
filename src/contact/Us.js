@@ -6,7 +6,7 @@ export default class Contacts extends React.Component {
         return(
             <div >
                 <Container className="contUs">
-                    <p className="pUs"> © KhasLokal </p>
+                    <span className="pUs"> © KhasLokal </span>
                 </Container>
             </div>
         );

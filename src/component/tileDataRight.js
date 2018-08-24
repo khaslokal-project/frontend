@@ -52,7 +52,7 @@ class MailFolder extends Component {
                                 <List>
                                     <ListItem>
                                         <Typography>
-                                            Keranjang belanja Sista masih kosong. Ayo diborong Sis, sebelum kehabisan.                       
+                                            Keranjang belanja anda masih kosong.                      
                                         </Typography>
                                     </ListItem>
                                     <ListItem>

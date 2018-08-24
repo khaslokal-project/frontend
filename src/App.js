@@ -7,7 +7,7 @@ import { reactLocalStorage } from 'reactjs-localstorage';
 
 import './App.css';
 import NavbarBeforeLogin from './component/Navbar';
-import NavbarAfterLogin from './component/NavbarAfterlogin';
+
 
 class App extends Component {
     constructor(props){
@@ -21,11 +21,10 @@ class App extends Component {
     }
 
     render() {
-        console.log('kerender');
         let test = this.state.username;
         let tempDom = (<AppContext.Consumer>
             {(context) => {
-                debugger;
+                {/* debugger; */}
                 if (this.state.username && !context.user.username){
                     context.handlers.signin(this.state)
                 }
@@ -42,7 +41,7 @@ class App extends Component {
 
                             <Switch>
                                 <Route exact path="/" component={NavbarBeforeLogin}/>
-                                <Route exact path="/home" component={NavbarAfterLogin}/>
+                                
                             </Switch>
                             { tempDom } 
                         </div> 
@@ -67,7 +66,6 @@ class App extends Component {
                     phone: '911',
                     address: 'jln mayjen sudirman'
                 })
-                console.log(response);
             })
             .catch ( error => {
                 reactLocalStorage.set('token',false);
