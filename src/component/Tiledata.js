@@ -40,6 +40,7 @@ export const otherMailFolderListItems = (
    
     <div>
         <div>
+<<<<<<< HEAD
             <ListItem>
                 {/* <AppContext.Consumer>
                     {(context) => {
@@ -59,6 +60,8 @@ export const otherMailFolderListItems = (
             
         </div>
         <div>
+=======
+>>>>>>> d991478f40c06648fd53355bfa32d796404c9acf
             <ListItem button component={Link} to="/">
                 <ListItemIcon>
                     <Home />
@@ -77,6 +80,20 @@ export const otherMailFolderListItems = (
                 </ListItemIcon>
                 <ListItemText primary="Belanja Saya" />
             </ListItem><Divider />
+        </div>
+        <div>
+            <ListItem>
+                <AppContext.Consumer>
+                    {(context) => {
+                        {/* let logout = (
+
+                        ) */}
+                        return (<div> { context.user.username } </div>);
+                    }}
+                </AppContext.Consumer>
+                <Button variant="outlined" color="secondary" type="button" onClick={()=> {}}>Keluar</Button>
+            </ListItem>
+            
         </div>
     </div>
 );
