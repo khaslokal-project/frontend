@@ -10,7 +10,8 @@ class Belanjasaya extends React.Component {
         this.state={
             data: [],
             idorder: ``,
-            modal: false
+            modal: false,
+            dataModalDialog : {}
         };
 
         this.showDetail = this.showDetail.bind(this);
@@ -31,10 +32,10 @@ class Belanjasaya extends React.Component {
     
     render() {
         const item = {
-            name: `23`,
-            qty: 2,
-            price: 1000
-        };
+            name,
+            qty,
+            price
+        } = ;
 
         const ModalDialog = (
             <div>
@@ -65,9 +66,7 @@ class Belanjasaya extends React.Component {
                     </ModalFooter>
                 </Modal>
             </div>
-
         );
-
 
         return (
             <div>
@@ -95,9 +94,10 @@ class Belanjasaya extends React.Component {
         );
     }
 
-    showDetail(idorder){
+    showDetail(data){
         this.setState({
-            modal: true
+            modal: true,
+            dataModalDialog: data
         });
     }
     closeModalDialog(){

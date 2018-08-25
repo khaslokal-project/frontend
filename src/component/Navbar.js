@@ -14,7 +14,7 @@ import Kategori from './../pages/Kategori';
 import Kontak from '../pages/Kontak';
 import Daftar from '../pages/Daftar';
 import Masuk from '../pages/Masuk';
-import Cari from './../assetImage/icon/Cari.png';
+// import Cari from './../assetImage/icon/Cari.png';
 import Belanjasaya from './Belanjasaya';
 import Items from './../pages/Kategori/Item';
 
@@ -111,7 +111,7 @@ class Navbar extends React.Component {
                                         </IconButton>
                                     </InputGroupAddon>
                                     
-                                    <Input placeholder="Cari.." src={Cari} style={{marginTop: `10px`}}/>
+                                    {/* <Input placeholder="Cari.." src={Cari} style={{marginTop: `10px`}}/> */}
                                     <InputGroupAddon addonType="append">
                                         <IconButton color="inherit" aria-label="Open drawer" style={{marginTop: `5px`}}>
                                             {/* <Badge badgeContent={0} color="inherit"  > */}

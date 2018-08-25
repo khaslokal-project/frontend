@@ -17,7 +17,7 @@ export default class ItemBelanja extends React.Component{
                 <td>{item.status}</td>
                 <td><Button color="danger" onClick={() => {
 
-                    item.showDetail(item.idorder);
+                    item.showDetail(item);
                 }
                 }>Detail</Button>
                 </td>
