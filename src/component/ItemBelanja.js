@@ -8,6 +8,19 @@ export default class ItemBelanja extends React.Component{
 
     render(){
         const item = this.props;
+        let statusMessage = ``;
+
+        switch(Number(item.status)){
+        case 0:
+            statusMessage = `belum di proses`;
+            break;
+        case 1:
+            statusMessage = `sedang di proses`;
+            break;
+        case 2:
+            statusMessage = `selesai`;
+            break;
+        }
 
         return(
             <tr>
@@ -15,12 +28,11 @@ export default class ItemBelanja extends React.Component{
                 <td>{item.dateorder}</td>
                 <td>{item.namecourier}</td>
                 <td>{item.total}</td>
-                <td>{item.status}</td>
+                <td> { statusMessage } </td>
                 <td><Button color="danger" onClick={() => {
-
                     item.showDetail(item);
-                }
-                }>Detail</Button>
+                }}
+                >Detail</Button>
                 </td>
             </tr>
         );
