@@ -10,7 +10,7 @@ export default class CategoryAllFind extends React.Component {
                 <div>
                     <ul className="ulTable">
                         <li className="liTable">
-                            <a className="text-dark" href="">
+                            <a className="text-dark" href="/#/kategori">
                                 <Container>
                                     <Row className="align-items-center">
                                         <img  src={Menu} width="32px" height="32px" alt="makanan"></img>

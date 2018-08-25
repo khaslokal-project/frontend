@@ -6,7 +6,7 @@ import { Route, HashRouter } from 'react-router-dom';
 import { mailFolderListItems, otherMailFolderListItems } from './Tiledata';
 import AppContext from './AppContext';
 
-import MailFolder from './tileDataRight'
+import MailFolder from './tileDataRight';
 import { IconButton, Toolbar, AppBar, List, Drawer, Divider} from '@material-ui/core';
 
 import Beranda from '../pages/Beranda';
@@ -15,7 +15,8 @@ import Kontak from '../pages/Kontak';
 import Daftar from '../pages/Daftar';
 import Masuk from '../pages/Masuk';
 import Cari from './../assetImage/icon/Cari.png';
-import Belanjasaya from './Belanjasaya'
+import Belanjasaya from './Belanjasaya';
+import Items from './../pages/Kategori/Item';
 
 
 import  { InputGroup, InputGroupAddon, Input} from 'reactstrap';
@@ -27,8 +28,8 @@ const styles = ({
         width: 250,
     },
     center :{
-        textAlign: 'center',
-        display: 'inline',
+        textAlign: `center`,
+        display: `inline`,
     
     }
     
@@ -57,7 +58,7 @@ class Navbar extends React.Component {
     }
 
     render() {
-        console.log('navbar render');
+        console.log(`navbar render`);
         const { classes } = this.props;
 
         const sideList = (
@@ -66,9 +67,9 @@ class Navbar extends React.Component {
                 <AppContext.Consumer>
                     {(context) => {
                         if ( ! ( context.user && context.user.username ) )
-                            return (<List>{mailFolderListItems} {context.user.username}</List>)
+                            return (<List>{mailFolderListItems} {context.user.username}</List>);
                         else
-                            return (<div></div>)
+                            return (<div></div>);
                     }}
                 </AppContext.Consumer>
             
@@ -80,13 +81,13 @@ class Navbar extends React.Component {
 
         const secondList = (
             <div className={classes.list}>
-                <List > 
+                <List >
                     <IconButton> <ArrowBack/></IconButton>
                         Keranjang Belanja
                 </List>
                 <Divider />
                 <List>
-                <MailFolder closeRight={this.closeRight}/>
+                    <MailFolder closeRight={this.closeRight}/>
                 </List>
                     
                 
@@ -101,22 +102,22 @@ class Navbar extends React.Component {
                             <Toolbar className={classes.center}>
                                 <InputGroup >
                                     <InputGroupAddon addonType="prepend">
-                                        <IconButton color="inherit" aria-label="Open drawer" style={{marginTop: '5px'}}>
+                                        <IconButton color="inherit" aria-label="Open drawer" style={{marginTop: `5px`}}>
                                             <Menu onClick={
                                                 () => {
-                                                    this.toggleDrawer('left', true);
+                                                    this.toggleDrawer(`left`, true);
                                                 }
                                             }/>
                                         </IconButton>
                                     </InputGroupAddon>
                                     
-                                    <Input placeholder="Cari.." src={Cari} style={{marginTop: '10px'}}/>
+                                    <Input placeholder="Cari.." src={Cari} style={{marginTop: `10px`}}/>
                                     <InputGroupAddon addonType="append">
-                                        <IconButton color="inherit" aria-label="Open drawer" style={{marginTop: '5px'}}>
+                                        <IconButton color="inherit" aria-label="Open drawer" style={{marginTop: `5px`}}>
                                             {/* <Badge badgeContent={0} color="inherit"  > */}
                                             <ShoppingCart onClick={
                                                 () => {
-                                                    this.toggleDrawer('right', true);
+                                                    this.toggleDrawer(`right`, true);
                                                 }
                                             }/>
                                             {/* </Badge> */}
@@ -129,36 +130,36 @@ class Navbar extends React.Component {
 
                     <Drawer open={this.state.left} onClose={
                         () => {
-                            this.toggleDrawer('left', false);
+                            this.toggleDrawer(`left`, false);
                         }
                     }>
                         <div
                             tabIndex={0}
                             role="button"
                             onClick={
-                                () => {this.toggleDrawer('left', false);
+                                () => {this.toggleDrawer(`left`, false);
                                 }
                             }
                             onKeyDown={
-                                () => {this.toggleDrawer('left', false);
+                                () => {this.toggleDrawer(`left`, false);
                                 }
                             }>
                             {sideList}
                         </div>
                     </Drawer>
                     <Drawer anchor="right" open={this.state.right} onClose={
-                        () => {this.toggleDrawer('right', false);
+                        () => {this.toggleDrawer(`right`, false);
                         }
                     }>
                         <div
                             tabIndex={0}
                             role="button"
                             onClick={
-                                () => {this.toggleDrawer('right', false);
+                                () => {this.toggleDrawer(`right`, false);
                                 }
                             }
                             onKeyDown={
-                                () => {this.toggleDrawer('right', false);
+                                () => {this.toggleDrawer(`right`, false);
                                 }
                             }>
                             {secondList}
@@ -170,7 +171,7 @@ class Navbar extends React.Component {
                     <Route path="/masuk" component={Masuk} />
                     <Route path="/daftar" component={Daftar} />
                     <Route exact path="/kategori" component={Kategori}/>
-                    {/* <Route path="/kategori/:name" component={KategoriItem} />  */}
+                    <Route path="/kategori/:name" component={Items} />
                     <Route path="/kontak" component={Kontak} />
                     <Route path="/belanjasaya" component={Belanjasaya} />
                         
@@ -182,7 +183,7 @@ class Navbar extends React.Component {
     closeRight() {
         this.setState({
             right: false
-        })
+        });
     }
 }
 

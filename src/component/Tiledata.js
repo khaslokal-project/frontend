@@ -7,7 +7,7 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import { List, Divider} from '@material-ui/core';
 import { Link } from 'react-router-dom';
-import AppContext from './../component/AppContext';
+// import AppContext from './../component/AppContext';
 
 export const mailFolderListItems = (
     <div>
@@ -30,21 +30,31 @@ export const mailFolderListItems = (
         </List>
     </div>
 );
+
+
+
+
+
 export const otherMailFolderListItems = (
 
    
     <div>
         <div>
             <ListItem>
-                <AppContext.Consumer>
+                {/* <AppContext.Consumer>
                     {(context) => {
-                        {/* let logout = (
+                        let logout = (
 
-                        ) */}
+                        )
                         return (<div> { context.user.username } </div>);
                     }}
                 </AppContext.Consumer>
-                <Button variant="outlined" color="secondary" type="button" onClick={()=> {}}>Keluar</Button>
+                <Button variant="outlined" color="secondary" type="button" onClick={(event)=> {
+                    this.handleClick({
+                        event,
+
+                    })
+                }}>Keluar</Button> */}
             </ListItem>
             
         </div>

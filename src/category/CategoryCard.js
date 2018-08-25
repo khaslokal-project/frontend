@@ -16,12 +16,12 @@ export default class CategoryCard extends React.Component {
             <div className="divTable" >
                 <ul>
                     <li className="innerTable">
-                        <a className="aTable text-dark" href="">
+                        <a className="aTable text-dark" href="/#/kategori/makanan">
                             <div>
                                 <Row className="align-items-center">
                                     <Col>
                                         <img src={Makanan} width="32px" height="32px" alt="makanan"></img>
-                                        <span style={{padding: '10px 15px 10px 20px'}}>Makanan</span>
+                                        <span style={{padding: `10px 15px 10px 20px`}}>Makanan</span>
                                     </Col>
                                 </Row>
                             </div>
@@ -29,12 +29,12 @@ export default class CategoryCard extends React.Component {
                     </li>
 
                     <li className="innerTable">
-                        <a className="aTable text-dark" href="">
+                        <a className="aTable text-dark" href="/#/kategori/minuman">
                             <div>
                                 <Row className="align-items-center">
                                     <Col>
                                         <img src={Minuman} width="32px" height="32px" alt="minuman" ></img>
-                                        <span style={{padding: '10px 15px 10px 20px'}}>Minuman</span>
+                                        <span style={{padding: `10px 15px 10px 20px`}}>Minuman</span>
                                     </Col>
                                 </Row>
                             </div>
@@ -42,12 +42,12 @@ export default class CategoryCard extends React.Component {
                     </li>
 
                     <li className="innerTable">
-                        <a className="aTable text-dark" href="">
+                        <a className="aTable text-dark" href="/#/kategori/oleh-oleh">
                             <div>
-                                <Row className="align-items-center">     
+                                <Row className="align-items-center">
                                     <Col>
                                         <img src={Oleholeh} width="32px" height="32px" alt="oleh-oleh"></img>
-                                        <span style={{padding: '10px 15px 10px 20px'}}>Oleh-Oleh Batam</span>
+                                        <span style={{padding: `10px 15px 10px 20px`}}>Oleh-Oleh Batam</span>
                                     </Col>
                                 </Row>
                             </div>
@@ -55,12 +55,12 @@ export default class CategoryCard extends React.Component {
                     </li>
 
                     <li className="innerTable">
-                        <a className="aTable text-dark" href="">
+                        <a className="aTable text-dark" href="/#/kategori/kerajinan">
                             <div>
-                                <Row className="align-items-center">                                       
+                                <Row className="align-items-center">
                                     <Col>
                                         <img src={Kerajinan} width="32px" height="32px" alt="kerajinan"></img>
-                                        <span style={{padding: '10px 20px 10px 20px'}}>Kerajinan</span>
+                                        <span style={{padding: `10px 20px 10px 20px`}}>Kerajinan</span>
                                     </Col>
                                 </Row>
                             </div>
@@ -68,12 +68,12 @@ export default class CategoryCard extends React.Component {
                     </li>
 
                     <li className="innerTable">
-                        <a className="aTable text-dark" href="">
+                        <a className="aTable text-dark" href="/#/kategori/jasa">
                             <div>
                                 <Row className="align-items-center">
                                     <Col>
                                         <img src={Jasa} width="32px" height="32px" alt="jasa"></img>
-                                        <span style={{padding: '10px 20px 10px 20px'}}>Jasa Desain</span>
+                                        <span style={{padding: `10px 20px 10px 20px`}}>Jasa</span>
                                     </Col>
                                 </Row>
                             </div>
@@ -81,18 +81,18 @@ export default class CategoryCard extends React.Component {
                     </li>
                     
                     <li className="innerTable">
-                        <a className="aTable text-dark" href="">
+                        <a className="aTable text-dark" href="/#/kategori/perizinan">
                             <div>
                                 <Row className="align-items-center">
                                     <Col>
                                         <img src={Izinukm} width="32px" height="32px" alt="izinukm"></img>
-                                        <span style={{padding: '10px 20px 10px 20px'}}>Perizinan UKM</span>
+                                        <span style={{padding: `10px 20px 10px 20px`}}>Perizinan UKM</span>
                                     </Col>
                                 </Row>
                             </div>
                         </a>
                     </li>
-                    <CategoryAllFind/>  
+                    <CategoryAllFind/>
                 </ul>
                               
             </div>

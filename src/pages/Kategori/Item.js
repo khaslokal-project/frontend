@@ -1,66 +1,42 @@
 import React from 'react';
+import CardProductItem from './../../cardProduct/CardProductItem';
+import { Container, Row, Col} from 'reactstrap';
 import axios from 'axios';
-import {Row, Col, Card, CardImg, Container, CardTitle, CardText, Button} from 'reactstrap';
 
-class Item extends React.Component {
-    constructor(props){
+export default class CardProduct extends React.Component {
+    constructor(props) {
         super(props);
-        this.state = {
-            data: [],
+        this.state ={
+            data :  [],
+            idTileorder : null
         };
     }
-    render() {
-        return (
-            <div className="apps">
-                <Row>
-                    <Col>
-                        {this.state.data.map(item => {
-                                return (
-                                    <Card className="cardCard" key={item.id}>
-                                        <CardImg top width="219px" height="273.75px" src={item.image} alt="Card image cap" />
-                                        <div>
-                                            <Container>
-                                                <CardTitle className="cardTitles">{item.name}</CardTitle>
-                                                <div >
-                                                    <span className=" cardPrice">{item.price}</span></div>
-                                            </Container>
-                                            <Container className="contCard">
-                                                <Row className="inline align-items-center">
-                                                    <Col><CardText className="cardTexts">{item.brand}</CardText></Col>
-                                                    <Col xs="3"><Button className="cardButton" size="sm" color="danger">Beli</Button></Col>
-                                                </Row>
-                                            </Container>
-                                        </div>
-                                    </Card>
-                                
-                                );
-                            })
-                        }
-                    </Col>
-                </Row>
-            </div>
-        );
-    }
-
-    componentDidMount(){
-        this.fetchData();
-    }
-
-    fetchData(){
-        axios.get(`${process.env.REACT_APP_API_URL}/productcategory?name=${this.props.match.params.name}`)
-            .then( ({ data }) => {
-                this.setState({
-                    data 
-                });
-            })
-            .catch(error => {
-                console.log(error);
+    
+    componentDidMount() {
+        axios.get (`${process.env.REACT_APP_API_URL}/products/`)
+            .then (res=> {
+                const data = res.data.map(item =>
+                    <div key={item.id}>
+                        <CardProductItem item={item} />
+                    </div>
+                );
+                this.setState({data});
+                // console.log("state", this.state.data)
             });
     }
 
+    render(){
+        return(
+            <div className="apps">
+                <Container>
+                    <Row>
+                        <Col>
+                            {this.state.data}
+                        </Col>
+                    </Row>
+                </Container>
+            </div>
+
+        );
+    }
 }
-
-export default Item;
-
-
-

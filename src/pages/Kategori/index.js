@@ -1,8 +1,6 @@
 import React from 'react';
 import { ListGroup, ListGroupItem, Container, Col, Row} from 'reactstrap';
-import {Link} from 'react-router-dom'
-
-
+import {Link} from 'react-router-dom';
 
 export default class Index extends React.Component{
     constructor(props){
@@ -16,9 +14,8 @@ export default class Index extends React.Component{
         return (
             <Container>
                 <Row>
-                    {
-                    this.state.items.map(item => {
-                        return(  
+                    {this.state.items.map(item => {
+                        return(
                             <Col xs="6" md="4" key={item.id}>
                                 <Link to={`/kategori/${item.name}`}>
                                     <ListGroup>
@@ -26,8 +23,8 @@ export default class Index extends React.Component{
                                     </ListGroup>
                                 </Link>
                             </Col>
-                            )
-                        })
+                        );
+                    })
                     }
                 </Row>
             </Container>
@@ -43,11 +40,11 @@ export default class Index extends React.Component{
             .then (response => response.json())
             .then(items => {
                 this.setState({
-                    items  
+                    items
                 });
             })
             .catch(console.log);
-    } 
+    }
 }
 
 
