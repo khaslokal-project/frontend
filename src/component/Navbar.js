@@ -19,7 +19,7 @@ import Belanjasaya from './Belanjasaya';
 import Items from './../pages/Kategori/Item';
 
 
-import  { InputGroup, InputGroupAddon, Input} from 'reactstrap';
+import  { InputGroup, InputGroupAddon} from 'reactstrap';
 
 import 'bootstrap/dist/css/bootstrap.css';
 

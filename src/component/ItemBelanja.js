@@ -11,7 +11,8 @@ export default class ItemBelanja extends React.Component{
 
         return(
             <tr>
-                <th scope="row">{item.dateorder}</th>
+                <td>{item.idorder}</td>
+                <td>{item.dateorder}</td>
                 <td>{item.namecourier}</td>
                 <td>{item.total}</td>
                 <td>{item.status}</td>

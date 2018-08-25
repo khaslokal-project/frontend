@@ -1,8 +1,8 @@
 import React from 'react';
 import axios from 'axios';
 import ItemBelanja from './ItemBelanja';
-import { Table, Modal, ModalBody, ModalHeader, ModalFooter, Button } from 'reactstrap';
-
+import { Table } from 'reactstrap';
+import BelanjasayaModalDialog from './BelanjasayaModalDialog';
 
 class Belanjasaya extends React.Component {
     constructor(props){
@@ -31,48 +31,12 @@ class Belanjasaya extends React.Component {
     }
     
     render() {
-        const item = {
-            name,
-            qty,
-            price
-        } = ;
-
-        const ModalDialog = (
-            <div>
-                <Modal isOpen={this.state.modal} centered>
-                    <ModalHeader>{item.idorder}</ModalHeader>
-                    <ModalBody>
-                        <Table>
-                            <thead>
-                                <tr>
-                                    <th>Produk</th>
-                                    <th>Jumlah</th>
-                                    <th>Harga</th>
-                                    <th>Subtotal</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>{item.name}</td>
-                                    <td>{item.qty}</td>
-                                    <td>{item.price}</td>
-                                    <td>{item.qty * item.price}</td>
-                                </tr>
-                            </tbody>
-                        </Table>
-                    </ModalBody>
-                    <ModalFooter>
-                        <Button color="secondary" onClick={ this.closeModalDialog } >Close</Button>
-                    </ModalFooter>
-                </Modal>
-            </div>
-        );
-
         return (
             <div>
                 <Table hover>
                     <thead>
                         <tr>
+                            <th>Id Order</th>
                             <th>Tanggal</th>
                             <th>Kurir</th>
                             <th>Total Pembayaran</th>
@@ -83,13 +47,21 @@ class Belanjasaya extends React.Component {
                     <tbody>
                         {this.state.data.map(item => {
                             return(
-                                <ItemBelanja { ...item } key={item.idorder} showDetail={this.showDetail}/>
+                                <ItemBelanja { ...item } key={item.idorder} showDetail={
+                                    () => {
+                                        this.showDetail(item);
+                                    }}/>
                             );
                         })
                         }
                     </tbody>
                 </Table>
-                {ModalDialog}
+                {/* {ModalDialog} */}
+                <BelanjasayaModalDialog
+                    modal={this.state.modal}
+                    dataModalDialog = {this.state.dataModalDialog}
+                    closeModalDialog = {this.closeModalDialog}
+                />
             </div>
         );
     }
@@ -100,6 +72,7 @@ class Belanjasaya extends React.Component {
             dataModalDialog: data
         });
     }
+
     closeModalDialog(){
         this.setState({
             modal: false
