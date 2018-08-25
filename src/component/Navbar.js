@@ -19,7 +19,7 @@ import Adminseller from '../Admin/seller/Index';
 import Adminproduk from '../Admin/produk/Index';
 import KategoriItem from '../pages/Kategori/Item';
 import Adminlogin from '../Admin/LoginAdmin/Login';
-import Order from '../AdminKurir/Order/List';
+import Order from '../Kurir/Order/List';
 
 import  { InputGroup, InputGroupAddon, Input} from 'reactstrap';
 
@@ -166,7 +166,7 @@ class Navbar extends React.Component {
                     <Route path="/adminproduk" component={Adminproduk} />
 
                     <Route path="/adminlogin" component={Adminlogin} /> 
-                    <Route path="/adminkurir" component={Order} />
+                    <Route path="/kurir" component={Order} />
                 </div>
             </HashRouter>
         );
