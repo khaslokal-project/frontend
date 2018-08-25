@@ -16,10 +16,7 @@ import Daftar from '../pages/Daftar';
 import Masuk from '../pages/Masuk';
 import Cari from './../assetImage/icon/Cari.png';
 import Belanjasaya from './Belanjasaya';
-<<<<<<< HEAD
 import Items from './../pages/Kategori/Item';
-=======
->>>>>>> d991478f40c06648fd53355bfa32d796404c9acf
 
 
 import  { InputGroup, InputGroupAddon, Input} from 'reactstrap';
