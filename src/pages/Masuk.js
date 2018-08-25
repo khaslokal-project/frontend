@@ -1,15 +1,18 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router';
 import { Button, Form, Input, Card, CardTitle, Row, Col } from 'reactstrap';
-import axios from 'axios';
+import axiosInstance from './../component/AxiosInstance';
+import { reactLocalStorage } from 'reactjs-localstorage';
+import AppContext from './../component/AppContext';
 
 class Masuk extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            password: '',
-            username: '',
+            password: ``,
+            username: ``,
             error: null,
-            valerrors: null
+            islogin: false
         };
         this.changeHandler = this.changeHandler.bind(this);
         this.submitHandler = this.submitHandler.bind(this);
@@ -22,64 +25,88 @@ class Masuk extends Component {
     }
     submitHandler(e) {
         e.preventDefault();
-        axios
-            .post(`${process.env.REACT_APP_API_URL}/users/login`, this.state)
-            .then(res => {
-                if (res.data.error) {
-                    return this.setState({ error: res.data.message });
-                }
-                if (res.data.errors) {
-                    return this.setState({ valerrors: res.data.errors });
-                }
-                return (window.location = '/home');
+        axiosInstance
+            .post(`/users/login`, this.state)
+            .then( ( { data } ) => {
+                reactLocalStorage.set(`token`,data.token);
+                this.setState({
+                    islogin: true,
+                    dataLogin: data
+                });
+                console.log(data);
+                
+            })
+            .catch( error => {
+                this.setState({ error: ( error && error.response && error.response.data && error.response.data.message ) });
             });
     }
     render() {
-        return (
+        let view  = undefined;
+        let viewButton = (
             <div>
-                <Row>
-                    <Col sm="4" className="justify-content-md-center Card">
-                        <Card className="text-center" body outline color="info">
-                            <CardTitle className="CardText">Login</CardTitle>
-                            {this.state.error && <p>{this.state.error}</p>}
-                            <Form onSubmit={this.submitHandler}>
-          
-                                {this.state.valerrors &&
-              this.state.valerrors.username && (
-                                        <p>{this.state.valerrors.username.msg}</p>
-                                    )}
-                                <Input
-                                    onChange={this.changeHandler}
-                                    type="username"
-                                    name="username"
-                                    id="username"
-                                    placeholder="Username anda"
-                                />{' '}
-                                
-                                {this.state.valerrors &&
-              this.state.valerrors.password && (
-                                        <p>{this.state.valerrors.password.msg}</p>
-                                    )}
-                                <Input
-                                    onChange={this.changeHandler}
-                                    type="password"
-                                    name="password"
-                                    id="password"
-                                    placeholder="Kata Sandi"
-                                />{' '}
-                                
-                                <Button color="warning" type="submit"> Login </Button>
-                               
-                            </Form>
-                            <a href="/pages/Daftar" className="CardText"> Belum memiliki akun? </a>
-                        </Card>
-                    </Col>
-                </Row>
-
-                
+                <AppContext.Consumer>
+                    {(context) => {
+                        let login = () => {
+                            axiosInstance
+                                .post(`/users/login`, this.state)
+                                .then( ( { data } ) => {
+                                    reactLocalStorage.set(`token`,data.token);
+                                    context.handlers.signin(data);
+                                    this.setState({
+                                        islogin: true
+                                    });
+                                })
+                                .catch( error => {
+                                    this.setState({ error: ( error && error.response && error.response.data && error.response.data.message ) });
+                                });
+                        };
+                        return (
+                            <Button color="warning" type="button" onClick={login}> Login </Button>
+                        );
+                    }}
+                </AppContext.Consumer>
             </div>
         );
+
+        if (this.state.islogin){
+            view = (
+                <Redirect to="/"/>
+            );
+        }
+        else{
+            view = (
+                <div>
+                    <Row>
+                        <Col md={{size: 4, offset: 2}} style={{marginLeft: `30rem`}} className="justify-content-md-center Card">
+                            <Card className="text-center" body outline color="info">
+                                <CardTitle className="CardText">Login</CardTitle>
+                                {this.state.error && <p>{this.state.error}</p>}
+                                <Form onSubmit={this.submitHandler}>
+                                    <Input
+                                        onChange={this.changeHandler}
+                                        type="username"
+                                        name="username"
+                                        id="username"
+                                        placeholder="Username anda"
+                                    />{` `}
+                                    <Input
+                                        onChange={this.changeHandler}
+                                        type="password"
+                                        name="password"
+                                        id="password"
+                                        placeholder="Kata Sandi"
+                                    />{` `}
+                                    { viewButton }
+                                </Form>
+                                <a href='/#/daftar' className="CardText"> Belum memiliki akun? </a>
+                            </Card>
+                        </Col>
+                    </Row>
+                </div>
+            );
+        }
+        return (<div>{ view }</div>);
     }
 }
 
-export default Masuk; 
+export default Masuk;

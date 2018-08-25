@@ -13,7 +13,7 @@ class CardProductItem extends React.Component {
                 <div>
                     <Container>
                         <CardTitle className="cardTitles">{item.name}</CardTitle>
-                        <div ><span className=" cardPrice"> {item.price} 
+                        <div ><span  className=" cardPrice"> {item.price} 
                         </span></div>
                     </Container>
                     <Container className="contCard">

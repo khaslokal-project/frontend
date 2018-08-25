@@ -1,8 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
-import { Home } from '@material-ui/icons';
-import {List, IconButton, Divider, Typography, Button} from '@material-ui/core';
+import {List, Divider, Typography} from '@material-ui/core';
 import ListItem from '@material-ui/core/ListItem';
 
 
@@ -41,50 +40,18 @@ function SimpleList (props) {
                 </ListItem>
                 <Divider />
                 <ListItem>
-                    <Typography variant="title">PT Khas Lokal                      
+                    <Typography variant="title"> KhasLokal.com                      
                     </Typography>
                 </ListItem>
                 <ListItem>
-                    <Typography >Jl. Mayjen DI Panjaitan No. 1C, RT 001 / RW 006 (Samping Komplek Kemhan), Kelurahan Kebon Pala, Kecamatan Makasar, Jakarta Timur 13650              
+                    <Typography > Batam              
                     </Typography>
                 </ListItem>
                 <ListItem>
                     <Typography >WhatsApp 081993732019
                     </Typography>
                 </ListItem>
-                <ListItem>
-                    <Typography >LINE 
-                        @khaslokalbatamid
-                    </Typography>
-                </ListItem>
-                <ListItem>
-                    <Typography >Facebook fb.com/khaslokalbatam
-                    </Typography>
-                </ListItem>
-                <ListItem>
-                    <Typography > Twitter @KhasLokalBatam
-                    </Typography>
-                </ListItem>
-                <ListItem>
-                    <Typography >Instagram @khaslokalbatam
-                    </Typography>
-                </ListItem>
-                <ListItem>
-                    <Typography >Youtube Khas Lokal Batam
-                    </Typography>
-                </ListItem>
-                <ListItem>
-                    <Typography >Email cs@khaslokalbatam.com
-                    </Typography>
-                </ListItem>
                 <Divider />
-                <ListItem>
-                    <Button variant="contained" color="secondary" style={{width: '100%'}}>
-                        <IconButton color="inherit">
-                            <Home />
-                        </IconButton>Kembali Ke Beranda
-                    </Button>
-                </ListItem> 
             </List>
         </div>
     );

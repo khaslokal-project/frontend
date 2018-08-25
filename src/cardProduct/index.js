@@ -17,12 +17,12 @@ export default class CardProduct extends React.Component {
      axios.get (`${process.env.REACT_APP_API_URL}/products/`)
      .then (res=> {
          const data = res.data.map(item => 
-            <div key={item._id}>
+            <div key={item.id}>
                 <CardProductItem item={item} />
             </div>
         )
         this.setState({data})
-        console.log("state", this.state.data)
+        // console.log("state", this.state.data)
      })
     }
 

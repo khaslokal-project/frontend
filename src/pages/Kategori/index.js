@@ -1,5 +1,5 @@
 import React from 'react';
-import { ListGroup, ListGroupItem } from 'reactstrap';
+import { ListGroup, ListGroupItem, Container, Col, Row} from 'reactstrap';
 import {Link} from 'react-router-dom'
 
 
@@ -14,18 +14,23 @@ export default class Index extends React.Component{
 
     render(){
         return (
-            <div>
-                {this.state.items.map(item => {
-                    return(      
-                        <ListGroup key={item.id}>
-                            <Link to={`/kategori/${item.name}`}>
-                                <ListGroupItem>{item.name}</ListGroupItem>
-                            </Link>
-                        </ListGroup>  
-                    );
-                })
-                }
-            </div>
+            <Container>
+                <Row>
+                    {
+                    this.state.items.map(item => {
+                        return(  
+                            <Col xs="6" md="4" key={item.id}>
+                                <Link to={`/kategori/${item.name}`}>
+                                    <ListGroup>
+                                        <ListGroupItem>{item.name}</ListGroupItem>
+                                    </ListGroup>
+                                </Link>
+                            </Col>
+                            )
+                        })
+                    }
+                </Row>
+            </Container>
         );
     }
     componentDidMount(){
@@ -38,7 +43,7 @@ export default class Index extends React.Component{
             .then (response => response.json())
             .then(items => {
                 this.setState({
-                    items 
+                    items  
                 });
             })
             .catch(console.log);

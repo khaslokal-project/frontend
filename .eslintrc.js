@@ -28,8 +28,7 @@ module.exports = {
         ],
         "quotes": [
             "error",
-            "backtick",
-            "single"
+            "backtick"
         ],
         "semi": [
             "error",

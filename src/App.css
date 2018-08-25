@@ -209,7 +209,6 @@ ul{
 }
 
 .pUs{
-  margin-top: 4px;
   color: grey;
 }
 
@@ -232,8 +231,6 @@ ul{
     .sliporderno { display: none!important; }
     .print { display: block; }
 }
-
-
 
 .center{
   text-align: center;
