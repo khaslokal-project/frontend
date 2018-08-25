@@ -1,5 +1,8 @@
 import React from 'react';
 import { Button} from 'reactstrap';
+import Moment from 'react-moment';
+import 'moment-timezone';
+import 'moment/locale/id';
 
 export default class ItemBelanja extends React.Component{
     constructor(props){
@@ -22,10 +25,12 @@ export default class ItemBelanja extends React.Component{
             break;
         }
 
+        const tanggal = <Moment locale="id" format="DD MMMM YYYY HH:mm" date={item.dateorder} />;
+
         return(
             <tr>
                 <td>{item.idorder}</td>
-                <td>{item.dateorder}</td>
+                <td>{tanggal}</td>
                 <td>{item.namecourier}</td>
                 <td>{item.total}</td>
                 <td> { statusMessage } </td>
