@@ -1,6 +1,5 @@
 # Khaslokal.com
 
----
 
  Marketplace for Indonesian UMKM products.
 
